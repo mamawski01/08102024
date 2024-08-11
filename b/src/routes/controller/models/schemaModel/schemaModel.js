@@ -1,4 +1,4 @@
-export function schemaModel() {
+export function UserModel() {
   return {
     firstName: { type: String, required: [true, "First Name is required."] },
     middleName: { type: String, required: [true, "Middle Name is required."] },
