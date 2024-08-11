@@ -24,7 +24,7 @@ mongoose
     });
   })
   .catch((err) => {
-    console.log("Db and server fail" + err);
+    console.log("Db & server fail" + err);
   });
 
 app.use("/", router);
