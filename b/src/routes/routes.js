@@ -15,11 +15,15 @@ router.get("/bGetRegistryUsers", bGetRegistryUsers);
 
 router.get("/bGetRegistryUser/:id", bGetRegistryUser);
 
-router.post("/bPostRegistryUser", upload.single("image"), bPostRegistryUser);
+router.post(
+  "/bPostRegistryUser",
+  upload("registryUserImages", "registryUserImg").single("image"),
+  bPostRegistryUser
+);
 
 router.patch(
   "/bPatchRegistryUser/:id",
-  upload.single("image"),
+  upload("registryUserImages", "registryUserImg").single("image"),
   bPatchRegistryUser
 );
 

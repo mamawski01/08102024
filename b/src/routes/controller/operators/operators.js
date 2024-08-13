@@ -1,4 +1,5 @@
 import {
+  deleteImage,
   duplicateEmailAndDelImage,
   passwordEncrypt,
   prevImgAndDelImg,
@@ -27,6 +28,7 @@ export async function getter(req, res, rule, model, mess) {
       return res.status(200).send({ data, "fx=": mess, "rule=": rule });
     }
   } catch (error) {
+    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
     return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
   }
 }
@@ -54,11 +56,13 @@ export async function poster(req, res, rule, model, mess) {
         ...req.body,
         password: encryptedPassword,
         repeatPassword: encryptedPassword,
-        image: url() + req.file.filename,
+        image:
+          req.file?.filename && url("registryUserImages/") + req.file.filename,
       });
       return res.status(200).send({ data, "fx=": mess, "rule=": rule });
     }
   } catch (error) {
+    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
     return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
   }
 }
@@ -99,7 +103,9 @@ export async function patcher(req, res, rule, model, mess) {
           ...req.body,
           password: encryptedPassword,
           repeatPassword: encryptedPassword,
-          image: url() + req.file.filename,
+          image:
+            req.file?.filename &&
+            url("registryUserImages/") + req.file.filename,
         },
         { new: true }
       );
@@ -107,6 +113,10 @@ export async function patcher(req, res, rule, model, mess) {
       return res.status(200).send({ data, "fx=": mess, "rule=": rule });
     }
   } catch (error) {
+    setTimeout(() => {
+      deleteImage(req.file?.path, mess, rule);
+    }, 1000);
+    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
     return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
   }
 }
@@ -115,7 +125,15 @@ export async function deleter(req, res, rule, model, mess) {
   try {
     const { id } = req.params;
 
-    if (rule === "simple") {
+    if (rule === "bDeleteRegistryUser") {
+      //userPrevImg
+      const { nonExistingUser, nonExistingUserMess, deletedImg } =
+        await prevImgAndDelImg(req, model, id, mess, rule);
+      if (nonExistingUser) {
+        return res.status(406).send(`${nonExistingUserMess}, ${deletedImg}`);
+      }
+      //userPrevImg
+
       const data = await model.findByIdAndDelete(id);
       if (!data)
         return res
@@ -124,6 +142,7 @@ export async function deleter(req, res, rule, model, mess) {
       return res.status(200).send({ data, "fx=": mess, "rule=": rule });
     }
   } catch (error) {
+    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
     return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
   }
 }

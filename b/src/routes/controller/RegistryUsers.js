@@ -19,5 +19,5 @@ export function bPatchRegistryUser(req, res) {
 }
 
 export function bDeleteRegistryUser(req, res) {
-  deleter(req, res, "simple", User, "bDeleteRegistryUser");
+  deleter(req, res, "bDeleteRegistryUser", User, "bDeleteRegistryUser");
 }

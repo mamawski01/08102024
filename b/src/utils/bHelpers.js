@@ -4,10 +4,13 @@ import bcrypt from "bcryptjs";
 import { imageLocation } from "./multer.js";
 
 export async function deleteImage(path, mess, rule) {
-  if (!path) return null;
+  if (!path || path === undefined) {
+    console.log(`path in deleteImage fx is${path}, fx=${mess}, rule=${rule}`);
+    return `path in deleteImage fx is ${path}, fx=${mess}, rule=${rule}`;
+  }
   try {
     await promises.unlink(path);
-    console.log("File deleted successfully.");
+    console.log(`File deleted successfully. fx=${mess}, rule=${rule}`);
     return `File deleted successfully. fx=${mess}, rule=${rule}`;
   } catch (error) {
     console.log(error);
@@ -15,7 +18,7 @@ export async function deleteImage(path, mess, rule) {
   }
 }
 
-export function url(location = "registryUserImages") {
+export function url(location = "") {
   return "http://localhost:8000/uploads/" + location;
 }
 
@@ -42,15 +45,13 @@ export async function prevImgAndDelImg(req, model, id, mess, rule) {
     return {
       nonExistingUser: true,
       nonExistingUserMess: "User not found",
-      deletedImg: await deleteImage(req.file.path, mess, rule), // to delete the image if there is a problem
+      deletedImg: await deleteImage(req.file?.path, mess, rule), // to delete the image if there is a problem
     };
   }
   const imageUrl = user.image.substring(user.image.lastIndexOf("/") + 1);
-  return {
-    nonExistingUser: false,
-    deletedImg: await deleteImage(imageLocation() + "/" + imageUrl, mess, rule),
-  };
-  // setTimeout(() => {
-  //   deleteImage(imageLocation() + "/" + imageUrl, mess, rule);
-  // }, 1000);
+
+  setTimeout(() => {
+    deleteImage(imageLocation("registryUserImages/") + imageUrl, mess, rule);
+  }, 1000);
+  return { nonExistingUser: false };
 }
