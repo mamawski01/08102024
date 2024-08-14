@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom";
-
-import MainHeader from "./MainHeader";
-import MainSidebar from "./MainSidebar";
 import Main from "./Main";
+import MainHeader from "./MainHeader";
 import MainSection from "./MainSection";
+import MainSideBar from "./MainSideBar";
 
 export default function AppLayout() {
   return (
     <>
       <MainHeader></MainHeader>
       <MainSection>
-        <MainSidebar></MainSidebar>
+        <MainSideBar></MainSideBar>
         <Main>
           <Outlet></Outlet>
         </Main>
