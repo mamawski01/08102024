@@ -8,7 +8,8 @@ import router from "./src/routes/routes.js";
 
 dotenv.config();
 const PORT = process.env.PORT || process.env.API_PORT;
-const localhost = `http://localhost:${PORT}/`;
+const localhost 
+= `http://localhost:${PORT}/`;
 
 const app = express();
 app.use(express.json());

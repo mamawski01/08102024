@@ -1,4 +1,6 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
 export default function App() {
-  return <div className="bg-slate-600">App sadasd</div>;
+  return <BrowserRouter>
+  <Routes></Routes></BrowserRouter>;
 }
-console.log("lol");
