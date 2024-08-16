@@ -9,6 +9,7 @@ export default function Options({
   color = "",
   icon = "",
   options = [],
+  position = "right-0",
 }) {
   const [showOptions, showOptionsSet] = useState(false);
 
@@ -30,25 +31,30 @@ export default function Options({
   const hoverBgColor = onHoverBgColor(color);
   const font = formatFontLabel(text);
   return (
-    <div className="relative flex gap-4">
+    <div className="relative flex gap-2">
       <button
         ref={optionRef}
         title={text}
         type={type}
-        className={`${hoverBgColor} relative flex items-center gap-1 rounded-md p-1 px-2 font-bold tracking-wider`}
+        className={`${hoverBgColor} btnAndNavLinkerAndOptions ${showOptions && "active"} `}
         onClick={() => showOptionsSet(!showOptions)}
       >
-        <span className="w-7">{icon.icon}</span>
+        <span className="w-7">{icon}</span>
         <span className="hidden md:block">{font}</span>
+        {showOptions && (
+          <span className="absolute -right-1 -top-1 inline-flex h-3 w-3 rounded-full bg-green-600">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+          </span>
+        )}
       </button>
       {showOptions && (
-        <div className="bg absolute top-10">
+        <ul className={`bg absolute ${position} top-10 flex flex-col gap-1`}>
           {options.map((option, i) => (
-            <li className="flex w-full flex-col p-3" key={i}>
+            <li className="w-full" key={i}>
               {option.option}
             </li>
           ))}
-        </div>
+        </ul>
       )}
     </div>
   );
@@ -60,4 +66,5 @@ Options.propTypes = {
   text: PropTypes.any,
   type: PropTypes.any,
   options: PropTypes.any,
+  position: PropTypes.any,
 };

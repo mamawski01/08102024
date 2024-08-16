@@ -1,33 +1,28 @@
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 import { formatFontLabel, onHoverBgColor } from "../utils/helpers";
-export default function Btn({
-  text = "",
-  type = "",
-  color = "",
-  onClick = null,
-  icon = "",
-}) {
-  const hoverBgColor = onHoverBgColor(color);
+
+export default function NavLinker({ text, icon, to, color = null }) {
   const font = formatFontLabel(text);
+  const hoverBgColor = onHoverBgColor(color);
 
   return (
-    <button
-      title={text}
-      onClick={onClick}
-      type={type}
+    <NavLink
+      title={font}
+      to={to}
       className={`${hoverBgColor} btnAndNavLinkerAndOptions`}
     >
       <span className="w-7">{icon}</span>
       <span className="hidden md:block">{font}</span>
-    </button>
+    </NavLink>
   );
 }
 
-Btn.propTypes = {
-  type: PropTypes.any,
+NavLinker.propTypes = {
   color: PropTypes.any,
-  onClick: PropTypes.any,
   icon: PropTypes.any,
   text: PropTypes.any,
+  to: PropTypes.any,
+  url: PropTypes.any,
 };

@@ -1,8 +1,13 @@
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import {
+  Bars3Icon,
+  PaperClipIcon,
+  PlusIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/solid";
 
 import Logo from "../reusable/components/Logo";
 import Options from "../reusable/components/Options";
-import Linker from "../reusable/components/Linker";
+import NavLinker from "../reusable/components/NavLinker";
 
 export default function MainHeader() {
   return (
@@ -15,12 +20,32 @@ export default function MainHeader() {
           <Options
             text="options"
             type="button"
-            icon={{ icon: <Bars3Icon></Bars3Icon> }}
+            position="right-0"
+            icon={<Bars3Icon></Bars3Icon>}
             options={[
-              { option: <Linker></Linker> },
-              { option: <Linker></Linker> },
+              {
+                option: (
+                  <NavLinker
+                    icon={<PaperClipIcon></PaperClipIcon>}
+                    text={"upload"}
+                  ></NavLinker>
+                ),
+              },
+              {
+                option: (
+                  <NavLinker
+                    icon={<UserGroupIcon></UserGroupIcon>}
+                    text={"attendance"}
+                  ></NavLinker>
+                ),
+              },
             ]}
           ></Options>
+          <NavLinker
+            text="add user"
+            icon={<PlusIcon></PlusIcon>}
+            to={"homepage/registryUserForm"}
+          ></NavLinker>
         </div>
       </div>
     </header>
