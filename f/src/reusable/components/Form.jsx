@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useNavigate } from "react-router-dom";
 
 import Btn from "./Btn";
@@ -52,6 +52,14 @@ export default function Form({ dataStructure = [] }) {
             errors={errors}
           ></InputRow>
         ))}
+      </div>
+      <div className="mt-6 flex justify-evenly">
+        <Btn
+          color="blue"
+          text="Save"
+          type="submit"
+          icon={<PlusIcon></PlusIcon>}
+        ></Btn>
       </div>
     </form>
   );
@@ -158,6 +166,21 @@ function Input({
         />
       )}
 
+      {["option"].includes(inputType) && (
+        <select
+          id={inputName}
+          className="w-full rounded-lg border border-gray-400 bg-slate-700 px-4 py-2 text-white hover:border-gray-500 focus:border-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
+          title={font}
+          {...register(inputName, validate)}
+        >
+          {options.map((option, i) => (
+            <option key={i} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      )}
+
       {[".txt", ".png,.jpg,.jpeg"].includes(specifyFile) && (
         <div>
           <input
@@ -177,21 +200,6 @@ function Input({
             className="mx-auto mt-2 h-auto w-2/6"
           />
         </div>
-      )}
-
-      {["option"].includes(inputType) && (
-        <select
-          id={inputName}
-          className="w-full rounded-lg border border-gray-400 bg-slate-700 px-4 py-2 text-white hover:border-gray-500 focus:border-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
-          title={font}
-          {...register(inputName, validate)}
-        >
-          {options.map((option, i) => (
-            <option key={i} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
       )}
 
       {["textarea"].includes(inputType) && (
