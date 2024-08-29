@@ -8,7 +8,7 @@ import Btn from "./Btn";
 import { formatFontLabel } from "../utils/helpers";
 import { useState } from "react";
 
-export default function Form({ dataStructure = [] }) {
+export default function Form({ dataStructure = [], dataSave }) {
   const navigate = useNavigate();
 
   const { register, handleSubmit, formState, reset } = useForm();
@@ -17,6 +17,7 @@ export default function Form({ dataStructure = [] }) {
 
   async function onSubmit(data) {
     console.log(data);
+    dataSave(data);
   }
 
   function onError() {

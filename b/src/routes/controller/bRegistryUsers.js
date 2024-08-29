@@ -1,6 +1,6 @@
 import User from "./models/UserModel.js";
 
-import { deleter, getter, patcher, poster } from "./operators/operators.js";
+import { deleter, getter, patcher, poster } from "./operators/bOperators.js";
 
 export function bGetRegistryUsers(req, res) {
   getter(req, res, "simple/findAll", User, "bGetRegistryUsers");

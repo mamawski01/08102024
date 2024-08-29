@@ -7,7 +7,7 @@ import {
   bGetRegistryUsers,
   bPatchRegistryUser,
   bPostRegistryUser,
-} from "./controller/registryUsers.js";
+} from "./controller/bRegistryUsers.js";
 
 const router = express.Router();
 
