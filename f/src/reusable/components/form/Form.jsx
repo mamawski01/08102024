@@ -74,6 +74,7 @@ export default function Form({
 Form.propTypes = {
   dataStructure: PropTypes.any,
   dataSave: PropTypes.any,
+  onSubmitRule: PropTypes.any,
 };
 
 function getGridDesign(inputLength) {

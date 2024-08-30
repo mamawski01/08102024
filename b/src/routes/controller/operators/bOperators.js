@@ -1,10 +1,40 @@
+import bcrypt from "bcryptjs";
+
 import {
   deleteImage,
-  duplicateEmailAndDelImage,
   passwordEncrypt,
   prevImgAndDelImg,
   url,
 } from "../../../utils/bHelpers.js";
+
+function bErrorHandler(req, res, error, mess, rule) {
+  console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
+  setTimeout(() => {
+    deleteImage(req.file?.path, mess, rule);
+  }, 1000);
+  return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
+}
+
+function bDataNotFound(res, mess, rule) {
+  return res
+    .status(404)
+    .send(`${mess} data not found, fx=${mess}, rule=${rule}`);
+}
+
+function bDataIsFound(data, res, mess, rule) {
+  return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+}
+
+function duplicatedEmail(req, res, mess, rule, email) {
+  setTimeout(() => {
+    deleteImage(req.file?.path, mess, rule);
+  }, 1000);
+  return res
+    .status(409)
+    .send(`Email already exists "${email}", fx=: ${mess}, rule=: ${rule}`);
+}
+
+///////////////////////////////
 
 export async function getter(req, res, rule, model, mess) {
   try {
@@ -12,24 +42,17 @@ export async function getter(req, res, rule, model, mess) {
 
     if (rule === "simple/findAll") {
       const data = await model.find();
-      if (!data || data.length === 0)
-        return res
-          .status(404)
-          .send(`${mess} data not found, fx=${mess}, rule=${rule}`);
-      return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+      if (!data || data.length === 0) return bDataNotFound(res, mess, rule);
+      return bDataIsFound(data, res, mess, rule);
     }
 
     if (rule === "simple/findOne") {
       const data = await model.findById(id);
-      if (!data)
-        return res
-          .status(404)
-          .send(`${mess} data not found, fx=${mess}, rule=${rule}`);
-      return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+      if (!data) return bDataNotFound(res, mess, rule);
+      return bDataIsFound(data, res, mess, rule);
     }
   } catch (error) {
-    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
-    return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
+    return bErrorHandler(req, res, error, mess, rule);
   }
 }
 
@@ -37,19 +60,18 @@ export async function poster(req, res, rule, model, mess) {
   try {
     if (rule === "simple") {
       const data = await model.create(req.body);
-      return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+      return bDataIsFound(data, res, mess, rule);
     }
 
     if (rule === "bPostRegistryUser") {
       const { email, password } = req.body;
       //check if email exist and delete image
-      const { conflict, confMess, deletedImg } =
-        await duplicateEmailAndDelImage(req, email, model, mess, rule);
-      if (conflict) return res.status(409).send(`${confMess}, ${deletedImg}`);
+      const userEmailExist = await model.exists({ email });
+      if (userEmailExist) return duplicatedEmail(req, res, mess, rule, email);
       //check if email exist and delete image
 
       //encrypt password
-      const encryptedPassword = await passwordEncrypt(password);
+      const encryptedPassword = await bcrypt.hash(password, 10);
       //encrypt password
 
       const data = await model.create({
@@ -59,12 +81,10 @@ export async function poster(req, res, rule, model, mess) {
         image:
           req.file?.filename && url("registryUserImages/") + req.file.filename,
       });
-      return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+      return bDataIsFound(data, res, mess, rule);
     }
   } catch (error) {
-    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
-    deleteImage(req?.file?.path);
-    return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
+    return bErrorHandler(req, res, error, mess, rule);
   }
 }
 
@@ -76,11 +96,8 @@ export async function patcher(req, res, rule, model, mess) {
       const data = await model.findByIdAndUpdate(id, req.body, {
         new: true,
       });
-      if (!data)
-        return res
-          .status(404)
-          .send(`${mess} data not found, fx=${mess}, rule=${rule}`);
-      return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+      if (!data) return bDataNotFound(res, mess, rule);
+      return bDataIsFound(data, res, mess, rule);
     }
 
     if (rule === "bPatchRegistryUser") {
@@ -111,15 +128,10 @@ export async function patcher(req, res, rule, model, mess) {
         { new: true }
       );
 
-      return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+      return bDataIsFound(data, res, mess, rule);
     }
   } catch (error) {
-    setTimeout(() => {
-      deleteImage(req.file?.path, mess, rule);
-    }, 1000);
-    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
-    deleteImage(req?.file?.path);
-    return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
+    return bErrorHandler(req, res, error, mess, rule);
   }
 }
 
@@ -137,14 +149,10 @@ export async function deleter(req, res, rule, model, mess) {
       //userPrevImg
 
       const data = await model.findByIdAndDelete(id);
-      if (!data)
-        return res
-          .status(404)
-          .send(`${mess} data not found, fx=${mess}, rule=${rule}`);
-      return res.status(200).send({ data, "fx=": mess, "rule=": rule });
+      if (!data) return bDataNotFound(res, mess, rule);
+      return bDataIsFound(data, res, mess, rule);
     }
   } catch (error) {
-    console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
-    return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
+    return bErrorHandler(req, res, error, mess, rule);
   }
 }

@@ -22,19 +22,6 @@ export function url(location = "") {
   return "http://localhost:8000/uploads/" + location;
 }
 
-export async function duplicateEmailAndDelImage(req, email, model, mess, rule) {
-  if (!email) return { conflict: false };
-  const userEmailExist = await model.exists({ email });
-  if (userEmailExist) {
-    return {
-      conflict: true,
-      confMess: "Email already exists",
-      deletedImg: await deleteImage(req.file.path, mess, rule), // to delete the image if there is a problem
-    };
-  }
-  return { conflict: false };
-}
-
 export async function passwordEncrypt(password) {
   return await bcrypt.hash(password, 10);
 }
