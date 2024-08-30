@@ -63,6 +63,7 @@ export async function poster(req, res, rule, model, mess) {
     }
   } catch (error) {
     console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
+    deleteImage(req?.file?.path);
     return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
   }
 }
@@ -117,6 +118,7 @@ export async function patcher(req, res, rule, model, mess) {
       deleteImage(req.file?.path, mess, rule);
     }, 1000);
     console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
+    deleteImage(req?.file?.path);
     return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
   }
 }

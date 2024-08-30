@@ -1,29 +1,32 @@
 import PropTypes from "prop-types";
+import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { useNavigate } from "react-router-dom";
 
-import Btn from "./Btn";
-import { formatFontLabel } from "../utils/helpers";
-import { useState } from "react";
+import Btn from "../Btn";
+import { formatFontLabel } from "../../utils/helpers";
+import { onSubmitForm } from "./onSubmitForm";
 
-export default function Form({ dataStructure = [], dataSave }) {
+export default function Form({
+  dataStructure = [],
+  dataSave,
+  onSubmitRule = "simple",
+}) {
   const navigate = useNavigate();
 
   const { register, handleSubmit, formState, reset } = useForm();
 
   const { errors } = formState;
 
-  async function onSubmit(data) {
-    console.log(data);
-    dataSave(data);
+  function onSubmit(data) {
+    dataSave(onSubmitForm(data, onSubmitRule));
   }
 
   function onError() {
     toast.error("Form submission failed. Missing fields required.");
   }
-
   return (
     <form
       encType="multipart/form-data"
@@ -39,6 +42,7 @@ export default function Form({ dataStructure = [], dataSave }) {
           onClick={() => navigate(-1)}
         ></Btn>
       </div>
+
       <div className="[&>*:nth-child(even)]:bg-slate-500/5">
         {dataStructure.map((dataStructure, i) => (
           <InputRow
@@ -54,6 +58,7 @@ export default function Form({ dataStructure = [], dataSave }) {
           ></InputRow>
         ))}
       </div>
+
       <div className="mt-6 flex justify-evenly">
         <Btn
           color="blue"
@@ -68,6 +73,7 @@ export default function Form({ dataStructure = [], dataSave }) {
 
 Form.propTypes = {
   dataStructure: PropTypes.any,
+  dataSave: PropTypes.any,
 };
 
 function getGridDesign(inputLength) {
