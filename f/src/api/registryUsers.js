@@ -1,7 +1,12 @@
 import { getter, poster } from "./apis/api";
 
 export function getRegistryUsers() {
-  return getter("simple/findAll", "/bGetRegistryUsers", "getRegistryUsers");
+  return getter(
+    "simple/findAll",
+    "/bGetRegistryUsers",
+    "getRegistryUsers",
+    "f2bGetRegistryUsers",
+  );
 }
 
 export function getRegistryUser() {

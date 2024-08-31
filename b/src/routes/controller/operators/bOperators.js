@@ -111,7 +111,7 @@ export async function patcher(req, res, rule, model, mess) {
       //userPrevImg
       const user = await model.findById(id);
       if (!user) return bDataNotFound(req, res, mess, rule);
-      delPrevImg(registryUsersFolderLocation, user, req, mess, rule);
+      delPrevImg(registryUsersFolderLocation, user, mess, rule);
       //userPrevImg
 
       const data = await model.findByIdAndUpdate(
@@ -140,7 +140,7 @@ export async function deleter(req, res, rule, model, mess) {
       //userPrevImg
       const user = await model.findById(id);
       if (!user) return bDataNotFound(req, res, mess, rule);
-      delPrevImg(registryUsersFolderLocation, user, req, mess, rule);
+      delPrevImg(registryUsersFolderLocation, user, mess, rule);
       //userPrevImg
 
       const data = await model.findByIdAndDelete(id);

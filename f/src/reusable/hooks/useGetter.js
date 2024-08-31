@@ -1,13 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { fSocket } from "../../api/apis/api";
 
 export function useGetter(getData) {
-  return useEffect(() => {
+  useEffect(() => {
     async function fetchData() {
-      const response = await getData();
-      return response;
+      await getData();
     }
     fetchData();
     //cleaning
     return () => {};
   }, [getData]);
+}
+
+export function useDataGetter(bIO) {
+  const [apiData, apiDataSet] = useState();
+
+  //last happening updating all data in FE
+  fSocket.on(bIO, (data) => {
+    apiDataSet(data);
+  });
+  return apiData?.data;
 }

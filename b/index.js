@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import http from "http";
 
 import router from "./src/routes/routes.js";
+import { registerSocketServer } from "./src/routes/bIO/bIO.js";
 
 dotenv.config();
 const PORT = process.env.PORT || process.env.API_PORT;
@@ -15,6 +16,8 @@ app.use(express.json());
 app.use(cors());
 
 const server = http.createServer(app);
+
+registerSocketServer(server);
 
 mongoose
   .connect(process.env.MONGO_URI)

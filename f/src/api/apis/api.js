@@ -1,10 +1,20 @@
 import toast from "react-hot-toast";
 import axios from "axios";
+import io from "socket.io-client";
+
+export const bServer = "http://localhost:7000";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:7000",
-  timeout: 10000,
+  baseURL: bServer,
+  timeout: 1000,
 });
+
+export const fSocket = io.connect(bServer);
+
+//first happening then, sending data to BE
+function fIOToBIO(fIO, data) {
+  fSocket.emit(fIO, data);
+}
 
 function errorHandler(exception, mess) {
   console.log(exception, mess);
@@ -13,11 +23,12 @@ function errorHandler(exception, mess) {
   return exception.response.data;
 }
 
-export async function getter(rule, url, mess) {
+export async function getter(rule, url, mess, fIO) {
   try {
     if (rule === "simple/findAll") {
       const { data } = await apiClient.get(url);
       console.log(data, mess);
+      fIOToBIO(fIO, data);
       return data;
     }
   } catch (exception) {
