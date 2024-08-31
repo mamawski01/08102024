@@ -25,20 +25,12 @@ export async function getter(rule, url, mess) {
   }
 }
 
-export async function poster(rule, url, mess, newData) {
+export async function poster(rule, url, mess, data) {
   try {
-    if (rule === "postRegistryUser") {
-      const form = new FormData();
-      for (const key in newData) {
-        if (key === "image") {
-          form.append(key, newData[key][0]);
-        } else {
-          form.append(key, newData[key]);
-        }
-      }
-      const data = await apiClient.post(url, form);
+    if (rule === "simple/SaveOne") {
+      const newData = await apiClient.post(url, data);
       toast.success(mess);
-      return data;
+      return newData;
     }
   } catch (exception) {
     return errorHandler(exception, mess);

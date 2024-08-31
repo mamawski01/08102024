@@ -8,11 +8,11 @@ export function getRegistryUser() {
   return getter("simple/findOne", "/bGetRegistryUser", "getRegistryUser");
 }
 
-export function postRegistryUser(newData) {
+export function postRegistryUser(data) {
   return poster(
-    "postRegistryUser",
+    "simple/SaveOne",
     "/bPostRegistryUser",
     "postRegistryUser",
-    newData,
+    data,
   );
 }

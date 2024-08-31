@@ -11,22 +11,27 @@ import {
 
 const router = express.Router();
 
+//registryUsers
+export const registryUsersFolderLocation = "registryUserFolder";
+export const registryUsersFilename = "registryUserImg";
+
 router.get("/bGetRegistryUsers", bGetRegistryUsers);
 
 router.get("/bGetRegistryUser/:id", bGetRegistryUser);
 
 router.post(
   "/bPostRegistryUser",
-  upload("registryUserImages", "registryUserImg").single("image"),
+  upload(registryUsersFolderLocation, registryUsersFilename).single("image"),
   bPostRegistryUser
 );
 
 router.patch(
   "/bPatchRegistryUser/:id",
-  upload("registryUserImages", "registryUserImg").single("image"),
+  upload(registryUsersFolderLocation, registryUsersFilename).single("image"),
   bPatchRegistryUser
 );
 
 router.delete("/bDeleteRegistryUser/:id", bDeleteRegistryUser);
+//registryUsers
 
 export default router;
