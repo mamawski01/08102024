@@ -9,12 +9,11 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
-      {apiData
-        .slice()
-        .reverse()
-        .map((data, i) => (
-          <Card key={i} data={data}></Card>
-        ))}
+      {apiData &&
+        apiData
+          .slice()
+          .reverse()
+          .map((data, i) => <Card key={i} data={data}></Card>)}
     </div>
   );
 }
