@@ -1,23 +1,23 @@
-import User from "./models/UserModel.js";
+import RegistryUser from "./models/UserModel.js";
 
 import { deleter, getter, patcher, poster } from "./operators/bOperators.js";
 
 export function bGetRegistryUsers(req, res) {
-  getter(req, res, "simple/findAll", User, "bGetRegistryUsers");
+  getter(req, res, "simple/findAll", RegistryUser, "bGetRegistryUsers");
 }
 
 export function bGetRegistryUser(req, res) {
-  getter(req, res, "simple/findOne", User, "bGetRegistryUser");
+  getter(req, res, "simple/findOne", RegistryUser, "bGetRegistryUser");
 }
 
 export function bPostRegistryUser(req, res) {
-  poster(req, res, "bPostRegistryUser", User, "bPostRegistryUser");
+  poster(req, res, "bPostRegistryUser", RegistryUser, "bPostRegistryUser");
 }
 
 export function bPatchRegistryUser(req, res) {
-  patcher(req, res, "bPatchRegistryUser", User, "bPatchRegistryUser");
+  patcher(req, res, "bPatchRegistryUser", RegistryUser, "bPatchRegistryUser");
 }
 
 export function bDeleteRegistryUser(req, res) {
-  deleter(req, res, "bDeleteRegistryUser", User, "bDeleteRegistryUser");
+  deleter(req, res, "bDeleteRegistryUser", RegistryUser, "bDeleteRegistryUser");
 }

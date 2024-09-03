@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 
 import { formatFontLabel, onHoverBgColor } from "../utils/helpers";
+import { HeartIcon } from "@heroicons/react/24/solid";
 export default function Btn({
-  text = "",
-  type = "",
-  color = "",
+  text = "addText",
+  type = "button",
+  color = "green",
   onClick = null,
-  icon = "",
+  icon = <HeartIcon color="red" />,
 }) {
   const hoverBgColor = onHoverBgColor(color);
   const font = formatFontLabel(text);

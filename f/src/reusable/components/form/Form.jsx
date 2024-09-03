@@ -9,9 +9,20 @@ import Btn from "../Btn";
 import { formatFontLabel } from "../../utils/helpers";
 import { onSubmitForm } from "./onSubmitForm";
 
+const defaultDataStructure = [
+  {
+    rowLabels: "name",
+    inputNames: ["firstName", "status", "image"],
+    inputTypes: ["text", "option", "file"],
+    isRequired: [true, true, true],
+    options: [[], ["single", "married", "widowed", "divorced"]],
+    specifyFiles: [[], [], [".png,.jpg,.jpeg"]],
+  },
+];
+
 export default function Form({
-  dataStructure = [],
-  dataSave,
+  dataStructure = defaultDataStructure,
+  dataSave = console.log,
   onSubmitRule = "simple",
 }) {
   const navigate = useNavigate();
@@ -177,7 +188,7 @@ function Input({
       {["option"].includes(inputType) && (
         <select
           id={inputName}
-          className="w-full rounded-lg border border-gray-400 bg-slate-700 px-4 py-2 text-white hover:border-gray-500 focus:border-gray-500 focus:outline-none focus:ring focus:ring-gray-500"
+          className={`${style} text-white`}
           title={font}
           {...register(inputName, validate)}
         >
@@ -189,14 +200,14 @@ function Input({
         </select>
       )}
 
-      {[".txt", ".png,.jpg,.jpeg"].includes(specifyFile) && (
+      {["file"].includes(inputType) && (
         <div>
           <input
             type={inputType}
             placeholder={font}
             id={inputName}
             name={inputName}
-            className={`${style} ${inputType === "file" && "cursor-pointer"}`}
+            className="w-full cursor-pointer rounded-lg border border-gray-400 bg-slate-700 placeholder:text-2xl"
             title={font}
             {...register(inputName, validate)}
             onChange={(e) => getFilePreview(e)}

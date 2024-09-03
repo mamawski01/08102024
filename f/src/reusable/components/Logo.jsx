@@ -1,7 +1,11 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export default function Logo({ text = "Add text", link = "/", imgSrc }) {
+export default function Logo({
+  text = "Add text",
+  link = "/",
+  imgSrc = "/Asset2.png",
+}) {
   return (
     <Link to={link}>
       <div className="flex items-center" title={text}>
