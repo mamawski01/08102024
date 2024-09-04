@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { fSocket } from "../../api/apis/api";
 
-export function useGetter(getData) {
+export function useGetter(getData, id) {
   useEffect(() => {
     async function fetchData() {
-      await getData();
+      await getData(id && id);
     }
     fetchData();
     //cleaning
     return () => {};
-  }, [getData]);
+  }, [getData, id]);
 }
 
 export function useDataGetter(bIO) {

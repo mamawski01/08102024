@@ -7,6 +7,7 @@ import {
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Btn from "./Btn";
+import NavLinker from "./NavLinker";
 
 const defaultIconWithDetails = [
   {
@@ -27,8 +28,9 @@ export default function Card({
   mainDescription = "funny",
   description = "tall, dark and handsome",
   iconWithDetails = defaultIconWithDetails,
+  to = "/",
 }) {
-  const [expand, expandSet] = useState(true);
+  const [expand, expandSet] = useState();
   return (
     <div className="container2">
       <div
@@ -53,7 +55,7 @@ export default function Card({
       </div>
 
       {expand && (
-        <div className="mt-4 flex flex-col gap-4">
+        <div className="mt-4 flex flex-col gap-3">
           {iconWithDetails.map((iconDetail, i) => (
             <IconContentMap key={i} iconDetail={iconDetail}></IconContentMap>
           ))}
@@ -65,11 +67,12 @@ export default function Card({
           color="blue"
           icon={<CheckBadgeIcon color="mediumturquoise" />}
         ></Btn>
-        <Btn
+        <NavLinker
           text="edit"
           color="yellow"
           icon={<PencilIcon color="yellow" />}
-        ></Btn>
+          to={to}
+        ></NavLinker>
         <Btn
           text="delete"
           color="red"
@@ -86,14 +89,20 @@ Card.propTypes = {
   mainDescription: PropTypes.any,
   description: PropTypes.any,
   iconWithDetails: PropTypes.any,
+  to: PropTypes.any,
 };
 
 export function IconContentMap({ iconDetail }) {
-  console.log(iconDetail);
   return (
-    <div className="flex flex-col items-center">
-      <div className="w-8">{iconDetail.icon}</div>
-      <span className="capitalize">{iconDetail.iconDetails}</span>
+    <div>
+      {iconDetail.iconDetails.trim() === "" ? (
+        ""
+      ) : (
+        <div className="flex flex-col items-center justify-center border-b border-gray-300/20">
+          <span className="w-5">{iconDetail.icon}</span>
+          <span className="">{iconDetail.iconDetails}</span>
+        </div>
+      )}
     </div>
   );
 }

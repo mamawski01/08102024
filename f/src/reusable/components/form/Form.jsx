@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
-import { PlusIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { PlusIcon, SparklesIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 import Btn from "../Btn";
 import { formatFontLabel } from "../../utils/helpers";
 import { onSubmitForm } from "./onSubmitForm";
+import { useDataGetter, useGetter } from "../../hooks/useGetter";
 
 const defaultDataStructure = [
   {
@@ -20,24 +21,35 @@ const defaultDataStructure = [
   },
 ];
 
+const FormContext = createContext();
+
 export default function Form({
   dataStructure = defaultDataStructure,
   dataSave = console.log,
   onSubmitRule = "simple",
+  editDefaultVal = null,
+  bIO = "",
 }) {
   const navigate = useNavigate();
-
+  const [filePrev, filePrevSet] = useState("/Asset2.png");
   const { register, handleSubmit, formState, reset } = useForm();
-
   const { errors } = formState;
-
+  function onError() {
+    toast.error("Form submission failed. Missing fields required.");
+  }
   function onSubmit(data) {
     dataSave(onSubmitForm(data, onSubmitRule));
   }
 
-  function onError() {
-    toast.error("Form submission failed. Missing fields required.");
-  }
+  //editing logic
+  const { id } = useParams();
+  useGetter(editDefaultVal, id);
+  const editData = useDataGetter(bIO);
+  useEffect(() => {
+    reset(editData);
+  }, [reset, editData]);
+
+  const edit = Boolean(editData?._id);
   return (
     <form
       encType="multipart/form-data"
@@ -56,17 +68,23 @@ export default function Form({
 
       <div className="[&>*:nth-child(even)]:bg-slate-500/5">
         {dataStructure.map((dataStructure, i) => (
-          <InputRow
+          <FormContext.Provider
             key={i}
-            rowLabel={dataStructure.rowLabels}
-            inputNames={dataStructure.inputNames}
-            inputTypes={dataStructure.inputTypes}
-            options={dataStructure.options}
-            isRequired={dataStructure.isRequired}
-            specifyFiles={dataStructure.specifyFiles}
-            register={register}
-            errors={errors}
-          ></InputRow>
+            value={{
+              filePrev,
+              filePrevSet,
+              register,
+              errors,
+              rowLabel: dataStructure.rowLabels,
+              inputNames: dataStructure.inputNames,
+              inputTypes: dataStructure.inputTypes,
+              options: dataStructure.options,
+              isRequired: dataStructure.isRequired,
+              specifyFiles: dataStructure.specifyFiles,
+            }}
+          >
+            <InputRow></InputRow>
+          </FormContext.Provider>
         ))}
       </div>
 
@@ -77,6 +95,24 @@ export default function Form({
           type="submit"
           icon={<PlusIcon></PlusIcon>}
         ></Btn>
+        <Btn
+          color="yellow"
+          text="clear"
+          type="reset"
+          icon={<SparklesIcon color="yellow" />}
+          onClick={() => {
+            toast.success("Form cleared successfully");
+            filePrevSet("/Asset2.png");
+            reset({});
+          }}
+        ></Btn>
+        <Btn
+          color="red"
+          text="exit"
+          type="button"
+          icon={<XMarkIcon></XMarkIcon>}
+          onClick={() => navigate(-1)}
+        ></Btn>
       </div>
     </form>
   );
@@ -86,6 +122,8 @@ Form.propTypes = {
   dataStructure: PropTypes.any,
   dataSave: PropTypes.any,
   onSubmitRule: PropTypes.any,
+  editDefaultVal: PropTypes.any,
+  bIO: PropTypes.any,
 };
 
 function getGridDesign(inputLength) {
@@ -93,16 +131,16 @@ function getGridDesign(inputLength) {
   return "";
 }
 
-function InputRow({
-  rowLabel = "",
-  inputNames = "",
-  inputTypes = "",
-  options = "",
-  isRequired = "",
-  specifyFiles = "",
-  register = "",
-  errors = "",
-}) {
+function InputRow() {
+  const {
+    rowLabel = "",
+    inputNames = "",
+    inputTypes = "",
+    options = "",
+    isRequired = "",
+    specifyFiles = "",
+  } = useContext(FormContext);
+
   const gridDesign = getGridDesign(inputNames.length);
   const font = formatFontLabel(rowLabel);
 
@@ -122,8 +160,6 @@ function InputRow({
           specifyFile={specifyFiles[i]}
           options={options[i]}
           isRequired={isRequired[i]}
-          register={register}
-          errors={errors}
         ></Input>
       ))}
     </div>
@@ -147,15 +183,13 @@ function Input({
   specifyFile = "",
   options = [],
   isRequired = false,
-  register,
-  errors,
 }) {
+  const { filePrevSet, register, filePrev, errors } = useContext(FormContext);
+
   const font = formatFontLabel(inputName);
   const validate = isRequired && {
     required: `This field is required: ${font}`,
   };
-
-  const [filePrev, filePrevSet] = useState("");
 
   function getFilePreview(e) {
     if (e.target.files[0]) {

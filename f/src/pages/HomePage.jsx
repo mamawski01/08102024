@@ -7,7 +7,11 @@ import {
   calculateAge,
   capitalizeFirstLetterEachWord,
 } from "../reusable/utils/helpers";
-import { HomeModernIcon, PhoneIcon } from "@heroicons/react/24/solid";
+import {
+  BookOpenIcon,
+  HomeModernIcon,
+  PhoneIcon,
+} from "@heroicons/react/24/solid";
 
 export default function HomePage() {
   useGetter(getRegistryUsers);
@@ -23,21 +27,22 @@ export default function HomePage() {
           .map((data, i) => (
             <Card
               key={i}
+              to={`registryUserForm/${data._id}`}
               title={`${capitalizeFirstLetterEachWord(data.firstName)} ${capitalizeFirstLetterEachWord(data.middleName)} ${capitalizeFirstLetterEachWord(data.lastName)}`}
               mainDescription={data.position}
               description={`Birthday ${dayjs(data.birthdate).format("MMM DD, YYYY")}, Age ${calculateAge(data.birthdate)}`}
               iconWithDetails={[
                 {
                   icon: <HomeModernIcon />,
-                  iconDetails: `${data.street && `${data.street} St.,`} ${data.purok && `Prk. ${data.purok}`} ${data.brgy.toLowerCase().includes("brgy") ? data.brgy : `Brgy. ${data.brgy}`}, ${data.city.toLowerCase().includes("city") ? data.city : `${data.city} City`}, ${data.province}, ${data.country}`,
+                  iconDetails: `${data.street && `${capitalizeFirstLetterEachWord(data.street)} St.,`} ${data.purok && `Prk. ${capitalizeFirstLetterEachWord(data.purok)}`} ${data.brgy.toLowerCase().includes("brgy") ? data.brgy : `Brgy. ${capitalizeFirstLetterEachWord(data.brgy)}`}, ${data.city.toLowerCase().includes("city") ? capitalizeFirstLetterEachWord(data.city) : `${capitalizeFirstLetterEachWord(data.city)} City`}, ${capitalizeFirstLetterEachWord(data.province)}, ${capitalizeFirstLetterEachWord(data.country)}`,
                 },
                 {
                   icon: <PhoneIcon />,
-                  iconDetails: `${data.contactNumber1} ${data.contactNumber2} ${data.contactNumber3}`,
+                  iconDetails: `${data.contactNumber1} | ${data.contactNumber2 && `${data.contactNumber2} |`} ${data.contactNumber3 && `${data.contactNumber3} |`} ${data.email}`,
                 },
                 {
-                  icon: <HomeModernIcon />,
-                  iconDetails: `${data.street && `${data.street} St.,`} ${data.purok && `Prk. ${data.purok}`} ${data.brgy.toLowerCase().includes("brgy") ? data.brgy : `Brgy. ${data.brgy}`}, ${data.city.toLowerCase().includes("city") ? data.city : `${data.city} City`}, ${data.province}, ${data.country}`,
+                  icon: <BookOpenIcon />,
+                  iconDetails: `${data.SSS && `SSS:${data.SSS} |`} ${data.PagIbig && `Pag-Ibig:${data.PagIbig} |`} ${data.PhilHealth && `PhilHealth:${data.PhilHealth}`}`,
                 },
               ]}
             ></Card>

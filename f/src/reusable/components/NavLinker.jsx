@@ -2,8 +2,14 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 import { formatFontLabel, onHoverBgColor } from "../utils/helpers";
+import { LinkIcon } from "@heroicons/react/24/solid";
 
-export default function NavLinker({ text, icon, to, color = null }) {
+export default function NavLinker({
+  text = "add Linker",
+  icon = <LinkIcon color="red" />,
+  to = "/",
+  color = "green",
+}) {
   const font = formatFontLabel(text);
   const hoverBgColor = onHoverBgColor(color);
 

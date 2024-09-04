@@ -23,10 +23,17 @@ function errorHandler(exception, mess) {
   return exception.response.data;
 }
 
-export async function getter(rule, url, mess, fIO) {
+export async function getter(rule, url, mess, fIO, id) {
   try {
     if (rule === "simple/findAll") {
       const { data } = await apiClient.get(url);
+      console.log(data, mess);
+      fIOToBIO(fIO, data);
+      return data;
+    }
+    if (rule === "simple/findOne") {
+      if (!id) return toast.error(mess);
+      const { data } = await apiClient.get(url + id);
       console.log(data, mess);
       fIOToBIO(fIO, data);
       return data;
@@ -46,4 +53,8 @@ export async function poster(rule, url, mess, data) {
   } catch (exception) {
     return errorHandler(exception, mess);
   }
+}
+
+export async function patcher(rule, url, mess, data) {
+  return;
 }

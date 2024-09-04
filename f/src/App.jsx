@@ -20,6 +20,10 @@ export default function App() {
               path="homepage/registryUserForm"
               element={<RegistryUserForm></RegistryUserForm>}
             ></Route>
+            <Route
+              path="homepage/registryUserForm/:id"
+              element={<RegistryUserForm></RegistryUserForm>}
+            ></Route>
           </Route>
         </Routes>
       </BrowserRouter>
