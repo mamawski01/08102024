@@ -7,7 +7,7 @@ import {
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Btn from "./Btn";
-import NavLinker from "./NavLinker";
+import Linker from "./LinkerDisappearing";
 
 const defaultIconWithDetails = [
   {
@@ -67,12 +67,12 @@ export default function Card({
           color="blue"
           icon={<CheckBadgeIcon color="mediumturquoise" />}
         ></Btn>
-        <NavLinker
+        <Linker
           text="edit"
           color="yellow"
           icon={<PencilIcon color="yellow" />}
           to={to}
-        ></NavLinker>
+        ></Linker>
         <Btn
           text="delete"
           color="red"

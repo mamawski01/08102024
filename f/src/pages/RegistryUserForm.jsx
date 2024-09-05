@@ -1,14 +1,20 @@
-import { getRegistryUser, postRegistryUser } from "../api/registryUsers";
+import {
+  getRegistryUser,
+  patchRegistryUser,
+  postRegistryUser,
+} from "../api/registryUsers";
 import Form from "../reusable/components/form/Form";
-import { userModel } from "../reusable/utils/model";
+import { userModel, userModelEdit } from "../reusable/utils/model";
 
 export default function RegistryUserForm() {
   return (
     <Form
-      dataStructure={userModel()}
+      dataStructure={[userModel(), userModelEdit()]}
       dataSave={postRegistryUser}
+      dataEdit={patchRegistryUser}
       editDefaultVal={getRegistryUser}
-      bIO="b2fGetRegistryUser"
+      fIOFindOne="f2bGetRegistryUser"
+      bIOFindOne="b2fGetRegistryUser"
     ></Form>
   );
 }

@@ -1,13 +1,14 @@
 import {
   Bars3Icon,
   PaperClipIcon,
-  PlusIcon,
+  PlusCircleIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
 
 import Logo from "../reusable/components/Logo";
 import Options from "../reusable/components/Options";
 import NavLinker from "../reusable/components/NavLinker";
+import LinkerDisappearing from "../reusable/components/LinkerDisappearing";
 
 export default function MainHeader() {
   return (
@@ -19,15 +20,16 @@ export default function MainHeader() {
         <div className="flex gap-4">
           <Options
             text="options"
-            type="button"
             position="right-0"
             icon={<Bars3Icon></Bars3Icon>}
+            color="indigo"
             options={[
               {
                 option: (
                   <NavLinker
                     icon={<PaperClipIcon></PaperClipIcon>}
                     text={"upload"}
+                    color="indigo"
                   ></NavLinker>
                 ),
               },
@@ -36,16 +38,17 @@ export default function MainHeader() {
                   <NavLinker
                     icon={<UserGroupIcon></UserGroupIcon>}
                     text={"attendance"}
+                    color="indigo"
                   ></NavLinker>
                 ),
               },
             ]}
           ></Options>
-          <NavLinker
-            text="add user"
-            icon={<PlusIcon></PlusIcon>}
+          <LinkerDisappearing
+            text={"Add User"}
+            icon={<PlusCircleIcon />}
             to={"homepage/registryUserForm"}
-          ></NavLinker>
+          ></LinkerDisappearing>
         </div>
       </div>
     </header>

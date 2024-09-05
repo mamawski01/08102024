@@ -2,13 +2,23 @@ import PropTypes from "prop-types";
 import { useEffect, useRef, useState } from "react";
 
 import { formatFontLabel, onHoverBgColor } from "../utils/helpers";
+import { QueueListIcon } from "@heroicons/react/24/solid";
+import NavLinker from "./NavLinker";
+
+const defaulOptions = [
+  {
+    option: <NavLinker></NavLinker>,
+  },
+  {
+    option: <NavLinker></NavLinker>,
+  },
+];
 
 export default function Options({
-  text = "",
-  type = "",
-  color = "",
-  icon = "",
-  options = [],
+  text = "Add Option Text",
+  color = "green",
+  icon = <QueueListIcon color="yellow" />,
+  options = defaulOptions,
   position = "right-0",
 }) {
   const [showOptions, showOptionsSet] = useState(false);
@@ -31,19 +41,19 @@ export default function Options({
   const hoverBgColor = onHoverBgColor(color);
   const font = formatFontLabel(text);
   return (
-    <div className="relative flex gap-2">
+    <div className="relative z-50 flex gap-2">
       <button
         ref={optionRef}
         title={text}
-        type={type}
-        className={`${hoverBgColor} btnAndNavLinkerAndOptions ${showOptions && "active"} `}
+        type="button"
+        className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLink ${showOptions && "active"} `}
         onClick={() => showOptionsSet(!showOptions)}
       >
         <span className="w-7">{icon}</span>
         <span className="hidden md:block">{font}</span>
         {showOptions && (
-          <span className="absolute -right-1 -top-1 inline-flex h-3 w-3 rounded-full bg-green-600">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+          <span className="absolute -right-1 -top-1 inline-flex h-3 w-3 rounded-full bg-rose-600">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
           </span>
         )}
       </button>

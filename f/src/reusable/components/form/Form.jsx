@@ -1,5 +1,11 @@
 import PropTypes from "prop-types";
-import { PlusIcon, SparklesIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import {
+  PencilIcon,
+  PlusCircleIcon,
+  SparklesIcon,
+  TrashIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -8,7 +14,7 @@ import toast from "react-hot-toast";
 import Btn from "../Btn";
 import { formatFontLabel } from "../../utils/helpers";
 import { onSubmitForm } from "./onSubmitForm";
-import { useDataGetter, useGetter } from "../../hooks/useGetter";
+import { fSocket } from "../../../api/apis/api";
 
 const defaultDataStructure = [
   {
@@ -26,30 +32,48 @@ const FormContext = createContext();
 export default function Form({
   dataStructure = defaultDataStructure,
   dataSave = console.log,
+  dataEdit = console.log,
   onSubmitRule = "simple",
   editDefaultVal = null,
-  bIO = "",
+  fIOFindOne = "",
+  bIOFindOne = "",
 }) {
   const navigate = useNavigate();
-  const [filePrev, filePrevSet] = useState("/Asset2.png");
+  const [filePrev, filePrevSet] = useState();
   const { register, handleSubmit, formState, reset } = useForm();
   const { errors } = formState;
   function onError() {
     toast.error("Form submission failed. Missing fields required.");
   }
-  function onSubmit(data) {
-    dataSave(onSubmitForm(data, onSubmitRule));
-  }
 
   //editing logic
   const { id } = useParams();
-  useGetter(editDefaultVal, id);
-  const editData = useDataGetter(bIO);
+  //useDataGetter manual
   useEffect(() => {
-    reset(editData);
-  }, [reset, editData]);
+    if (id) {
+      async function fetchData() {
+        await editDefaultVal(fIOFindOne, id);
+      }
+      fetchData();
+    }
+    return () => {};
+  }, [editDefaultVal, fIOFindOne, id]);
 
-  const edit = Boolean(editData?._id);
+  const [apiData, apiDataSet] = useState();
+  const editImagePreview = apiData?.image;
+
+  fSocket.on(bIOFindOne, (data) => {
+    apiDataSet(data.data);
+    reset(data.data);
+  });
+
+  const edit = Boolean(apiData?._id);
+
+  function onSubmit(data) {
+    edit
+      ? dataEdit(id, onSubmitForm(data, onSubmitRule))
+      : dataSave(onSubmitForm(data, onSubmitRule));
+  }
   return (
     <form
       encType="multipart/form-data"
@@ -67,7 +91,7 @@ export default function Form({
       </div>
 
       <div className="[&>*:nth-child(even)]:bg-slate-500/5">
-        {dataStructure.map((dataStructure, i) => (
+        {dataStructure[edit ? 1 : 0].map((dataStructure, i) => (
           <FormContext.Provider
             key={i}
             value={{
@@ -81,6 +105,7 @@ export default function Form({
               options: dataStructure.options,
               isRequired: dataStructure.isRequired,
               specifyFiles: dataStructure.specifyFiles,
+              editImagePreview,
             }}
           >
             <InputRow></InputRow>
@@ -90,22 +115,30 @@ export default function Form({
 
       <div className="mt-6 flex justify-evenly">
         <Btn
-          color="blue"
-          text="Save"
+          text={edit ? "update" : "Save"}
           type="submit"
-          icon={<PlusIcon></PlusIcon>}
+          color={edit ? "yellow" : "blue"}
+          icon={edit ? <PencilIcon color="yellow" /> : <PlusCircleIcon />}
         ></Btn>
         <Btn
-          color="yellow"
+          color="indigo"
           text="clear"
           type="reset"
-          icon={<SparklesIcon color="yellow" />}
+          icon={<SparklesIcon color="violet" />}
           onClick={() => {
             toast.success("Form cleared successfully");
             filePrevSet("/Asset2.png");
             reset({});
           }}
         ></Btn>
+        {edit && (
+          <Btn
+            text={"delete"}
+            color={"red"}
+            type="button"
+            icon={<TrashIcon color="red"></TrashIcon>}
+          ></Btn>
+        )}
         <Btn
           color="red"
           text="exit"
@@ -123,7 +156,9 @@ Form.propTypes = {
   dataSave: PropTypes.any,
   onSubmitRule: PropTypes.any,
   editDefaultVal: PropTypes.any,
-  bIO: PropTypes.any,
+  bIOFindOne: PropTypes.any,
+  fIOFindOne: PropTypes.any,
+  dataEdit: PropTypes.any,
 };
 
 function getGridDesign(inputLength) {
@@ -184,7 +219,8 @@ function Input({
   options = [],
   isRequired = false,
 }) {
-  const { filePrevSet, register, filePrev, errors } = useContext(FormContext);
+  const { filePrevSet, register, filePrev, errors, editImagePreview } =
+    useContext(FormContext);
 
   const font = formatFontLabel(inputName);
   const validate = isRequired && {
@@ -248,7 +284,7 @@ function Input({
             accept={specifyFile}
           ></input>
           <img
-            src={filePrev || "/Asset2.png"}
+            src={filePrev || editImagePreview || "/Asset2.png"}
             alt=""
             className="mx-auto mt-2 h-auto w-2/6"
           />

@@ -11,7 +11,7 @@ const apiClient = axios.create({
 
 export const fSocket = io.connect(bServer);
 
-//first happening then, sending data to BE
+//first happening sending data to BE
 function fIOToBIO(fIO, data) {
   fSocket.emit(fIO, data);
 }
@@ -55,6 +55,14 @@ export async function poster(rule, url, mess, data) {
   }
 }
 
-export async function patcher(rule, url, mess, data) {
-  return;
+export async function patcher(rule, url, mess, id, data) {
+  try {
+    if (rule === "simple/UpdateOne") {
+      const newData = await apiClient.patch(url + id, data);
+      toast.success(mess);
+      return newData;
+    }
+  } catch (exception) {
+    return errorHandler(exception, mess);
+  }
 }

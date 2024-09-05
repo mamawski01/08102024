@@ -57,7 +57,14 @@ export async function getter(req, res, rule, model, mess) {
   }
 }
 
-export async function poster(req, res, rule, model, mess) {
+export async function poster(
+  req,
+  res,
+  rule,
+  model,
+  mess,
+  registryUsersFolderLocation
+) {
   try {
     if (rule === "simple") {
       const data = await model.create(req.body);
@@ -80,7 +87,8 @@ export async function poster(req, res, rule, model, mess) {
         password: encryptedPassword,
         repeatPassword: encryptedPassword,
         image:
-          req.file?.filename && url("registryUserImages/") + req.file.filename,
+          req.file?.filename &&
+          url(`${registryUsersFolderLocation}/`) + req.file.filename,
       });
       return bDataIsFound(data, res, mess, rule);
     }
@@ -89,7 +97,14 @@ export async function poster(req, res, rule, model, mess) {
   }
 }
 
-export async function patcher(req, res, rule, model, mess) {
+export async function patcher(
+  req,
+  res,
+  rule,
+  model,
+  mess,
+  registryUsersFolderLocation
+) {
   try {
     const { id } = req.params;
 
@@ -108,11 +123,12 @@ export async function patcher(req, res, rule, model, mess) {
       const encryptedPassword = await bcrypt.hash(password, 10);
       //encrypt password
 
-      //userPrevImg
+      //userPrevImg with req.file?.filename
       const user = await model.findById(id);
       if (!user) return bDataNotFound(req, res, mess, rule);
-      delPrevImg(registryUsersFolderLocation, user, mess, rule);
-      //userPrevImg
+      req.file?.filename &&
+        delPrevImg(registryUsersFolderLocation, user, mess, rule);
+      //userPrevImg with req.file?.filename
 
       const data = await model.findByIdAndUpdate(
         id,
@@ -120,8 +136,9 @@ export async function patcher(req, res, rule, model, mess) {
           ...req.body,
           password: encryptedPassword,
           repeatPassword: encryptedPassword,
-          image:
-            req.file.filename && url("registryUserImages/") + req.file.filename,
+          image: req.file?.filename
+            ? url(`${registryUsersFolderLocation}/`) + req.file.filename
+            : user.image,
         },
         { new: true }
       );

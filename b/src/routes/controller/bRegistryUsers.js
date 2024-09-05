@@ -1,3 +1,4 @@
+import { registryUsersFolderLocation } from "../routes.js";
 import RegistryUser from "./models/UserModel.js";
 
 import { deleter, getter, patcher, poster } from "./operators/bOperators.js";
@@ -11,11 +12,25 @@ export function bGetRegistryUser(req, res) {
 }
 
 export function bPostRegistryUser(req, res) {
-  poster(req, res, "bPostRegistryUser", RegistryUser, "bPostRegistryUser");
+  poster(
+    req,
+    res,
+    "bPostRegistryUser",
+    RegistryUser,
+    "bPostRegistryUser",
+    registryUsersFolderLocation
+  );
 }
 
 export function bPatchRegistryUser(req, res) {
-  patcher(req, res, "bPatchRegistryUser", RegistryUser, "bPatchRegistryUser");
+  patcher(
+    req,
+    res,
+    "bPatchRegistryUser",
+    RegistryUser,
+    "bPatchRegistryUser",
+    registryUsersFolderLocation
+  );
 }
 
 export function bDeleteRegistryUser(req, res) {

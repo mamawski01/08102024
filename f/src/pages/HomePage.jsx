@@ -14,7 +14,7 @@ import {
 } from "@heroicons/react/24/solid";
 
 export default function HomePage() {
-  useGetter(getRegistryUsers);
+  useGetter(getRegistryUsers, "f2bGetRegistryUsers");
   const apiData = useDataGetter("b2fGetRegistryUsers");
   console.log(apiData);
 
@@ -28,6 +28,7 @@ export default function HomePage() {
             <Card
               key={i}
               to={`registryUserForm/${data._id}`}
+              imgSrc={data.image}
               title={`${capitalizeFirstLetterEachWord(data.firstName)} ${capitalizeFirstLetterEachWord(data.middleName)} ${capitalizeFirstLetterEachWord(data.lastName)}`}
               mainDescription={data.position}
               description={`Birthday ${dayjs(data.birthdate).format("MMM DD, YYYY")}, Age ${calculateAge(data.birthdate)}`}

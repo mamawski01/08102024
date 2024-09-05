@@ -1,20 +1,20 @@
 import { getter, patcher, poster } from "./apis/api";
 
-export function getRegistryUsers() {
+export function getRegistryUsers(fIO) {
   return getter(
     "simple/findAll",
     "/bGetRegistryUsers",
     "getRegistryUsers",
-    "f2bGetRegistryUsers",
+    fIO,
   );
 }
 
-export function getRegistryUser(id) {
+export function getRegistryUser(fIO, id) {
   return getter(
     "simple/findOne",
     "/bGetRegistryUser/",
     "getRegistryUser",
-    "f2bGetRegistryUser",
+    fIO,
     id,
   );
 }
@@ -28,6 +28,12 @@ export function postRegistryUser(data) {
   );
 }
 
-export function apiRegistryUser(id, data) {
-  return patcher("Registry User updated", "/apiUserPatchUser/", id, data);
+export function patchRegistryUser(id, data) {
+  return patcher(
+    "simple/UpdateOne",
+    "/bPatchRegistryUser/",
+    "patchRegistryUser",
+    id,
+    data,
+  );
 }

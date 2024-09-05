@@ -1,34 +1,34 @@
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 import { formatFontLabel, onHoverBgColor } from "../utils/helpers";
-import { HeartIcon } from "@heroicons/react/24/solid";
-export default function Btn({
-  text = "addText",
-  type = "button",
+import { LinkIcon } from "@heroicons/react/24/solid";
+
+export default function NavLinker({
+  text = "add Linker",
+  icon = <LinkIcon color="red" />,
+  to = "/",
   color = "green",
-  onClick = null,
-  icon = <HeartIcon color="red" />,
 }) {
-  const hoverBgColor = onHoverBgColor(color);
   const font = formatFontLabel(text);
+  const hoverBgColor = onHoverBgColor(color);
 
   return (
-    <button
-      title={text}
-      onClick={onClick}
-      type={type}
+    <NavLink
+      title={font}
+      to={to}
       className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLink`}
     >
       <span className="w-7">{icon}</span>
       <span className="hidden md:block">{font}</span>
-    </button>
+    </NavLink>
   );
 }
 
-Btn.propTypes = {
-  type: PropTypes.any,
+NavLinker.propTypes = {
   color: PropTypes.any,
-  onClick: PropTypes.any,
   icon: PropTypes.any,
   text: PropTypes.any,
+  to: PropTypes.any,
+  url: PropTypes.any,
 };
