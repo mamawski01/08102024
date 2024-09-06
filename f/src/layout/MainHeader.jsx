@@ -1,8 +1,4 @@
-import {
-  BookmarkIcon,
-  PaperClipIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/solid";
+import { PaperClipIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 
 import Logo from "../reusable/components/Logo";
 import Options from "../reusable/components/Options";
@@ -17,9 +13,9 @@ export default function MainHeader() {
         </div>
         <div className="flex gap-4">
           <Options
-            text="pages"
+            text="manageStaff"
             position="right-0"
-            icon={<BookmarkIcon></BookmarkIcon>}
+            icon={<UserGroupIcon />}
             options={[
               {
                 option: (

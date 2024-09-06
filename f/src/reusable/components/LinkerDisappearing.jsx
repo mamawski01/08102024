@@ -22,7 +22,7 @@ export default function LinkerDisappearing({
     <Link
       title={font}
       to={to}
-      className={`${hoverBgColor} ${pathname === samePath && "hidden"} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing`}
+      className={`${hoverBgColor} ${pathname === samePath && "hidden"} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing absolute`}
     >
       <span className="w-7">{icon}</span>
       <span className="hidden flex-wrap md:flex">{font}</span>

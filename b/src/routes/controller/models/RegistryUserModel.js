@@ -7,6 +7,6 @@ const collectionName = "RegistryUser";
 const { Schema } = mongoose;
 const userSchema = new Schema(UserModel());
 
-const RegistryUser = mongoose.model(collectionName, userSchema);
+const RegistryUserModel = mongoose.model(collectionName, userSchema);
 
-export default RegistryUser;
+export default RegistryUserModel;

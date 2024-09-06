@@ -17,7 +17,7 @@ export function imageName(imgName = "") {
   return dayjs(Date.now()).format("YYYY-MM-DD-hh-mm-ssa-SSS") + imgName;
 }
 
-export const upload = (folderName, imgName) => {
+export const upload = (folderName = "userImgFolder", imgName = "userImg") => {
   if (fs.existsSync(imageLocation(folderName))) {
     console.log(`Folder already exists ${imageLocation(folderName)}`);
   } else {

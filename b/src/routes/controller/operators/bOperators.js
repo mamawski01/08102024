@@ -2,7 +2,6 @@ import bcrypt from "bcryptjs";
 
 import { deleteImage, url } from "../../../utils/bHelpers.js";
 import { imageLocation } from "../../../utils/multer.js";
-import { registryUsersFolderLocation } from "../../routes.js";
 
 function bErrorHandler(req, res, error, mess, rule) {
   console.log(error, `${error.message} fx=${mess}, rule=${rule}`);
@@ -63,7 +62,8 @@ export async function poster(
   rule,
   model,
   mess,
-  registryUsersFolderLocation
+  folderLocation,
+  registryModelDelete
 ) {
   try {
     if (rule === "simple") {
@@ -87,24 +87,38 @@ export async function poster(
         password: encryptedPassword,
         repeatPassword: encryptedPassword,
         image:
-          req.file?.filename &&
-          url(`${registryUsersFolderLocation}/`) + req.file.filename,
+          req.file?.filename && url(`${folderLocation}/`) + req.file.filename,
       });
       return bDataIsFound(data, res, mess, rule);
+    }
+
+    if (rule === "bPostConfirmedUser") {
+      const { id } = req.params;
+      const registryModel = await registryModelDelete.findById(id);
+      if (!registryModel) {
+        return bDataNotFound(req, res, mess, rule);
+      } else {
+        const registryModelLean = registryModel.toObject();
+
+        //check if email exist and delete image
+        const userEmailExist = await model.exists({
+          email: registryModelLean.email,
+        });
+        if (userEmailExist)
+          return duplicatedEmail(req, res, mess, rule, registryModelLean.email);
+        //check if email exist and delete image
+
+        const data = await model.create(registryModelLean);
+        await registryModelDelete.findByIdAndDelete(id);
+        return bDataIsFound(data, res, mess, rule);
+      }
     }
   } catch (error) {
     return bErrorHandler(req, res, error, mess, rule);
   }
 }
 
-export async function patcher(
-  req,
-  res,
-  rule,
-  model,
-  mess,
-  registryUsersFolderLocation
-) {
+export async function patcher(req, res, rule, model, mess, folderLocation) {
   try {
     const { id } = req.params;
 
@@ -116,7 +130,7 @@ export async function patcher(
       return bDataIsFound(data, res, mess, rule);
     }
 
-    if (rule === "bPatchRegistryUser") {
+    if (rule === "bPatchRegistryUser" || rule === "bPatchConfirmedUser") {
       const { password } = req.body;
 
       //encrypt password
@@ -126,8 +140,7 @@ export async function patcher(
       //userPrevImg with req.file?.filename
       const user = await model.findById(id);
       if (!user) return bDataNotFound(req, res, mess, rule);
-      req.file?.filename &&
-        delPrevImg(registryUsersFolderLocation, user, mess, rule);
+      req.file?.filename && delPrevImg(folderLocation, user, mess, rule);
       //userPrevImg with req.file?.filename
 
       const data = await model.findByIdAndUpdate(
@@ -137,7 +150,7 @@ export async function patcher(
           password: encryptedPassword,
           repeatPassword: encryptedPassword,
           image: req.file?.filename
-            ? url(`${registryUsersFolderLocation}/`) + req.file.filename
+            ? url(`${folderLocation}/`) + req.file.filename
             : user.image,
         },
         { new: true }
@@ -149,15 +162,15 @@ export async function patcher(
   }
 }
 
-export async function deleter(req, res, rule, model, mess) {
+export async function deleter(req, res, rule, model, mess, folderLocation) {
   try {
     const { id } = req.params;
 
-    if (rule === "bDeleteRegistryUser") {
+    if (rule === "bDeleteRegistryUser" || rule === "bDeleteConfirmedUser") {
       //userPrevImg
       const user = await model.findById(id);
       if (!user) return bDataNotFound(req, res, mess, rule);
-      delPrevImg(registryUsersFolderLocation, user, mess, rule);
+      delPrevImg(folderLocation, user, mess, rule);
       //userPrevImg
 
       const data = await model.findByIdAndDelete(id);

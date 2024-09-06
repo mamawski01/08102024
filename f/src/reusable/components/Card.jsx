@@ -7,7 +7,7 @@ import {
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Btn from "./Btn";
-import Linker from "./LinkerDisappearing";
+import Linker from "./Linker";
 
 const defaultIconWithDetails = [
   {

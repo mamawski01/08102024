@@ -1,14 +1,14 @@
-import { registryUsersFolderLocation } from "../routes.js";
-import RegistryUser from "./models/UserModel.js";
+import { userImgFolderLoc } from "../routes.js";
+import RegistryUserModel from "./models/RegistryUserModel.js";
 
 import { deleter, getter, patcher, poster } from "./operators/bOperators.js";
 
 export function bGetRegistryUsers(req, res) {
-  getter(req, res, "simple/findAll", RegistryUser, "bGetRegistryUsers");
+  getter(req, res, "simple/findAll", RegistryUserModel, "bGetRegistryUsers");
 }
 
 export function bGetRegistryUser(req, res) {
-  getter(req, res, "simple/findOne", RegistryUser, "bGetRegistryUser");
+  getter(req, res, "simple/findOne", RegistryUserModel, "bGetRegistryUser");
 }
 
 export function bPostRegistryUser(req, res) {
@@ -16,9 +16,9 @@ export function bPostRegistryUser(req, res) {
     req,
     res,
     "bPostRegistryUser",
-    RegistryUser,
+    RegistryUserModel,
     "bPostRegistryUser",
-    registryUsersFolderLocation
+    userImgFolderLoc
   );
 }
 
@@ -27,12 +27,19 @@ export function bPatchRegistryUser(req, res) {
     req,
     res,
     "bPatchRegistryUser",
-    RegistryUser,
+    RegistryUserModel,
     "bPatchRegistryUser",
-    registryUsersFolderLocation
+    userImgFolderLoc
   );
 }
 
 export function bDeleteRegistryUser(req, res) {
-  deleter(req, res, "bDeleteRegistryUser", RegistryUser, "bDeleteRegistryUser");
+  deleter(
+    req,
+    res,
+    "bDeleteRegistryUser",
+    RegistryUserModel,
+    "bDeleteRegistryUser",
+    userImgFolderLoc
+  );
 }

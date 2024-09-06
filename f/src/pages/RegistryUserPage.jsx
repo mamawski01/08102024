@@ -16,7 +16,7 @@ import {
   //   PlusCircleIcon,
 } from "@heroicons/react/24/solid";
 import Options from "../reusable/components/Options";
-import Linker from "../reusable/components/LinkerDisappearing";
+import Linker from "../reusable/components/Linker";
 
 export default function RegistryUserPage() {
   const updater1post = useDataGetter("b2fPostRegistryUser");

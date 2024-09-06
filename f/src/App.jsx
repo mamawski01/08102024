@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import AppLayout from "./layout/AppLayout";
 import RegistryUserForm from "./pages/RegistryUserForm";
 import RegistryUserPage from "./pages/RegistryUserPage";
+import ConfirmedUserPage from "./pages/ConfirmedUserPage";
 
 export default function App() {
   return (
@@ -28,6 +29,10 @@ export default function App() {
             <Route
               path="homepage/registryUserPage/registryUserForm/:id"
               element={<RegistryUserForm></RegistryUserForm>}
+            ></Route>
+            <Route
+              path="homepage/confirmedUserPage"
+              element={<ConfirmedUserPage />}
             ></Route>
           </Route>
         </Routes>
