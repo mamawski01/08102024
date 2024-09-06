@@ -17,7 +17,7 @@ export default function Btn({
       title={text}
       onClick={onClick}
       type={type}
-      className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLink`}
+      className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing`}
     >
       <span className="w-7">{icon}</span>
       <span className="hidden md:block">{font}</span>

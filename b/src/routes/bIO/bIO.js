@@ -19,5 +19,17 @@ export function registerSocketServer(server) {
       console.log(data);
       io.emit("b2fGetRegistryUser", data);
     });
+    socket.on("f2bPostRegistryUser", (data) => {
+      console.log(data);
+      io.emit("b2fPostRegistryUser", data);
+    });
+    socket.on("f2bPatchRegistryUser", (data) => {
+      console.log(data);
+      io.emit("b2fPatchRegistryUser", data);
+    });
+    socket.on("f2bDeleteRegistryUser", (data) => {
+      console.log(data);
+      io.emit("b2fDeleteRegistryUser", data);
+    });
   });
 }

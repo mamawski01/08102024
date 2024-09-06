@@ -29,6 +29,7 @@ export default function Card({
   description = "tall, dark and handsome",
   iconWithDetails = defaultIconWithDetails,
   to = "/",
+  deleteOne,
 }) {
   const [expand, expandSet] = useState();
   return (
@@ -76,6 +77,7 @@ export default function Card({
         <Btn
           text="delete"
           color="red"
+          onClick={deleteOne}
           icon={<TrashIcon color="crimson" />}
         ></Btn>
       </div>
@@ -90,6 +92,7 @@ Card.propTypes = {
   description: PropTypes.any,
   iconWithDetails: PropTypes.any,
   to: PropTypes.any,
+  deleteOne: PropTypes.any,
 };
 
 export function IconContentMap({ iconDetail }) {

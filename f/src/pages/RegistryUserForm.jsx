@@ -1,4 +1,5 @@
 import {
+  deleteRegistryUser,
   getRegistryUser,
   patchRegistryUser,
   postRegistryUser,
@@ -12,9 +13,13 @@ export default function RegistryUserForm() {
       dataStructure={[userModel(), userModelEdit()]}
       dataSave={postRegistryUser}
       dataEdit={patchRegistryUser}
+      dataDelete={deleteRegistryUser}
       editDefaultVal={getRegistryUser}
       fIOFindOne="f2bGetRegistryUser"
       bIOFindOne="b2fGetRegistryUser"
+      fIOSaveOne="f2bPostRegistryUser"
+      fIOUpdateOne="f2bPatchRegistryUser"
+      fIODeleteOne="f2bDeleteRegistryUser"
     ></Form>
   );
 }

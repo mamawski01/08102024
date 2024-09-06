@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import HomePage from "./pages/HomePage";
 import AppLayout from "./layout/AppLayout";
 import RegistryUserForm from "./pages/RegistryUserForm";
+import RegistryUserPage from "./pages/RegistryUserPage";
 
 export default function App() {
   return (
@@ -17,11 +18,15 @@ export default function App() {
             ></Route>
             <Route path="homepage" element={<HomePage></HomePage>}></Route>
             <Route
-              path="homepage/registryUserForm"
+              path="homepage/registryUserPage"
+              element={<RegistryUserPage></RegistryUserPage>}
+            ></Route>
+            <Route
+              path="homepage/registryUserPage/registryUserForm"
               element={<RegistryUserForm></RegistryUserForm>}
             ></Route>
             <Route
-              path="homepage/registryUserForm/:id"
+              path="homepage/registryUserPage/registryUserForm/:id"
               element={<RegistryUserForm></RegistryUserForm>}
             ></Route>
           </Route>

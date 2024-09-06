@@ -16,7 +16,7 @@ const defaulOptions = [
 
 export default function Options({
   text = "Add Option Text",
-  color = "green",
+  color = "indigo",
   icon = <QueueListIcon color="yellow" />,
   options = defaulOptions,
   position = "right-0",
@@ -41,31 +41,35 @@ export default function Options({
   const hoverBgColor = onHoverBgColor(color);
   const font = formatFontLabel(text);
   return (
-    <div className="relative z-50 flex gap-2">
-      <button
-        ref={optionRef}
-        title={text}
-        type="button"
-        className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLink ${showOptions && "active"} `}
-        onClick={() => showOptionsSet(!showOptions)}
-      >
-        <span className="w-7">{icon}</span>
-        <span className="hidden md:block">{font}</span>
+    <div className="sticky top-0 z-50 flex w-fit gap-2">
+      <div className="relative">
+        <button
+          ref={optionRef}
+          title={text}
+          type="button"
+          className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing ${showOptions && "active"} `}
+          onClick={() => showOptionsSet(!showOptions)}
+        >
+          <span className="w-7">{icon}</span>
+          <span className="hidden md:block">{font}</span>
+          {showOptions && (
+            <span className="absolute -right-1 -top-1 inline-flex h-3 w-3 rounded-full bg-rose-600">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
+            </span>
+          )}
+        </button>
         {showOptions && (
-          <span className="absolute -right-1 -top-1 inline-flex h-3 w-3 rounded-full bg-rose-600">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
-          </span>
+          <ul
+            className={`bg absolute ${position} gap-19 top-10 flex flex-col md:top-16`}
+          >
+            {options.map((option, i) => (
+              <li className="w-full" key={i}>
+                {option.option}
+              </li>
+            ))}
+          </ul>
         )}
-      </button>
-      {showOptions && (
-        <ul className={`bg absolute ${position} top-10 flex flex-col gap-1`}>
-          {options.map((option, i) => (
-            <li className="w-full" key={i}>
-              {option.option}
-            </li>
-          ))}
-        </ul>
-      )}
+      </div>
     </div>
   );
 }

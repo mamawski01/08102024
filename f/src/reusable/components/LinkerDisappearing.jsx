@@ -8,7 +8,7 @@ export default function LinkerDisappearing({
   text = "add LinkerDisappearing",
   icon = <LinkIcon color="red" />,
   to = "/",
-  color = "green",
+  color = "blue",
 }) {
   const font = formatFontLabel(text);
   const hoverBgColor = onHoverBgColor(color);
@@ -16,15 +16,16 @@ export default function LinkerDisappearing({
   const { pathname } = useLocation();
   const { id } = useParams();
   const samePath = id ? `/${to}/${id}` : `/${to}`;
-
+  console.log(pathname);
+  console.log(samePath);
   return (
     <Link
       title={font}
       to={to}
-      className={`${hoverBgColor} ${pathname === samePath && "hidden"} btnAndNavLinkerAndOptionsAndLink`}
+      className={`${hoverBgColor} ${pathname === samePath && "hidden"} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing`}
     >
       <span className="w-7">{icon}</span>
-      <span className="hidden md:block">{font}</span>
+      <span className="hidden flex-wrap md:flex">{font}</span>
     </Link>
   );
 }

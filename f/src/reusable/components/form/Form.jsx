@@ -33,10 +33,14 @@ export default function Form({
   dataStructure = defaultDataStructure,
   dataSave = console.log,
   dataEdit = console.log,
+  dataDelete = console.log,
   onSubmitRule = "simple",
   editDefaultVal = null,
   fIOFindOne = "",
   bIOFindOne = "",
+  fIOSaveOne = "",
+  fIOUpdateOne = "",
+  fIODeleteOne = "",
 }) {
   const navigate = useNavigate();
   const [filePrev, filePrevSet] = useState();
@@ -71,8 +75,8 @@ export default function Form({
 
   function onSubmit(data) {
     edit
-      ? dataEdit(id, onSubmitForm(data, onSubmitRule))
-      : dataSave(onSubmitForm(data, onSubmitRule));
+      ? dataEdit(fIOUpdateOne, id, onSubmitForm(data, onSubmitRule))
+      : dataSave(fIOSaveOne, onSubmitForm(data, onSubmitRule));
   }
   return (
     <form
@@ -118,7 +122,13 @@ export default function Form({
           text={edit ? "update" : "Save"}
           type="submit"
           color={edit ? "yellow" : "blue"}
-          icon={edit ? <PencilIcon color="yellow" /> : <PlusCircleIcon />}
+          icon={
+            edit ? (
+              <PencilIcon color="yellow" />
+            ) : (
+              <PlusCircleIcon color="aquamarine" />
+            )
+          }
         ></Btn>
         <Btn
           color="indigo"
@@ -137,6 +147,7 @@ export default function Form({
             color={"red"}
             type="button"
             icon={<TrashIcon color="red"></TrashIcon>}
+            onClick={() => dataDelete(fIODeleteOne, apiData?._id)}
           ></Btn>
         )}
         <Btn
@@ -154,11 +165,15 @@ export default function Form({
 Form.propTypes = {
   dataStructure: PropTypes.any,
   dataSave: PropTypes.any,
+  dataEdit: PropTypes.any,
+  dataDelete: PropTypes.any,
   onSubmitRule: PropTypes.any,
   editDefaultVal: PropTypes.any,
   bIOFindOne: PropTypes.any,
   fIOFindOne: PropTypes.any,
-  dataEdit: PropTypes.any,
+  fIOSaveOne: PropTypes.any,
+  fIOUpdateOne: PropTypes.any,
+  fIODeleteOne: PropTypes.any,
 };
 
 function getGridDesign(inputLength) {

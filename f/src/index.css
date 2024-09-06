@@ -7,8 +7,12 @@
     @apply bg-slate-950 text-blue-100;
   }
 
+  .contentHeight {
+    @apply h-[calc(100vh-4.6rem)];
+  }
+
   .header {
-    @apply w-full border-b border-gray-300/20 p-2;
+    @apply w-full border-b border-gray-300/20 p-1;
   }
 
   .active {
@@ -19,8 +23,8 @@
     @apply container mx-auto overflow-y-auto rounded-lg bg-slate-200/10 p-1 text-center backdrop-blur-sm md:w-5/6 md:p-4 lg:w-4/6 lg:p-8;
   }
 
-  .btnAndNavLinkerAndOptionsAndLink {
-    @apply relative flex items-center gap-1 rounded-md p-1 px-2 font-bold tracking-wider;
+  .btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing {
+    @apply relative flex flex-col items-center gap-1 rounded-md p-1 px-2 font-bold tracking-wider;
   }
 
   .bg {

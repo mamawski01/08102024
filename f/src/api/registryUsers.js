@@ -1,4 +1,4 @@
-import { getter, patcher, poster } from "./apis/api";
+import { deleter, getter, patcher, poster } from "./apis/api";
 
 export function getRegistryUsers(fIO) {
   return getter(
@@ -19,21 +19,33 @@ export function getRegistryUser(fIO, id) {
   );
 }
 
-export function postRegistryUser(data) {
+export function postRegistryUser(fIO, data) {
   return poster(
-    "simple/SaveOne",
+    "simple/saveOne",
     "/bPostRegistryUser",
     "postRegistryUser",
+    fIO,
     data,
   );
 }
 
-export function patchRegistryUser(id, data) {
+export function patchRegistryUser(fIO, id, data) {
   return patcher(
-    "simple/UpdateOne",
+    "simple/updateOne",
     "/bPatchRegistryUser/",
     "patchRegistryUser",
+    fIO,
     id,
     data,
+  );
+}
+
+export function deleteRegistryUser(fIO, id) {
+  return deleter(
+    "simple/deleteOne",
+    "/bDeleteRegistryUser/",
+    "deleteRegistryUser",
+    fIO,
+    id,
   );
 }

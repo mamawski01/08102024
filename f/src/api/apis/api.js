@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
 import axios from "axios";
 import io from "socket.io-client";
+import { swalAlert } from "../../reusable/utils/helpers";
 
 export const bServer = "http://localhost:7000";
 
@@ -43,11 +44,12 @@ export async function getter(rule, url, mess, fIO, id) {
   }
 }
 
-export async function poster(rule, url, mess, data) {
+export async function poster(rule, url, mess, fIO, data) {
   try {
-    if (rule === "simple/SaveOne") {
+    if (rule === "simple/saveOne") {
       const newData = await apiClient.post(url, data);
       toast.success(mess);
+      fIOToBIO(fIO, newData);
       return newData;
     }
   } catch (exception) {
@@ -55,12 +57,29 @@ export async function poster(rule, url, mess, data) {
   }
 }
 
-export async function patcher(rule, url, mess, id, data) {
+export async function patcher(rule, url, mess, fIO, id, data) {
   try {
-    if (rule === "simple/UpdateOne") {
+    if (rule === "simple/updateOne") {
       const newData = await apiClient.patch(url + id, data);
       toast.success(mess);
+      fIOToBIO(fIO, newData);
       return newData;
+    }
+  } catch (exception) {
+    return errorHandler(exception, mess);
+  }
+}
+
+export async function deleter(rule, url, mess, fIO, id) {
+  try {
+    if (rule === "simple/deleteOne") {
+      const confirmDelete = await swalAlert();
+      if (confirmDelete.isConfirmed) {
+        const data = await apiClient.delete(url + id);
+        toast.success(mess);
+        fIOToBIO(fIO, data);
+        return data;
+      }
     }
   } catch (exception) {
     return errorHandler(exception, mess);
