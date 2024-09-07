@@ -3,6 +3,7 @@ import { PaperClipIcon, UserGroupIcon } from "@heroicons/react/24/solid";
 import Logo from "../reusable/components/Logo";
 import Options from "../reusable/components/Options";
 import NavLinker from "../reusable/components/NavLinker";
+import { CheckmarkIcon } from "react-hot-toast";
 
 export default function MainHeader() {
   return (
@@ -29,16 +30,17 @@ export default function MainHeader() {
                 option: (
                   <NavLinker
                     icon={<UserGroupIcon></UserGroupIcon>}
-                    text={"attendance"}
+                    text={"registryUserList"}
+                    to="homepage/registryUserPage"
                   ></NavLinker>
                 ),
               },
               {
                 option: (
                   <NavLinker
-                    icon={<UserGroupIcon></UserGroupIcon>}
-                    text={"registryUserList"}
-                    to="homepage/registryUserPage"
+                    icon={<CheckmarkIcon></CheckmarkIcon>}
+                    text={"confirmedUserList"}
+                    to="homepage/confirmedUserPage"
                   ></NavLinker>
                 ),
               },

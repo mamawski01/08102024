@@ -44,13 +44,27 @@ export async function getter(rule, url, mess, fIO, id) {
   }
 }
 
-export async function poster(rule, url, mess, fIO, data) {
+export async function poster(rule, url, mess, fIO, data, id) {
   try {
     if (rule === "simple/saveOne") {
       const newData = await apiClient.post(url, data);
       toast.success(mess);
       fIOToBIO(fIO, newData);
       return newData;
+    }
+
+    if (rule === "special/saveOne") {
+      const confirmDelete = await swalAlert(
+        "Are you sure to confirm this user?",
+        "User will be move to confirmed list",
+        "Yes, move to confirmed list!",
+      );
+      if (confirmDelete.isConfirmed) {
+        const newData = await apiClient.post(url + id, data);
+        toast.success(mess);
+        fIOToBIO(fIO, newData);
+        return newData;
+      }
     }
   } catch (exception) {
     return errorHandler(exception, mess);

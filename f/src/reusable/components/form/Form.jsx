@@ -64,6 +64,7 @@ export default function Form({
   }, [editDefaultVal, fIOFindOne, id]);
 
   const [apiData, apiDataSet] = useState();
+  console.log(apiData);
   const editImagePreview = apiData?.image;
 
   fSocket.on(bIOFindOne, (data) => {

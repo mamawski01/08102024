@@ -11,6 +11,7 @@ export function registerSocketServer(server) {
   });
 
   //second happening then, sending data to FE
+  //registry user
   io.on("connection", (socket) => {
     socket.on("f2bGetRegistryUsers", (data) => {
       io.emit("b2fGetRegistryUsers", data);
@@ -30,6 +31,26 @@ export function registerSocketServer(server) {
     socket.on("f2bDeleteRegistryUser", (data) => {
       console.log(data);
       io.emit("b2fDeleteRegistryUser", data);
+    });
+    //confirmed user
+    socket.on("f2bGeConfirmedUsers", (data) => {
+      io.emit("b2fGeConfirmedUsers", data);
+    });
+    socket.on("f2bGetConfirmedUser", (data) => {
+      console.log(data);
+      io.emit("b2fGetConfirmedUser", data);
+    });
+    socket.on("f2bPostConfirmedUser", (data) => {
+      console.log(data);
+      io.emit("b2fPostConfirmedUser", data);
+    });
+    socket.on("f2bPatchConfirmedUser", (data) => {
+      console.log(data);
+      io.emit("b2fPatchConfirmedUser", data);
+    });
+    socket.on("f2bDeleteConfirmedUser", (data) => {
+      console.log(data);
+      io.emit("b2fDeleteConfirmedUser", data);
     });
   });
 }

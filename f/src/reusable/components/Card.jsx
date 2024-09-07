@@ -29,7 +29,8 @@ export default function Card({
   description = "tall, dark and handsome",
   iconWithDetails = defaultIconWithDetails,
   to = "/",
-  deleteOne,
+  deleteOne = null,
+  confirmOne = null,
 }) {
   const [expand, expandSet] = useState();
   return (
@@ -63,11 +64,14 @@ export default function Card({
         </div>
       )}
       <div className="mt-6 flex flex-wrap justify-evenly">
-        <Btn
-          text="confirm"
-          color="blue"
-          icon={<CheckBadgeIcon color="mediumturquoise" />}
-        ></Btn>
+        {confirmOne && (
+          <Btn
+            text="confirm"
+            color="blue"
+            onClick={confirmOne}
+            icon={<CheckBadgeIcon color="mediumturquoise" />}
+          ></Btn>
+        )}
         <Linker
           text="edit"
           color="yellow"
@@ -93,6 +97,7 @@ Card.propTypes = {
   iconWithDetails: PropTypes.any,
   to: PropTypes.any,
   deleteOne: PropTypes.any,
+  confirmOne: PropTypes.any,
 };
 
 export function IconContentMap({ iconDetail }) {

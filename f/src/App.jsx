@@ -6,6 +6,7 @@ import AppLayout from "./layout/AppLayout";
 import RegistryUserForm from "./pages/RegistryUserForm";
 import RegistryUserPage from "./pages/RegistryUserPage";
 import ConfirmedUserPage from "./pages/ConfirmedUserPage";
+import ConfirmedUserForm from "./pages/ConfirmedUserForm";
 
 export default function App() {
   return (
@@ -33,6 +34,14 @@ export default function App() {
             <Route
               path="homepage/confirmedUserPage"
               element={<ConfirmedUserPage />}
+            ></Route>
+            <Route
+              path="homepage/confirmedUserPage/confirmedUserForm"
+              element={<ConfirmedUserForm></ConfirmedUserForm>}
+            ></Route>
+            <Route
+              path="homepage/confirmedUserPage/confirmedUserForm/:id"
+              element={<ConfirmedUserForm></ConfirmedUserForm>}
             ></Route>
           </Route>
         </Routes>

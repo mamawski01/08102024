@@ -41,7 +41,7 @@ export default function Options({
   const hoverBgColor = onHoverBgColor(color);
   const font = formatFontLabel(text);
   return (
-    <div className="sticky top-0 z-50 flex w-fit gap-2">
+    <div className="sticky top-0 z-40 flex w-fit gap-2 p-1">
       <div className="relative">
         <button
           ref={optionRef}
