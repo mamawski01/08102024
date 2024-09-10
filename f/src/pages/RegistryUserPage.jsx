@@ -9,7 +9,6 @@ import {
 } from "../reusable/utils/helpers";
 import {
   BookOpenIcon,
-  Cog8ToothIcon,
   HomeModernIcon,
   PhoneIcon,
   PlusCircleIcon,
@@ -38,27 +37,21 @@ export default function RegistryUserPage() {
   return (
     <>
       <div className="sticky top-0 z-10 flex bg-slate-950 text-center">
-        <Options
-          text="Options"
-          position="left-0"
-          icon={<Cog8ToothIcon color="orangered" />}
-          options={[
-            {
-              option: (
-                <Linker
-                  text={"addRegistryUser"}
-                  icon={<PlusCircleIcon color="aquamarine" />}
-                  to={"registryUserForm"}
-                ></Linker>
-              ),
-            },
-          ]}
-        ></Options>
-        <h1 className="flex w-full items-center justify-center text-center text-2xl font-bold tracking-wider">
+        <h1 className="flex h-16 w-full items-center justify-center text-center text-2xl font-bold tracking-wider">
           Registry User
         </h1>
       </div>
       <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
+        {registryUsersGet && registryUsersGet.length === 0 && (
+          <div>
+            <h1 className="text-center text-xl font-bold">Empty List...</h1>
+            <Linker
+              text={"addRegistryUser"}
+              icon={<PlusCircleIcon color="aquamarine" />}
+              to={"registryUserForm"}
+            ></Linker>
+          </div>
+        )}
         {registryUsersGet &&
           registryUsersGet
             .slice()

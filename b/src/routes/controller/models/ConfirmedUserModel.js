@@ -10,6 +10,15 @@ const userSchema = new Schema({
   attendanceId: {
     type: String,
   },
+  dailySSSAllocation: {
+    type: String,
+  },
+  monthlyPhilHealth: {
+    type: String,
+  },
+  monthlyPagIbig: {
+    type: String,
+  },
 });
 
 const ConfirmedUserModel = mongoose.model(collectionName, userSchema);

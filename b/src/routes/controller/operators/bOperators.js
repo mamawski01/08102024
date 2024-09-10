@@ -9,15 +9,11 @@ function bErrorHandler(req, res, error, mess, rule) {
   return res.status(500).send(`${error.message} fx=${mess}, rule=${rule}`);
 }
 
-function bDataNotFound(data, req, res, mess, rule) {
+function bDataNotFound(req, res, mess, rule) {
   deleteImage(req.file?.path, mess, rule);
-
-  return (
-    res
-      .status(200)
-      // .send(`${mess} data not found, fx=${mess}, rule=${rule}`);
-      .send({ data })
-  );
+  return res
+    .status(404)
+    .send(`${mess} data not found, fx=${mess}, rule=${rule}`);
 }
 
 function bDataIsFound(data, res, mess, rule) {
@@ -44,14 +40,11 @@ export async function getter(req, res, rule, model, mess) {
 
     if (rule === "simple/findAll") {
       const data = await model.find();
-      if (!data || data.length === 0)
-        return bDataNotFound([], req, res, mess, rule);
       return bDataIsFound(data, res, mess, rule);
     }
 
     if (rule === "simple/findOne") {
       const data = await model.findById(id);
-      if (!data) return bDataNotFound([], req, res, mess, rule);
       return bDataIsFound(data, res, mess, rule);
     }
   } catch (error) {
@@ -99,7 +92,7 @@ export async function poster(
       const { id } = req.params;
       const registryModel = await registryModelDelete.findById(id);
       if (!registryModel) {
-        return bDataNotFound([], req, res, mess, rule);
+        return bDataNotFound(req, res, mess, rule);
       } else {
         const registryModelLean = registryModel.toObject();
 
@@ -129,7 +122,7 @@ export async function patcher(req, res, rule, model, mess, folderLocation) {
       const data = await model.findByIdAndUpdate(id, req.body, {
         new: true,
       });
-      if (!data) return bDataNotFound([], req, res, mess, rule);
+      if (!data) return bDataNotFound(req, res, mess, rule);
       return bDataIsFound(data, res, mess, rule);
     }
 
@@ -142,7 +135,7 @@ export async function patcher(req, res, rule, model, mess, folderLocation) {
 
       //userPrevImg with req.file?.filename
       const user = await model.findById(id);
-      if (!user) return bDataNotFound([], req, res, mess, rule);
+      if (!user) return bDataNotFound(req, res, mess, rule);
       req.file?.filename && delPrevImg(folderLocation, user, mess, rule);
       //userPrevImg with req.file?.filename
 
@@ -172,7 +165,7 @@ export async function deleter(req, res, rule, model, mess, folderLocation) {
     if (rule === "bDeleteRegistryUser" || rule === "bDeleteConfirmedUser") {
       //userPrevImg
       const user = await model.findById(id);
-      if (!user) return bDataNotFound([], req, res, mess, rule);
+      if (!user) return bDataNotFound(req, res, mess, rule);
       delPrevImg(folderLocation, user, mess, rule);
       //userPrevImg
 

@@ -1,33 +1,20 @@
 import dayjs from "dayjs";
-
-import { useDataGetter, useGetter } from "../reusable/hooks/useGetter";
-import { deleteConfirmedUser, getConfirmedUsers } from "../api/confirmedUsers";
-import Card from "../reusable/components/card";
-import {
-  calculateAge,
-  capitalizeFirstLetterEachWord,
-} from "../reusable/utils/helpers";
 import {
   BookOpenIcon,
   HomeModernIcon,
   PhoneIcon,
-  //   PlusCircleIcon,
 } from "@heroicons/react/24/solid";
 
+import {
+  calculateAge,
+  capitalizeFirstLetterEachWord,
+} from "../reusable/utils/helpers";
+import Card from "../reusable/components/card";
+
+import { useGlobal } from "./context/globalhook";
+
 export default function ConfirmedUserPage() {
-  const updater1post = useDataGetter("b2fPostConfirmedUser");
-  const updater2patch = useDataGetter("b2fPatchConfirmedUser");
-  const updater3delete = useDataGetter("b2fDeleteConfirmedUser");
-  useGetter(
-    getConfirmedUsers,
-    "f2bGeConfirmedUsers",
-    null,
-    updater1post,
-    updater2patch,
-    updater3delete,
-  );
-  const confirmedUsersGet = useDataGetter("b2fGeConfirmedUsers");
-  console.log(confirmedUsersGet);
+  const { confirmedUsersGet, deleteConfirmedUser } = useGlobal();
 
   return (
     <>
@@ -37,6 +24,9 @@ export default function ConfirmedUserPage() {
         </h1>
       </div>
       <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
+        {confirmedUsersGet && confirmedUsersGet.length === 0 && (
+          <h1 className="text-center text-xl font-bold">Empty List...</h1>
+        )}
         {confirmedUsersGet &&
           confirmedUsersGet
             .slice()
@@ -51,7 +41,7 @@ export default function ConfirmedUserPage() {
                 imgSrc={data.image}
                 title={`${capitalizeFirstLetterEachWord(data.firstName)} ${capitalizeFirstLetterEachWord(data.middleName)} ${capitalizeFirstLetterEachWord(data.lastName)}`}
                 mainDescription={data.position}
-                description={`Birthday ${dayjs(data.birthdate).format("MMM DD, YYYY")}, Age ${calculateAge(data.birthdate)}`}
+                description={`Birthday ${dayjs(data.birthdate).format("MMM DD, YYYY")}, Age ${calculateAge(data.birthdate)} ${data.attendanceId ? `| Attendance Id: ${data.attendanceId}` : ""}`}
                 iconWithDetails={[
                   {
                     icon: <HomeModernIcon />,

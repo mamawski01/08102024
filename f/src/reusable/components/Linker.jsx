@@ -8,7 +8,7 @@ export default function Linker({
   text = "add Linker",
   icon = <LinkIcon color="red" />,
   to = "/",
-  color = "green",
+  color = "indigo",
 }) {
   const font = formatFontLabel(text);
   const hoverBgColor = onHoverBgColor(color);

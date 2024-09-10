@@ -1,4 +1,7 @@
-import { PaperClipIcon, UserGroupIcon } from "@heroicons/react/24/solid";
+import {
+  PresentationChartBarIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/solid";
 
 import Logo from "../reusable/components/Logo";
 import Options from "../reusable/components/Options";
@@ -21,8 +24,9 @@ export default function MainHeader() {
               {
                 option: (
                   <NavLinker
-                    icon={<PaperClipIcon></PaperClipIcon>}
-                    text={"upload"}
+                    icon={<PresentationChartBarIcon></PresentationChartBarIcon>}
+                    text={"attendanceAndBenefits"}
+                    to="homepage/attendanceAndBenefitsPage"
                   ></NavLinker>
                 ),
               },

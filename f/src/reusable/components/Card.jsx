@@ -31,6 +31,7 @@ export default function Card({
   to = "/",
   deleteOne = null,
   confirmOne = null,
+  link = false,
 }) {
   const [expand, expandSet] = useState();
   return (
@@ -57,9 +58,15 @@ export default function Card({
       </div>
 
       {expand && (
-        <div className="mt-4 flex flex-col gap-3">
+        <div
+          className={`${link ? `grid grid-cols-3` : `flex flex-col`} mt-4 gap-3`}
+        >
           {iconWithDetails.map((iconDetail, i) => (
-            <IconContentMap key={i} iconDetail={iconDetail}></IconContentMap>
+            <IconContentMap
+              key={i}
+              iconDetail={iconDetail}
+              link={link}
+            ></IconContentMap>
           ))}
         </div>
       )}
@@ -78,12 +85,14 @@ export default function Card({
           icon={<PencilIcon color="yellow" />}
           to={to}
         ></Linker>
-        <Btn
-          text="delete"
-          color="red"
-          onClick={deleteOne}
-          icon={<TrashIcon color="crimson" />}
-        ></Btn>
+        {deleteOne && (
+          <Btn
+            text="delete"
+            color="red"
+            onClick={deleteOne}
+            icon={<TrashIcon color="crimson" />}
+          ></Btn>
+        )}
       </div>
     </div>
   );
@@ -98,15 +107,18 @@ Card.propTypes = {
   to: PropTypes.any,
   deleteOne: PropTypes.any,
   confirmOne: PropTypes.any,
+  link: PropTypes.any,
 };
 
-export function IconContentMap({ iconDetail }) {
+export function IconContentMap({ iconDetail, link }) {
   return (
     <div>
       {iconDetail.iconDetails.trim() === "" ? (
         ""
       ) : (
-        <div className="flex flex-col items-center justify-center border-b border-gray-300/20">
+        <div
+          className={`${link && `cursor-pointer hover:bg-indigo-600`} flex flex-col items-center justify-center border-b border-gray-300/20`}
+        >
           <span className="w-5">{iconDetail.icon}</span>
           <span className="">{iconDetail.iconDetails}</span>
         </div>

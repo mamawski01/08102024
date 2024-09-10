@@ -10,7 +10,22 @@ import { userModelEdit } from "../reusable/utils/model";
 export default function ConfirmedUserForm() {
   return (
     <Form
-      dataStructure={[[], userModelEdit()]}
+      dataStructure={[
+        [],
+        [
+          ...userModelEdit(),
+          {
+            rowLabels: "Other fields",
+            inputNames: [
+              "attendanceId",
+              "dailySSSAllocation",
+              "monthlyPhilHealth",
+              "monthlyPagIbig",
+            ],
+            isRequired: [true, true, true, true],
+          },
+        ],
+      ]}
       dataSave={postConfirmedUser}
       dataEdit={patchConfirmedUser}
       dataDelete={deleteConfirmedUser}
