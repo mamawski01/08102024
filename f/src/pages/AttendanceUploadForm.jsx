@@ -1,3 +1,4 @@
+import { postAttendanceUser } from "../api/attendanceUsers";
 import Form from "../reusable/components/form/Form";
 
 export default function AttendanceUploadForm() {
@@ -14,6 +15,8 @@ export default function AttendanceUploadForm() {
           },
         ],
       ]}
+      dataSave={postAttendanceUser}
+      fIOSaveOne="f2bPostAttendanceUser"
       onSubmitRule="attendanceUpload"
     ></Form>
   );

@@ -33,8 +33,8 @@ export function registerSocketServer(server) {
       io.emit("b2fDeleteRegistryUser", data);
     });
     //confirmed user
-    socket.on("f2bGeConfirmedUsers", (data) => {
-      io.emit("b2fGeConfirmedUsers", data);
+    socket.on("f2bGetConfirmedUsers", (data) => {
+      io.emit("b2fGetConfirmedUsers", data);
     });
     socket.on("f2bGetConfirmedUser", (data) => {
       console.log(data);
@@ -51,6 +51,17 @@ export function registerSocketServer(server) {
     socket.on("f2bDeleteConfirmedUser", (data) => {
       console.log(data);
       io.emit("b2fDeleteConfirmedUser", data);
+    });
+
+    //attendance User
+    socket.on("f2bGetAttendanceUsers", (data) => {
+      io.emit("b2fGetAttendanceUsers", data);
+    });
+    socket.on("f2bGetAttendanceUser", (data) => {
+      io.emit("b2fGetAttendanceUser", data);
+    });
+    socket.on("f2bPostAttendanceUser", (data) => {
+      io.emit("b2fPostAttendanceUser", data);
     });
   });
 }

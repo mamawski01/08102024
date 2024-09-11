@@ -19,7 +19,7 @@ import {
   bGetAttendanceUser,
   bGetAttendanceUsers,
   bPostAttendanceUser,
-} from "./controller/bGetAttendanceUsers.js";
+} from "./controller/bAttendanceUsers.js";
 
 const router = express.Router();
 
@@ -69,12 +69,7 @@ router.get("/bGetAttendanceUsers", bGetAttendanceUsers);
 // special get findArray
 router.get("/bGetAttendanceUser/:id", bGetAttendanceUser);
 
-// special txt file post
-router.post(
-  "/bPostAttendanceUser",
-  upload(userImgFolderLoc, userImgFolderName).single("attendanceUpload"),
-  bPostAttendanceUser
-);
+router.post("/bPostAttendanceUser", bPostAttendanceUser);
 //AttendanceUserModel//
 
 export default router;

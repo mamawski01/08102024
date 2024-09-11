@@ -20,11 +20,15 @@ function bDataIsFound(data, res, mess, rule) {
   return res.status(200).send({ data, "fx=": mess, "rule=": rule });
 }
 
-function duplicatedEmail(req, res, mess, rule, email) {
-  deleteImage(req.file?.path, mess, rule);
+function conflict409(res, duplicate, mess, rule) {
   return res
     .status(409)
-    .send(`Email already exists "${email}", fx=: ${mess}, rule=: ${rule}`);
+    .send(`Duplicate Item exist: "${duplicate}", fx=: ${mess}, rule=: ${rule}`);
+}
+
+function duplicatedEmail(req, res, mess, rule, duplicate) {
+  deleteImage(req.file?.path, mess, rule);
+  return conflict409(res, duplicate, mess, rule);
 }
 
 function delPrevImg(location, user, mess, rule) {
@@ -48,10 +52,10 @@ export async function getter(req, res, rule, model, mess) {
       return bDataIsFound(data, res, mess, rule);
     }
 
-    // if (rule === "findArray") {
-    //   const data = await model.findById(id);
-    //   return bDataIsFound(data, res, mess, rule);
-    // }
+    if (rule === "findArray") {
+      const data = await model.find({ UserId: { $in: id } });
+      return bDataIsFound(data, res, mess, rule);
+    }
   } catch (error) {
     return bErrorHandler(req, res, error, mess, rule);
   }
@@ -116,8 +120,31 @@ export async function poster(
     }
 
     if (rule === "bPostAttendanceUser") {
-      console.log(req.file);
-      return bDataNotFound(req, res, mess, rule);
+      const uniqueNo = new Set(req.body.map((item) => item.No));
+      const existingNo = await model.find({
+        No: { $in: Array.from(uniqueNo) },
+      });
+
+      if (existingNo.length > 0) {
+        const existingNoArray = existingNo.map((item) => item.No);
+        const uniqueNoArray = Array.from(uniqueNo);
+        const uniqueNonExistingNo = uniqueNoArray.filter(
+          (no) => !existingNoArray.includes(no)
+        );
+        if (uniqueNonExistingNo.length > 0) {
+          const filteredBody = req.body.filter((item) =>
+            uniqueNonExistingNo.includes(item.No)
+          );
+          const data = await model.insertMany(filteredBody);
+          return bDataIsFound(data, res, mess, rule);
+        } else {
+          const duplication = "All (No) data already exists";
+          return conflict409(res, duplication, mess, rule);
+        }
+      } else {
+        const data = await model.insertMany(req.body);
+        return bDataIsFound(data, res, mess, rule);
+      }
     }
   } catch (error) {
     return bErrorHandler(req, res, error, mess, rule);

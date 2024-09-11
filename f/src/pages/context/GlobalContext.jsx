@@ -16,13 +16,13 @@ export default function GlobalProvider({ children }) {
   const updater3delete = useDataGetter("b2fDeleteConfirmedUser");
   useGetter(
     getConfirmedUsers,
-    "f2bGeConfirmedUsers",
+    "f2bGetConfirmedUsers",
     null,
     updater1post,
     updater2patch,
     updater3delete,
   );
-  const confirmedUsersGet = useDataGetter("b2fGeConfirmedUsers");
+  const confirmedUsersGet = useDataGetter("b2fGetConfirmedUsers");
   //ConfirmedUser
 
   return (

@@ -75,10 +75,10 @@ export default function Form({
 
   const edit = Boolean(apiData?._id);
 
-  function onSubmit(data) {
+  async function onSubmit(data) {
     edit
-      ? dataEdit(fIOUpdateOne, id, onSubmitForm(data, onSubmitRule))
-      : dataSave(fIOSaveOne, onSubmitForm(data, onSubmitRule));
+      ? dataEdit(fIOUpdateOne, id, await onSubmitForm(data, onSubmitRule))
+      : dataSave(fIOSaveOne, await onSubmitForm(data, onSubmitRule));
   }
   return (
     <form

@@ -46,6 +46,7 @@ export async function getter(rule, url, mess, fIO, id) {
 
 export async function poster(rule, url, mess, fIO, data, id) {
   try {
+    console.log(data);
     if (rule === "simple/saveOne") {
       const newData = await apiClient.post(url, data);
       toast.success(mess);

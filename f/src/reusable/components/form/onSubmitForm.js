@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { convertToJson } from "../../utils/helpers";
 
-export function onSubmitForm(data, onSubmitRule) {
+export async function onSubmitForm(data, onSubmitRule) {
   console.log(data);
   if (data.password !== data.repeatPassword) {
     toast.error("Passwords do not match");
@@ -26,6 +26,6 @@ export function onSubmitForm(data, onSubmitRule) {
   }
 
   if (onSubmitRule === "attendanceUpload") {
-    convertToJson(data.attendanceUpload[0]);
+    return convertToJson(data.attendanceUpload[0]);
   }
 }
