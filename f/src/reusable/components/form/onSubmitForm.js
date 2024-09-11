@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import { convertToJson } from "../../utils/helpers";
 
 export function onSubmitForm(data, onSubmitRule) {
   console.log(data);
@@ -22,5 +23,9 @@ export function onSubmitForm(data, onSubmitRule) {
     if (onSubmitRule === "simple") {
       return finalData;
     }
+  }
+
+  if (onSubmitRule === "attendanceUpload") {
+    convertToJson(data.attendanceUpload[0]);
   }
 }

@@ -1,22 +1,29 @@
 import {
   CalendarDateRangeIcon,
-  CalendarIcon,
   PaperClipIcon,
+  UserPlusIcon,
 } from "@heroicons/react/24/solid";
 import { useGlobal } from "./context/globalhook";
 import Card from "../reusable/components/card";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
+import TittleH1 from "../reusable/components/TittleH1";
 import Linker from "../reusable/components/Linker";
 
-export default function AttendancePage() {
+export default function AttendanceAndBenefitsPage() {
   const { confirmedUsersGet } = useGlobal();
   console.log(confirmedUsersGet);
   return (
     <>
-      <div className="sticky top-0 z-10 flex bg-slate-950 text-center">
-        <h1 className="flex h-16 w-full items-center justify-center text-center text-2xl font-bold tracking-wider">
-          User Attendance and Benefits
-        </h1>
+      <div className="sticky top-0 z-10 bg-slate-950">
+        <TittleH1 disableSticky={true}>User Attendance and Benefits</TittleH1>
+        <div className="flex justify-evenly">
+          <Linker
+            text="attendanceUpload"
+            icon={<UserPlusIcon />}
+            to="attendanceUploadForm"
+          ></Linker>
+          <Linker text="createSchedule"></Linker>
+        </div>
       </div>
       <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
         {confirmedUsersGet && confirmedUsersGet.length === 0 && (
@@ -38,15 +45,13 @@ export default function AttendancePage() {
                 iconWithDetails={[
                   {
                     icon: <CalendarDateRangeIcon />,
-                    iconDetails: `View Attendance`,
-                  },
-                  {
-                    icon: <CalendarIcon />,
-                    iconDetails: `View Schedule`,
+                    iconDetails: `Attendance & Schedule`,
+                    linkTo: `attendanceAndSchedulePage/${data._id}`,
                   },
                   {
                     icon: <PaperClipIcon />,
                     iconDetails: `View Payroll`,
+                    linkTo: "/",
                   },
                 ]}
               ></Card>

@@ -12,17 +12,14 @@ import {
 import Card from "../reusable/components/card";
 
 import { useGlobal } from "./context/globalhook";
+import TittleH1 from "../reusable/components/TittleH1";
 
 export default function ConfirmedUserPage() {
   const { confirmedUsersGet, deleteConfirmedUser } = useGlobal();
 
   return (
     <>
-      <div className="sticky top-0 z-10 flex bg-slate-950 text-center">
-        <h1 className="flex h-16 w-full items-center justify-center text-center text-2xl font-bold tracking-wider">
-          Confirmed User
-        </h1>
-      </div>
+      <TittleH1>Confirmed User</TittleH1>
       <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
         {confirmedUsersGet && confirmedUsersGet.length === 0 && (
           <h1 className="text-center text-xl font-bold">Empty List...</h1>

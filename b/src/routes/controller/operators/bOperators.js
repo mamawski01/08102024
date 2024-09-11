@@ -47,6 +47,11 @@ export async function getter(req, res, rule, model, mess) {
       const data = await model.findById(id);
       return bDataIsFound(data, res, mess, rule);
     }
+
+    // if (rule === "findArray") {
+    //   const data = await model.findById(id);
+    //   return bDataIsFound(data, res, mess, rule);
+    // }
   } catch (error) {
     return bErrorHandler(req, res, error, mess, rule);
   }
@@ -108,6 +113,11 @@ export async function poster(
         await registryModelDelete.findByIdAndDelete(id);
         return bDataIsFound(data, res, mess, rule);
       }
+    }
+
+    if (rule === "bPostAttendanceUser") {
+      console.log(req.file);
+      return bDataNotFound(req, res, mess, rule);
     }
   } catch (error) {
     return bErrorHandler(req, res, error, mess, rule);

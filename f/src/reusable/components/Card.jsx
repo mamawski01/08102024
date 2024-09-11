@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import Btn from "./Btn";
 import Linker from "./Linker";
+import { Link } from "react-router-dom";
 
 const defaultIconWithDetails = [
   {
@@ -59,7 +60,7 @@ export default function Card({
 
       {expand && (
         <div
-          className={`${link ? `grid grid-cols-3` : `flex flex-col`} mt-4 gap-3`}
+          className={`${link ? `flex flex-wrap justify-evenly` : `flex flex-col`} mt-4 gap-3`}
         >
           {iconWithDetails.map((iconDetail, i) => (
             <IconContentMap
@@ -111,22 +112,32 @@ Card.propTypes = {
 };
 
 export function IconContentMap({ iconDetail, link }) {
-  return (
-    <div>
-      {iconDetail.iconDetails.trim() === "" ? (
-        ""
-      ) : (
-        <div
-          className={`${link && `cursor-pointer hover:bg-indigo-600`} flex flex-col items-center justify-center border-b border-gray-300/20`}
-        >
-          <span className="w-5">{iconDetail.icon}</span>
-          <span className="">{iconDetail.iconDetails}</span>
-        </div>
-      )}
-    </div>
-  );
+  if (link)
+    return (
+      <Link
+        to={iconDetail.linkTo}
+        className="flex flex-col items-center justify-center border-b border-gray-300/20 hover:bg-indigo-600"
+      >
+        <span className="w-5">{iconDetail.icon}</span>
+        <span className="">{iconDetail.iconDetails}</span>
+      </Link>
+    );
+  else
+    return (
+      <div>
+        {iconDetail.iconDetails.trim() === "" ? (
+          ""
+        ) : (
+          <div className="flex flex-col items-center justify-center border-b border-gray-300/20">
+            <span className="w-5">{iconDetail.icon}</span>
+            <span className="">{iconDetail.iconDetails}</span>
+          </div>
+        )}
+      </div>
+    );
 }
 
 IconContentMap.propTypes = {
   iconDetail: PropTypes.any,
+  link: PropTypes.any,
 };

@@ -14,9 +14,9 @@ import {
   PlusCircleIcon,
   //   PlusCircleIcon,
 } from "@heroicons/react/24/solid";
-import Options from "../reusable/components/Options";
 import Linker from "../reusable/components/Linker";
 import { postConfirmedUser } from "../api/confirmedUsers";
+import TittleH1 from "../reusable/components/TittleH1";
 
 export default function RegistryUserPage() {
   const updater1post = useDataGetter("b2fPostRegistryUser");
@@ -36,11 +36,7 @@ export default function RegistryUserPage() {
 
   return (
     <>
-      <div className="sticky top-0 z-10 flex bg-slate-950 text-center">
-        <h1 className="flex h-16 w-full items-center justify-center text-center text-2xl font-bold tracking-wider">
-          Registry User
-        </h1>
-      </div>
+      <TittleH1>Registry User</TittleH1>
       <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
         {registryUsersGet && registryUsersGet.length === 0 && (
           <div>

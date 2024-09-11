@@ -17,14 +17,16 @@ import { onSubmitForm } from "./onSubmitForm";
 import { fSocket } from "../../../api/apis/api";
 
 const defaultDataStructure = [
-  {
-    rowLabels: "name",
-    inputNames: ["firstName", "status", "image"],
-    inputTypes: ["text", "option", "file"],
-    isRequired: [true, true, true],
-    options: [[], ["single", "married", "widowed", "divorced"]],
-    specifyFiles: [[], [], [".png,.jpg,.jpeg"]],
-  },
+  [
+    {
+      rowLabels: "uploadAttendance",
+      inputNames: ["firstName", "status", "image"],
+      inputTypes: ["text", "option", "file"],
+      isRequired: [true, true, true],
+      options: [[], ["single", "married", "widowed", "divorced"]],
+      specifyFiles: [[], [], [".png,.jpg,.jpeg"]],
+    },
+  ],
 ];
 
 const FormContext = createContext();
@@ -64,7 +66,6 @@ export default function Form({
   }, [editDefaultVal, fIOFindOne, id]);
 
   const [apiData, apiDataSet] = useState();
-  console.log(apiData);
   const editImagePreview = apiData?.image;
 
   fSocket.on(bIOFindOne, (data) => {

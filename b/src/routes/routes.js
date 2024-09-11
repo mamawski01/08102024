@@ -15,10 +15,15 @@ import {
   bPatchConfirmedUser,
   bPostConfirmedUser,
 } from "./controller/bConfirmedUser.js";
+import {
+  bGetAttendanceUser,
+  bGetAttendanceUsers,
+  bPostAttendanceUser,
+} from "./controller/bGetAttendanceUsers.js";
 
 const router = express.Router();
 
-//registryUser
+//registryUser//
 export const userImgFolderLoc = "userImgFolder";
 export const userImgFolderName = "userImg";
 
@@ -39,10 +44,9 @@ router.patch(
 );
 
 router.delete("/bDeleteRegistryUser/:id", bDeleteRegistryUser);
-//registryUser
+//registryUser//
 
-//confirmedUser
-
+//confirmedUser//
 router.get("/bGetConfirmedUsers", bGetConfirmedUsers);
 
 router.get("/bGetConfirmedUser/:id", bGetConfirmedUser);
@@ -57,7 +61,20 @@ router.patch(
 );
 
 router.delete("/bDeleteConfirmedUser/:id", bDeleteConfirmedUser);
+//confirmedUser//
 
-//confirmedUser
+//AttendanceUserModel//
+router.get("/bGetAttendanceUsers", bGetAttendanceUsers);
+
+// special get findArray
+router.get("/bGetAttendanceUser/:id", bGetAttendanceUser);
+
+// special txt file post
+router.post(
+  "/bPostAttendanceUser",
+  upload(userImgFolderLoc, userImgFolderName).single("attendanceUpload"),
+  bPostAttendanceUser
+);
+//AttendanceUserModel//
 
 export default router;

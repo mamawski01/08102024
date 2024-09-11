@@ -9,7 +9,9 @@ import RegistryUserForm from "./pages/RegistryUserForm";
 import RegistryUserPage from "./pages/RegistryUserPage";
 import ConfirmedUserPage from "./pages/ConfirmedUserPage";
 import ConfirmedUserForm from "./pages/ConfirmedUserForm";
-import AttendancePage from "./pages/AttendancePage";
+import AttendanceAndBenefitsPage from "./pages/AttendanceAndBenefitsPage";
+import AttendanceAndSchedulePage from "./pages/AttendanceAndSchedulePage";
+import AttendanceUploadForm from "./pages/AttendanceUploadForm";
 
 export default function App() {
   return (
@@ -52,7 +54,16 @@ export default function App() {
 
               <Route
                 path="homepage/attendanceAndBenefitsPage"
-                element={<AttendancePage />}
+                element={<AttendanceAndBenefitsPage />}
+              ></Route>
+              <Route
+                path="homepage/attendanceAndBenefitsPage/attendanceUploadForm"
+                element={<AttendanceUploadForm />}
+              ></Route>
+
+              <Route
+                path="homepage/attendanceAndBenefitsPage/attendanceAndSchedulePage/:id"
+                element={<AttendanceAndSchedulePage />}
               ></Route>
             </Route>
           </Routes>
