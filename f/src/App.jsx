@@ -12,6 +12,7 @@ import ConfirmedUserForm from "./pages/ConfirmedUserForm";
 import AttendanceAndBenefitsPage from "./pages/AttendanceAndBenefitsPage";
 import AttendanceAndSchedulePage from "./pages/AttendanceAndSchedulePage";
 import AttendanceUploadForm from "./pages/AttendanceUploadForm";
+import AttendanceSchedule from "./pages/AttendanceSchedule";
 
 export default function App() {
   return (
@@ -25,7 +26,6 @@ export default function App() {
                 element={<Navigate replace to="homepage"></Navigate>}
               ></Route>
               <Route path="homepage" element={<HomePage></HomePage>}></Route>
-
               <Route
                 path="homepage/registryUserPage"
                 element={<RegistryUserPage></RegistryUserPage>}
@@ -38,7 +38,6 @@ export default function App() {
                 path="homepage/registryUserPage/registryUserForm/:id"
                 element={<RegistryUserForm></RegistryUserForm>}
               ></Route>
-
               <Route
                 path="homepage/confirmedUserPage"
                 element={<ConfirmedUserPage />}
@@ -51,7 +50,6 @@ export default function App() {
                 path="homepage/confirmedUserPage/confirmedUserForm/:id"
                 element={<ConfirmedUserForm />}
               ></Route>
-
               <Route
                 path="homepage/attendanceAndBenefitsPage"
                 element={<AttendanceAndBenefitsPage />}
@@ -59,6 +57,10 @@ export default function App() {
               <Route
                 path="homepage/attendanceAndBenefitsPage/attendanceUploadForm"
                 element={<AttendanceUploadForm />}
+              ></Route>
+              <Route
+                path="homepage/attendanceAndBenefitsPage/attendanceSchedule"
+                element={<AttendanceSchedule />}
               ></Route>
 
               <Route

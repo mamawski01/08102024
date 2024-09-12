@@ -15,17 +15,17 @@ import { useGlobal } from "./context/globalhook";
 import TittleH1 from "../reusable/components/TittleH1";
 
 export default function ConfirmedUserPage() {
-  const { confirmedUsersGet, deleteConfirmedUser } = useGlobal();
+  const { confirmedUsersGets, deleteConfirmedUser } = useGlobal();
 
   return (
     <>
       <TittleH1>Confirmed User</TittleH1>
       <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
-        {confirmedUsersGet && confirmedUsersGet.length === 0 && (
+        {confirmedUsersGets && confirmedUsersGets.length === 0 && (
           <h1 className="text-center text-xl font-bold">Empty List...</h1>
         )}
-        {confirmedUsersGet &&
-          confirmedUsersGet
+        {confirmedUsersGets &&
+          confirmedUsersGets
             .slice()
             .reverse()
             .map((data, i) => (

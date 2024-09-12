@@ -32,8 +32,8 @@ export async function getter(rule, url, mess, fIO, id) {
       fIOToBIO(fIO, data);
       return data;
     }
-    if (rule === "simple/findOne") {
-      if (!id) return toast.error(mess);
+    if (rule === "simple/findOne" || rule === "findArray") {
+      if (!id) return console.log(mess);
       const { data } = await apiClient.get(url + id);
       console.log(data, mess);
       fIOToBIO(fIO, data);

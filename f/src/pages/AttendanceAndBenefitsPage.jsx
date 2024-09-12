@@ -1,5 +1,6 @@
 import {
   CalendarDateRangeIcon,
+  ClockIcon,
   PaperClipIcon,
   UserPlusIcon,
 } from "@heroicons/react/24/solid";
@@ -10,8 +11,7 @@ import TittleH1 from "../reusable/components/TittleH1";
 import Linker from "../reusable/components/Linker";
 
 export default function AttendanceAndBenefitsPage() {
-  const { confirmedUsersGet } = useGlobal();
-  console.log(confirmedUsersGet);
+  const { confirmedUsersGets } = useGlobal();
   return (
     <>
       <div className="sticky top-0 z-10 bg-slate-950">
@@ -22,15 +22,19 @@ export default function AttendanceAndBenefitsPage() {
             icon={<UserPlusIcon />}
             to="attendanceUploadForm"
           ></Linker>
-          <Linker text="createSchedule"></Linker>
+          <Linker
+            text="createSchedule"
+            icon={<ClockIcon color="red" />}
+            to="attendanceSchedule"
+          ></Linker>
         </div>
       </div>
       <div className="flex flex-col gap-6 [&>*:nth-child(even)]:bg-slate-500/10">
-        {confirmedUsersGet && confirmedUsersGet.length === 0 && (
+        {confirmedUsersGets && confirmedUsersGets.length === 0 && (
           <h1 className="text-center text-xl font-bold">Empty List...</h1>
         )}
-        {confirmedUsersGet &&
-          confirmedUsersGet
+        {confirmedUsersGets &&
+          confirmedUsersGets
             .slice()
             .reverse()
             .map((data, i) => (

@@ -1,52 +1,52 @@
 import dayjs from "dayjs";
-import { useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
-import TittleH1 from "../reusable/components/TittleH1";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDataGetter, useGetter } from "../reusable/hooks/useGetter";
 
 import { getConfirmedUser } from "../api/confirmedUsers";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
-import Btn from "../reusable/components/Btn";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import { getAttendanceUser } from "../api/attendanceUsers";
+import { useGlobal } from "./context/globalhook";
+import TittleH1WithDate from "../reusable/components/TittleH1WithDate";
 
 export default function AttendanceAndSchedulePage() {
   const { id } = useParams();
+  //confirmedUser
   useGetter(getConfirmedUser, "f2bGetConfirmedUser", id);
   const getConfirmUser = useDataGetter("b2fGetConfirmedUser");
-  console.log(getConfirmUser);
+  //confirmedUser
 
-  const navigate = useNavigate();
-
-  const [value, setValue] = useState({
-    startDate: dayjs().startOf("month").format("YYYY-MM-DD"),
-    endDate: dayjs().format("YYYY-MM-DD"),
-  });
-
-  const dates = Array.from(
-    {
-      length:
-        (new Date(value.endDate) - new Date(value.startDate)) /
-          (1000 * 3600 * 24) +
-        1,
-    },
-    (_, i) => {
-      const date = new Date(value.startDate);
-      date.setDate(date.getDate() + i);
-      return date.toISOString().split("T")[0];
-    },
+  //AttendanceUser
+  useGetter(
+    getAttendanceUser,
+    "f2bGetAttendanceUser",
+    getConfirmUser?.attendanceId,
   );
+  const getAttendanceUser_ = useDataGetter("b2fGetAttendanceUser");
+  //AttendanceUser
+
+  const { finalDatesArr, dateArrValue, dateArrValueSet } = useGlobal();
+
+  //time logs
+  const timeLogObj = finalDatesArr?.map((date) => {
+    const timeLog = getAttendanceUser_?.filter((log) =>
+      log.DateTime.startsWith(date),
+    );
+    return { date, timeLog };
+  });
+  //time logs
 
   return (
     <div>
-      <div className="flex w-full items-center justify-end gap-5">
-        <div className="z-20 w-64">
-          <label htmlFor="datePicker">Date Range:</label>
+      <TittleH1WithDate
+        title="Attendance and Schedule"
+        datePicker={
           <Datepicker
-            value={value}
+            value={dateArrValue}
             readOnly={true}
-            onChange={(newValue) => setValue(newValue)}
+            onChange={(newValue) => dateArrValueSet(newValue)}
             inputId="datePicker"
+            displayFormat="YYYY-MMM-DD"
             separator="to"
             showShortcuts={true}
             configs={{
@@ -55,39 +55,47 @@ export default function AttendanceAndSchedulePage() {
               },
             }}
           />
-        </div>
-        <Btn
-          color="red"
-          text="exit"
-          type="button"
-          icon={<XMarkIcon></XMarkIcon>}
-          onClick={() => navigate(-1)}
-        ></Btn>
-      </div>
-      <TittleH1>Attendance and Schedule</TittleH1>
-      <p className="flex flex-wrap gap-x-1 text-lg font-semibold tracking-wide md:text-xl">{`${capitalizeFirstLetterEachWord(getConfirmUser?.firstName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.middleName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.lastName)}`}</p>
+        }
+      >
+        <p className="flex flex-wrap gap-x-1 text-lg font-semibold tracking-wide md:text-xl">
+          {`${capitalizeFirstLetterEachWord(getConfirmUser?.firstName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.middleName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.lastName)}`}{" "}
+          / Attendance Name: {getAttendanceUser_?.[0].Name}
+        </p>
+      </TittleH1WithDate>
       <table className="w-full">
         <thead>
-          <tr className="bg-slate-800">
-            <th className="border">Day</th>
-            <th className="border">Date</th>
-            <th className="border">Schedule</th>
-            <th className="border">Time Logs</th>
-            <th className="border">Duty Hours</th>
-            <th className="border">Status</th>
+          <tr className="sticky top-40 border-x bg-slate-800">
+            <th className="">Day</th>
+            <th className="">Date</th>
+            <th className="">Schedule</th>
+            <th className="">Time Logs</th>
+            <th className="">Status</th>
           </tr>
         </thead>
         <tbody>
-          {dates.map((date, i) => (
+          {timeLogObj.map((date, i) => (
             <tr key={i} className="[&>*:nth-child(odd)]:bg-zinc-800/40">
+              <td className="border">{dayjs(date.date).format("ddd")}</td>
               <td className="border">
-                {i + 1} {dayjs(date).format("ddd")}
+                {dayjs(date.date).format("YYYY-MMM-DD")}
               </td>
-              <td className="border">{date}</td>
-              <td className="border">Time Logs</td>
-              <td className="border">Duty Hours</td>
-              <td className="border">Status</td>
-              <td className="border">Status</td>
+              <td className="border">No Schedule!</td>
+              <td className="border [&>*:nth-child(odd)]:bg-gray-800/40">
+                {date.timeLog?.length === 0
+                  ? "No Time Log"
+                  : date.timeLog?.map((timeLog, i) => (
+                      <p className="" key={i}>
+                        {dayjs(timeLog.DateTime).format("h:mm a")}{" "}
+                        {timeLog.Mode}{" "}
+                        {i % 2 === 0 ? (
+                          <span className="font-bold text-green-300">In</span>
+                        ) : (
+                          <span className="font-bold text-yellow-300">Out</span>
+                        )}
+                      </p>
+                    ))}
+              </td>
+              <td className="border"></td>
             </tr>
           ))}
         </tbody>
