@@ -63,5 +63,19 @@ export function registerSocketServer(server) {
     socket.on("f2bPostAttendanceUser", (data) => {
       io.emit("b2fPostAttendanceUser", data);
     });
+
+    //attendance User
+    socket.on("f2bGetAttendanceUserDefSchedules", (data) => {
+      io.emit("b2fGetAttendanceUserDefSchedules", data);
+    });
+    socket.on("f2bf2bGetAttendanceUserDefSchedule", (data) => {
+      io.emit("b2ff2bGetAttendanceUserDefSchedule", data);
+    });
+    socket.on("f2bPostAttendanceUserDefSchedule", (data) => {
+      io.emit("b2fPostAttendanceUserDefSchedule", data);
+    });
+    socket.on("f2bPatchAttendanceUserDefSchedule", (data) => {
+      io.emit("b2fPatchAttendanceUserDefSchedule", data);
+    });
   });
 }

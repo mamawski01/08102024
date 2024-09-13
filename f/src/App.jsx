@@ -12,7 +12,7 @@ import ConfirmedUserForm from "./pages/ConfirmedUserForm";
 import AttendanceAndBenefitsPage from "./pages/AttendanceAndBenefitsPage";
 import AttendanceAndSchedulePage from "./pages/AttendanceAndSchedulePage";
 import AttendanceUploadForm from "./pages/AttendanceUploadForm";
-import AttendanceSchedule from "./pages/AttendanceSchedule";
+import AttendanceScheduleCreation from "./pages/AttendanceScheduleCreation";
 
 export default function App() {
   return (
@@ -59,8 +59,8 @@ export default function App() {
                 element={<AttendanceUploadForm />}
               ></Route>
               <Route
-                path="homepage/attendanceAndBenefitsPage/attendanceSchedule"
-                element={<AttendanceSchedule />}
+                path="homepage/attendanceAndBenefitsPage/attendanceScheduleCreation"
+                element={<AttendanceScheduleCreation />}
               ></Route>
 
               <Route

@@ -30,7 +30,6 @@ export default function GlobalProvider({ children }) {
   //attendance User
   const attendance1post = useDataGetter("b2fPostAttendanceUser");
   useGetter(getAttendanceUsers, "f2bGetAttendanceUsers", null, attendance1post);
-
   //attendance User
 
   //date

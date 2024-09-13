@@ -44,7 +44,7 @@ export async function getter(rule, url, mess, fIO, id) {
   }
 }
 
-export async function poster(rule, url, mess, fIO, data, id) {
+export async function poster(rule, url, mess, fIO, data, id, confirmedUserId) {
   try {
     console.log(data);
     if (rule === "simple/saveOne") {
@@ -61,11 +61,18 @@ export async function poster(rule, url, mess, fIO, data, id) {
         "Yes, move to confirmed list!",
       );
       if (confirmDelete.isConfirmed) {
-        const newData = await apiClient.post(url + id, data);
+        const newData = await apiClient.post(url + confirmedUserId, data);
         toast.success(mess);
         fIOToBIO(fIO, newData);
         return newData;
       }
+    }
+
+    if (rule === "postAttendanceUserDefSchedule") {
+      const newData = await apiClient.post(url + confirmedUserId, data);
+      toast.success(mess);
+      fIOToBIO(fIO, newData);
+      return newData;
     }
   } catch (exception) {
     return errorHandler(exception, mess);

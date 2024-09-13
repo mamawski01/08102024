@@ -68,7 +68,8 @@ export async function poster(
   model,
   mess,
   folderLocation,
-  registryModelDelete
+  RegistryUserModel,
+  ConfirmedUserModel
 ) {
   try {
     if (rule === "simple") {
@@ -99,7 +100,7 @@ export async function poster(
 
     if (rule === "bPostConfirmedUser") {
       const { id } = req.params;
-      const registryModel = await registryModelDelete.findById(id);
+      const registryModel = await RegistryUserModel.findById(id);
       if (!registryModel) {
         return bDataNotFound(req, res, mess, rule);
       } else {
@@ -114,7 +115,7 @@ export async function poster(
         //check if email exist and delete image
 
         const data = await model.create(registryModelLean);
-        await registryModelDelete.findByIdAndDelete(id);
+        await RegistryUserModel.findByIdAndDelete(id);
         return bDataIsFound(data, res, mess, rule);
       }
     }
@@ -143,6 +144,22 @@ export async function poster(
         }
       } else {
         const data = await model.insertMany(req.body);
+        return bDataIsFound(data, res, mess, rule);
+      }
+    }
+
+    if (rule === "bPostAttendanceUserDefSchedule") {
+      const { confirmedUserId } = req.params;
+      const confirmedUser = await ConfirmedUserModel.findById(confirmedUserId);
+      if (!confirmedUser) {
+        return bDataNotFound(req, res, mess, rule);
+      } else {
+        const data = await model.create({
+          firstName: confirmedUser.firstName,
+          middleName: confirmedUser.middleName,
+          lastName: confirmedUser.lastName,
+          attendanceId: confirmedUser.attendanceId,
+        });
         return bDataIsFound(data, res, mess, rule);
       }
     }

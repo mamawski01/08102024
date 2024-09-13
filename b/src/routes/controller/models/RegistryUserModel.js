@@ -5,8 +5,8 @@ import { UserModel } from "./schemaModel/schemaModel.js";
 const collectionName = "RegistryUser";
 
 const { Schema } = mongoose;
-const userSchema = new Schema(UserModel());
+const schema = new Schema(UserModel());
 
-const RegistryUserModel = mongoose.model(collectionName, userSchema);
+const RegistryUserModel = mongoose.model(collectionName, schema);
 
 export default RegistryUserModel;

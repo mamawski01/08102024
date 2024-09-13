@@ -25,7 +25,7 @@ export default function AttendanceAndBenefitsPage() {
           <Linker
             text="createSchedule"
             icon={<ClockIcon color="red" />}
-            to="attendanceSchedule"
+            to="attendanceScheduleCreation"
           ></Linker>
         </div>
       </div>

@@ -9,80 +9,80 @@
 // console.log(result);
 // console.log(result[0].timeLog);
 
-const dates = ["2024-09-01", "2024-09-02", "2024-09-03"];
-const timeLogs = [
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-01 14:12:29",
-  },
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-01 14:29:08",
-  },
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-01 14:32:08",
-  },
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-01 14:34:08",
-  },
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-03 08:51:02",
-  },
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-03 18:03:26",
-  },
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-03 08:48:56",
-  },
-  {
-    No: "1",
-    DevNo: "1",
-    UserId: "1",
-    Name: "KIER TIBERIO",
-    Mode: "FACE",
-    DateTime: "2024-09-03 18:13:50",
-  },
-];
+// const dates = ["2024-09-01", "2024-09-02", "2024-09-03"];
+// const timeLogs = [
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-01 14:12:29",
+//   },
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-01 14:29:08",
+//   },
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-01 14:32:08",
+//   },
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-01 14:34:08",
+//   },
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-03 08:51:02",
+//   },
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-03 18:03:26",
+//   },
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-03 08:48:56",
+//   },
+//   {
+//     No: "1",
+//     DevNo: "1",
+//     UserId: "1",
+//     Name: "KIER TIBERIO",
+//     Mode: "FACE",
+//     DateTime: "2024-09-03 18:13:50",
+//   },
+// ];
 
-const timeLogObj = dates.map((date) => {
-  const timeLog = timeLogs.filter((log) => log.DateTime.startsWith(date));
-  return { date, timeLog };
-});
+// const timeLogObj = dates.map((date) => {
+//   const timeLog = timeLogs.filter((log) => log.DateTime.startsWith(date));
+//   return { date, timeLog };
+// });
 
-console.log(timeLogObj);
+// console.log(timeLogObj);
 
 // [
 //   {
@@ -161,3 +161,36 @@ console.log(timeLogObj);
 //     ],
 //   },
 // ];
+
+const usersArr = [
+  { name: "Kier", id: "1", toy: "car" },
+  { name: "Rhea", id: "2", toy: "car" },
+  { name: "Kim", id: "3", toy: "car" },
+];
+
+const scheduleArr = [{ id: "3", duty: "AllDay" }];
+
+const characteristicsArr = ["human", "hungry"];
+
+const result = usersArr.map((user) => {
+  const matchingSchedule = scheduleArr.find(
+    (schedule) => schedule.id === user.id,
+  );
+
+  if (matchingSchedule) {
+    return {
+      ...user,
+      schedules: {
+        duty: matchingSchedule.duty,
+      },
+      characteristicsArr,
+    };
+  }
+
+  return {
+    ...user,
+    characteristicsArr,
+  };
+});
+
+console.log(result);

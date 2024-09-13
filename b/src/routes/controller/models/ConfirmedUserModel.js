@@ -5,7 +5,7 @@ import { UserModel } from "./schemaModel/schemaModel.js";
 const collectionName = "ConfirmedUser";
 
 const { Schema } = mongoose;
-const userSchema = new Schema({
+const schema = new Schema({
   ...UserModel(),
   attendanceId: {
     type: String,
@@ -21,6 +21,6 @@ const userSchema = new Schema({
   },
 });
 
-const ConfirmedUserModel = mongoose.model(collectionName, userSchema);
+const ConfirmedUserModel = mongoose.model(collectionName, schema);
 
 export default ConfirmedUserModel;

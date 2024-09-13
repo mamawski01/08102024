@@ -20,6 +20,12 @@ import {
   bGetAttendanceUsers,
   bPostAttendanceUser,
 } from "./controller/bAttendanceUsers.js";
+import {
+  bGetAttendanceUserDefSchedule,
+  bGetAttendanceUserDefSchedules,
+  bPatchAttendanceUserDefSchedule,
+  bPostAttendanceUserDefSchedule,
+} from "./controller/bAttendanceUserDefSchedule.js";
 
 const router = express.Router();
 
@@ -71,5 +77,21 @@ router.get("/bGetAttendanceUser/:id", bGetAttendanceUser);
 
 router.post("/bPostAttendanceUser", bPostAttendanceUser);
 //AttendanceUserModel//
+
+//AttendanceUserDefScheduleModel//
+router.get("/bGetAttendanceUserDefSchedules", bGetAttendanceUserDefSchedules);
+
+router.get("/bGetAttendanceUserDefSchedule/:id", bGetAttendanceUserDefSchedule);
+
+router.post(
+  "/bPostAttendanceUserDefSchedule/:confirmedUserId",
+  bPostAttendanceUserDefSchedule
+);
+
+router.patch(
+  "/bPatchAttendanceUserDefSchedule/:id",
+  bPatchAttendanceUserDefSchedule
+);
+//AttendanceUserDefScheduleModel//
 
 export default router;
