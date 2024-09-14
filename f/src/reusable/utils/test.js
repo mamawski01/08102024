@@ -1,66 +1,59 @@
-//can a react-hook-form display this data by default using the reset(data)? it works only on firstName, middleName, lastName and attendanceId. doesnt work on days
+const data = [
+  {
+    attendanceId: "3",
+    firstName: "rhea joy",
+    lastName: "guzon",
+    date: "2024-09-01",
+    day: "sunday",
+    defaultDuty: "true",
+    notes: "Day-Off",
+    timeIn: "09:00 am",
+    timeOut: "06:00 pm",
+  },
+  {
+    attendanceId: "3",
+    firstName: "rhea joy",
+    lastName: "guzon",
+    date: "2024-09-01",
+    day: "sunday",
+    defaultDuty: "true",
+    notes: "Day-Off",
+    timeIn: "09:00 am",
+    timeOut: "06:00 pm",
+  },
+  {
+    attendanceId: "3",
+    firstName: "rhea joy",
+    lastName: "guzon",
+    date: "2024-09-02",
+    day: "sunday",
+    defaultDuty: "true",
+    notes: "Day-Off",
+    timeIn: "09:00 am",
+    timeOut: "06:00 pm",
+  },
+];
 
-const data = {
-  firstName: "kimberly",
-  middleName: "de-asis",
-  lastName: "balogo",
-  attendanceId: "2",
-  days: [
-    {
-      timeIn: "11:00 am",
-      timeOut: "06:00 pm",
-      notes: "regular duty",
-      defaultDuty: "true",
-      _id: "66e3b6104916869767edfa4b",
-      day: "monday",
-    },
-    {
-      timeIn: "09:00 am",
-      timeOut: "06:00 pm",
-      notes: "regular duty",
-      defaultDuty: "true",
-      _id: "66e3b6104916869767edfa4c",
-      day: "tuesday",
-    },
-    {
-      timeIn: "09:00 am",
-      timeOut: "06:00 pm",
-      notes: "regular duty",
-      defaultDuty: "true",
-      _id: "66e3b6104916869767edfa4d",
-      day: "wednesday",
-    },
-    {
-      timeIn: "09:00 am",
-      timeOut: "06:00 pm",
-      notes: "regular duty",
-      defaultDuty: "true",
-      _id: "66e3b6104916869767edfa4e",
-      day: "thursday",
-    },
-    {
-      timeIn: "09:00 am",
-      timeOut: "06:00 pm",
-      notes: "regular duty",
-      defaultDuty: "true",
-      _id: "66e3b6104916869767edfa4f",
-      day: "friday",
-    },
-    {
-      timeIn: "09:00 am",
-      timeOut: "06:00 pm",
-      notes: "regular duty",
-      defaultDuty: "true",
-      _id: "66e3b6104916869767edfa50",
-      day: "saturday",
-    },
-    {
-      timeIn: "09:00 am",
-      timeOut: "06:00 pm",
-      notes: "regular duty",
-      defaultDuty: "true",
-      _id: "66e3b6104916869767edfa51",
-      day: "sunday",
-    },
-  ],
-};
+//desire result
+
+[
+  {
+    attendanceId: "3",
+    firstName: "rhea joy",
+    lastName: "guzon",
+    date: "2024-09-02",
+    day: "sunday",
+    defaultDuty: "true",
+    notes: "Day-Off",
+    timeIn: "09:00 am",
+    timeOut: "06:00 pm",
+  },
+];
+
+//i am saving a multiple item in mongodb, i want to have a unique date, if there is date duplication, i don't want to save the last duplicate item
+
+const uniqueData = data.filter(
+  (item, index, self) => index === self.findIndex((t) => t.date === item.date),
+);
+
+console.log(uniqueData);

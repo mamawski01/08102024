@@ -51,23 +51,37 @@ export default function AttendanceScheduleCreation() {
               "saturday",
             ][dayOfWeek],
         );
-        return { date, ...day };
+        return { date, defaultDuty: schedules.defaultDuty, ...day };
       });
-
       const transformedData = {
         firstName: user.firstName,
         lastName: user.lastName,
+        attendanceId: user.attendanceId,
         schedules: dateWithSchedule,
+        schedulesId: schedules?._id,
       };
-
       return transformedData;
     }
 
     return user;
   });
-  console.log(usersWithSchedule);
-  //usersWithSchedule
+  // console.log(usersWithSchedule);
 
+  const transformedData = usersWithSchedule?.map((data) => {
+    const dataSchedule = data.schedules?.map((detail) => {
+      return {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        attendanceId: data.attendanceId,
+        ...detail,
+      };
+    });
+    return dataSchedule;
+  });
+  const transformedDataFinal = transformedData?.flat();
+  console.log(transformedDataFinal);
+
+  const numTables = Math.ceil(finalDatesArr.length / 7);
   return (
     <div>
       <TittleH1WithDate
@@ -89,12 +103,12 @@ export default function AttendanceScheduleCreation() {
           />
         }
       ></TittleH1WithDate>
-      {Array.from({ length: Math.ceil(finalDatesArr.length / 7) }, (_, i) => (
-        <table key={i} className="mb-4 w-full">
+      {Array.from({ length: numTables }, (_, q) => (
+        <table key={q} className="mb-4 w-full">
           <thead>
             <tr className="border bg-slate-800 [&>*:nth-child(odd)]:bg-zinc-800">
               <th className="w-24 border !bg-stone-700 text-sm">Employee</th>
-              {finalDatesArr.slice(i * 7, (i + 1) * 7).map((date, j) => (
+              {finalDatesArr.slice(q * 7, (q + 1) * 7).map((date, j) => (
                 <th
                   key={j}
                   className={`border text-sm ${dayjs(date).format("ddd") === "Sun" && `!bg-red-900`}`}
@@ -105,61 +119,7 @@ export default function AttendanceScheduleCreation() {
               ))}
             </tr>
           </thead>
-          <tbody>
-            <tr className="[&>*:nth-child(odd)]:bg-zinc-800/20">
-              <td>hello</td>
-            </tr>
-          </tbody>
-        </table>
-      ))}
-    </div>
-  );
-}
-
-{
-  /* {usersWithSchedule?.map((user, i) => (
-        <table key={i} className="mb-4 w-full">
-          <thead>
-            <tr className="border bg-slate-800 [&>*:nth-child(odd)]:bg-zinc-800">
-              <th className="w-24 border !bg-stone-700 text-sm">Employee</th>
-              {user.schedules.slice(0, 7).map((schedule, i) => (
-                <th
-                  key={i}
-                  className={`border text-sm ${dayjs(schedule.date).format("ddd") === "Sun" && `!bg-red-900`}`}
-                >
-                  <p>{dayjs(schedule.date).format("dddd")}</p>
-                  {dayjs(schedule.date).format("YYYY-MMM-DD")}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="[&>*:nth-child(odd)]:bg-zinc-800/20">
-              <td>{user.firstName}</td>
-            </tr>
-          </tbody>
-        </table>
-      ))} */
-}
-
-{
-  /* {datesPerTable.map((dates, i) => (
-        <table key={i} className="mb-4 w-full">
-          <thead>
-            <tr className="border bg-slate-800">
-              <th className="w-24 border text-sm">Employee</th>
-              {dates.map((date, j) => (
-                <th
-                  className={`border text-sm ${dayjs(date).format("ddd") === "Sun" && `bg-sky-800`}`}
-                  key={j}
-                >
-                  <p>{dayjs(date).format("dddd")}</p>
-                  {dayjs(date).format("YYYY-MMM-DD")}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
+          <tbody className="">
             {usersWithSchedule
               ?.slice()
               .reverse()
@@ -168,47 +128,50 @@ export default function AttendanceScheduleCreation() {
                   <td className="border">
                     {capitalizeFirstLetterEachWord(user.firstName)}{" "}
                     {capitalizeFirstLetterEachWord(user.lastName)}
-                    {user.dateWithSchedule && (
+                    {user.schedulesId && (
                       <Linker
-                        text="EditDefaultSchedule"
+                        text="ScheduleSetting"
                         textSmall={true}
                         icon={<Cog8ToothIcon color="gold" />}
-                        to={`attendanceDefaultScheduleForm/${user.schedules?._id}`}
+                        to={`attendanceDefaultScheduleForm/${user.schedulesId}`}
                       ></Linker>
                     )}
                   </td>
-                  {user.dateWithSchedule ? (
+                  {user.schedulesId ? (
                     <>
-                      {user.dateWithSchedule.slice(0, 7).map((data, i) => (
-                        <td
-                          className="border align-top [&>*:nth-child(odd)]:bg-indigo-800/40"
-                          key={i}
-                        >
-                          <p
-                            className={`${dayjs(data.date).format("ddd") === "Sun" && `!bg-red-800`}`}
+                      {user.schedules
+                        .slice(q * 7, (q + 1) * 7)
+                        .map((data, i) => (
+                          <td
+                            className="border align-top [&>*:nth-child(odd)]:bg-indigo-800/40"
+                            key={i}
                           >
-                            {dayjs(data.date).format("ddd")}
-                          </p>
-
-                          {data.timeIn === "day-off" ||
-                          data.timeOut === "day-off" ||
-                          data.notes === "Day-Off" ? null : (
-                            <p>
-                              {data.timeIn.replace(" ", "")}-
-                              {data.timeOut.replace(" ", "")}
+                            <p
+                              className={`${dayjs(data.date).format("ddd") === "Sun" && `!bg-red-800`}`}
+                            >
+                              {dayjs(data.date).format("ddd")}
                             </p>
-                          )}
 
-                          <p
-                            className={`${data.notes === "Day-Off" && `!bg-fuchsia-800`}`}
-                          >
-                            {data.notes}
-                          </p>
-                          <p className="!bg-green-900">
-                            {user.schedules.defaultDuty === "true" && `Default`}
-                          </p>
-                        </td>
-                      ))}
+                            {data.timeIn === "day-off" ||
+                            data.timeOut === "day-off" ||
+                            data.notes === "Day-Off" ? null : (
+                              <p>
+                                {data.timeIn.replace(" ", "")} to{" "}
+                                {data.timeOut.replace(" ", "")}
+                              </p>
+                            )}
+
+                            <p
+                              className={`${data.notes === "Day-Off" && `!bg-fuchsia-800`}`}
+                            >
+                              {data.notes}
+                            </p>
+                            <p className="!bg-green-900">
+                              {user.schedules[i].defaultDuty === "true" &&
+                                `Default`}
+                            </p>
+                          </td>
+                        ))}
                     </>
                   ) : (
                     <td className="border" colSpan={7}>
@@ -230,5 +193,7 @@ export default function AttendanceScheduleCreation() {
               ))}
           </tbody>
         </table>
-      ))} */
+      ))}
+    </div>
+  );
 }

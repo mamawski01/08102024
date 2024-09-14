@@ -18,7 +18,7 @@ export default function Linker({
     <Link
       title={font}
       to={to}
-      className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing ${textSmall && `text-sm`}`}
+      className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing ${textSmall && `text-xs`}`}
     >
       <span className="w-7">{icon}</span>
       <span className="hidden md:block">{font}</span>

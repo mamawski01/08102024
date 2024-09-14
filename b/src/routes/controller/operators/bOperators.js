@@ -147,6 +147,21 @@ export async function poster(
         return bDataIsFound(data, res, mess, rule);
       }
     }
+    if (rule === "bPostAttendanceUserFinalScheduleModel") {
+      console.log(req.body);
+      const uniqueData = data.filter(
+        (item, index, self) =>
+          index === self.findIndex((t) => t.date === item.date)
+      );
+      // const { date } = req.body;
+      // const dateExist = await model.exists({ date });
+      // if (dateExist) {
+      //   return; //do not save the latest data
+      // } else {
+      //   const data = await model.insertMany(req.body, { ordered: false });
+      //   return bDataIsFound(data, res, mess, rule);
+      // }
+    }
 
     if (rule === "bPostAttendanceUserDefSchedule") {
       const { confirmedUserId } = req.params;

@@ -26,6 +26,10 @@ import {
   bPatchAttendanceUserDefSchedule,
   bPostAttendanceUserDefSchedule,
 } from "./controller/bAttendanceUserDefSchedule.js";
+import {
+  bGetAttendanceUserFinalScheduleModels,
+  bPostAttendanceUserFinalScheduleModel,
+} from "./controller/bGetAttendanceUserFinalScheduleModel.js";
 
 const router = express.Router();
 
@@ -93,5 +97,17 @@ router.patch(
   bPatchAttendanceUserDefSchedule
 );
 //AttendanceUserDefScheduleModel//
+
+//AttendanceUserFinalScheduleModel//
+router.get(
+  "/bGetAttendanceUserFinalScheduleModel",
+  bGetAttendanceUserFinalScheduleModels
+);
+
+router.post(
+  "/bPostAttendanceUserFinalScheduleModel",
+  bPostAttendanceUserFinalScheduleModel
+);
+//AttendanceUserFinalScheduleModel//
 
 export default router;
