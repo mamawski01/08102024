@@ -1,0 +1,380 @@
+[{
+  "_id": {
+    "$oid": "66e55dcc60c58620a567c7d1"
+  },
+  "firstName": "kimberly",
+  "middleName": "de-asis",
+  "lastName": "balogo",
+  "attendanceId": "2",
+  "defaultDuty": "true",
+  "days": [
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "monday",
+      "_id": {
+        "$oid": "66e55e6660c58620a567cbac"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "tuesday",
+      "_id": {
+        "$oid": "66e55e6660c58620a567cbad"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "wednesday",
+      "_id": {
+        "$oid": "66e55e6660c58620a567cbae"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "thursday",
+      "_id": {
+        "$oid": "66e55e6660c58620a567cbaf"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "friday",
+      "_id": {
+        "$oid": "66e55e6660c58620a567cbb0"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "saturday",
+      "_id": {
+        "$oid": "66e55e6660c58620a567cbb1"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "sunday",
+      "_id": {
+        "$oid": "66e55e6660c58620a567cbb2"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66e55dce60c58620a567c7e3"
+  },
+  "firstName": "rhea joy",
+  "middleName": "dieron",
+  "lastName": "guzon",
+  "attendanceId": "3",
+  "defaultDuty": "true",
+  "days": [
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "monday",
+      "_id": {
+        "$oid": "66e55eb760c58620a567cd4c"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "tuesday",
+      "_id": {
+        "$oid": "66e55eb760c58620a567cd4d"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "wednesday",
+      "_id": {
+        "$oid": "66e55eb760c58620a567cd4e"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "thursday",
+      "_id": {
+        "$oid": "66e55eb760c58620a567cd4f"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "friday",
+      "_id": {
+        "$oid": "66e55eb760c58620a567cd50"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "saturday",
+      "_id": {
+        "$oid": "66e55eb760c58620a567cd51"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "sunday",
+      "_id": {
+        "$oid": "66e55eb760c58620a567cd52"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66e55dce60c58620a567c7fc"
+  },
+  "firstName": "kier",
+  "middleName": "gonzaga",
+  "lastName": "tiberio",
+  "attendanceId": "1",
+  "defaultDuty": "true",
+  "days": [
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "monday",
+      "_id": {
+        "$oid": "66e55ea560c58620a567cce4"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "tuesday",
+      "_id": {
+        "$oid": "66e55ea560c58620a567cce5"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "wednesday",
+      "_id": {
+        "$oid": "66e55ea560c58620a567cce6"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "thursday",
+      "_id": {
+        "$oid": "66e55ea560c58620a567cce7"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "friday",
+      "_id": {
+        "$oid": "66e55ea560c58620a567cce8"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "saturday",
+      "_id": {
+        "$oid": "66e55ea560c58620a567cce9"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "sunday",
+      "_id": {
+        "$oid": "66e55ea560c58620a567ccea"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66e55dd060c58620a567c81c"
+  },
+  "firstName": "Jonah Mae",
+  "middleName": "De Asis",
+  "lastName": "Balogo",
+  "attendanceId": "4",
+  "defaultDuty": "true",
+  "days": [
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "monday",
+      "_id": {
+        "$oid": "66e55e9360c58620a567cc7c"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "tuesday",
+      "_id": {
+        "$oid": "66e55e9360c58620a567cc7d"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "wednesday",
+      "_id": {
+        "$oid": "66e55e9360c58620a567cc7e"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "thursday",
+      "_id": {
+        "$oid": "66e55e9360c58620a567cc7f"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "friday",
+      "_id": {
+        "$oid": "66e55e9360c58620a567cc80"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "saturday",
+      "_id": {
+        "$oid": "66e55e9360c58620a567cc81"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "sunday",
+      "_id": {
+        "$oid": "66e55e9360c58620a567cc82"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66e55dd060c58620a567c843"
+  },
+  "firstName": "Mary Rose",
+  "middleName": "Villanueva",
+  "lastName": "Mondejar",
+  "attendanceId": "5",
+  "defaultDuty": "true",
+  "days": [
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "monday",
+      "_id": {
+        "$oid": "66e55e7a60c58620a567cc14"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "tuesday",
+      "_id": {
+        "$oid": "66e55e7a60c58620a567cc15"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "wednesday",
+      "_id": {
+        "$oid": "66e55e7a60c58620a567cc16"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "thursday",
+      "_id": {
+        "$oid": "66e55e7a60c58620a567cc17"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "friday",
+      "_id": {
+        "$oid": "66e55e7a60c58620a567cc18"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Regular Duty",
+      "day": "saturday",
+      "_id": {
+        "$oid": "66e55e7a60c58620a567cc19"
+      }
+    },
+    {
+      "timeIn": "09:00 am",
+      "timeOut": "06:00 pm",
+      "notes": "Day-Off",
+      "day": "sunday",
+      "_id": {
+        "$oid": "66e55e7a60c58620a567cc1a"
+      }
+    }
+  ],
+  "__v": 0
+}]

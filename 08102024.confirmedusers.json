@@ -20,8 +20,8 @@
   "contactNumber1": "09638442217",
   "contactNumber2": "09352086687",
   "contactNumber3": "",
-  "password": "$2a$10$Qr8njN1ututQLc4s1U.YjOR4V36C4IGtlpZSb4tXPi9oSk/iTCqii",
-  "repeatPassword": "$2a$10$Qr8njN1ututQLc4s1U.YjOR4V36C4IGtlpZSb4tXPi9oSk/iTCqii",
+  "password": "$2a$10$81tpLVmgRN8yzk.iQe4KAuXLxmdnJRbK4oaRTTS9hFsGppnWJ5FPC",
+  "repeatPassword": "$2a$10$81tpLVmgRN8yzk.iQe4KAuXLxmdnJRbK4oaRTTS9hFsGppnWJ5FPC",
   "SSS": "07-3702595-0",
   "PagIbig": "1212-0763-8986",
   "PhilHealth": "11-251676329-1",
@@ -29,7 +29,11 @@
   "contactPersonNameInEmergency": "richard aurelio",
   "contactPersonNumberInEmergency": "09278835395",
   "image": "http://localhost:8000/uploads/userImgFolder/2024-09-06-12-21-00pm-617userImg.png",
-  "__v": 0
+  "__v": 0,
+  "attendanceId": "3",
+  "dailySSSAllocation": "420",
+  "monthlyPagIbig": "100",
+  "monthlyPhilHealth": "250"
 },
 {
   "_id": {
@@ -53,8 +57,8 @@
   "contactNumber1": "09472040476",
   "contactNumber2": "",
   "contactNumber3": "",
-  "password": "$2a$10$yHwhAkEcQMn2R.i5J3lAYeBtMhjwaqZsbubno2OcMY6Gn.qruHIbS",
-  "repeatPassword": "$2a$10$yHwhAkEcQMn2R.i5J3lAYeBtMhjwaqZsbubno2OcMY6Gn.qruHIbS",
+  "password": "$2a$10$eo5c1Hq3YLh3buFZZBu7WeKND0b67O5EGuoVAQcjKA4yO82ZOOuZi",
+  "repeatPassword": "$2a$10$eo5c1Hq3YLh3buFZZBu7WeKND0b67O5EGuoVAQcjKA4yO82ZOOuZi",
   "SSS": "06-3243103-4",
   "PagIbig": "1211-7899-8083",
   "PhilHealth": "03-051334816-5",
@@ -62,7 +66,11 @@
   "contactPersonNameInEmergency": "Miraluna tiberio",
   "contactPersonNumberInEmergency": "09104027387",
   "image": "http://localhost:8000/uploads/userImgFolder/2024-09-06-12-21-15pm-471userImg.png",
-  "__v": 0
+  "__v": 0,
+  "attendanceId": "1",
+  "dailySSSAllocation": "420",
+  "monthlyPagIbig": "100",
+  "monthlyPhilHealth": "250"
 },
 {
   "_id": {
@@ -86,8 +94,8 @@
   "contactNumber1": "09770695914",
   "contactNumber2": "09672543330",
   "contactNumber3": "09317904372",
-  "password": "$2a$10$VK6bW8HxBRIlYBAaYFkPzuFdL9uNLWDwro/5Dsshrcm4QAW5i.KiK",
-  "repeatPassword": "$2a$10$VK6bW8HxBRIlYBAaYFkPzuFdL9uNLWDwro/5Dsshrcm4QAW5i.KiK",
+  "password": "$2a$10$1iRz//i2FgfoOTf9Rp.fTeY3uwOgmQdNrvEzQrAc9/ploFkcwXZ9u",
+  "repeatPassword": "$2a$10$1iRz//i2FgfoOTf9Rp.fTeY3uwOgmQdNrvEzQrAc9/ploFkcwXZ9u",
   "SSS": "",
   "PagIbig": "",
   "PhilHealth": "11-253837752-2",
@@ -95,7 +103,11 @@
   "contactPersonNameInEmergency": "Jessie Balogo",
   "contactPersonNumberInEmergency": "09672543330",
   "image": "http://localhost:8000/uploads/userImgFolder/2024-09-06-12-21-24pm-476userImg.png",
-  "__v": 0
+  "__v": 0,
+  "attendanceId": "4",
+  "dailySSSAllocation": "300",
+  "monthlyPagIbig": "100",
+  "monthlyPhilHealth": "250"
 },
 {
   "_id": {
@@ -119,8 +131,8 @@
   "contactNumber1": "09632601893",
   "contactNumber2": "",
   "contactNumber3": "",
-  "password": "$2a$10$veEAk0CHioWanG2f99eYdeA9N3odt/pLitHVCSjy9AMwcoohmdI7a",
-  "repeatPassword": "$2a$10$veEAk0CHioWanG2f99eYdeA9N3odt/pLitHVCSjy9AMwcoohmdI7a",
+  "password": "$2a$10$gYa07GGX44MnYDly0bk11OapMxHq9GXCMk06wDHLylEZsIKf/6hi2",
+  "repeatPassword": "$2a$10$gYa07GGX44MnYDly0bk11OapMxHq9GXCMk06wDHLylEZsIKf/6hi2",
   "SSS": "07-4007756-8",
   "PagIbig": "1212-6358-2664",
   "PhilHealth": "11-025728471-9",
@@ -128,7 +140,11 @@
   "contactPersonNameInEmergency": "Regie Cunanan",
   "contactPersonNumberInEmergency": "09294353214",
   "image": "http://localhost:8000/uploads/userImgFolder/2024-09-06-12-21-33pm-774userImg.png",
-  "__v": 0
+  "__v": 0,
+  "attendanceId": "5",
+  "dailySSSAllocation": "420",
+  "monthlyPagIbig": "100",
+  "monthlyPhilHealth": "250"
 },
 {
   "_id": {
@@ -152,8 +168,8 @@
   "contactNumber1": "09451905300",
   "contactNumber2": "",
   "contactNumber3": "",
-  "password": "$2a$10$kKiV7Ub3l5Zq90/nypBBoO.ishZSyjwOJZn5LyKprkllUO75Arghq",
-  "repeatPassword": "$2a$10$kKiV7Ub3l5Zq90/nypBBoO.ishZSyjwOJZn5LyKprkllUO75Arghq",
+  "password": "$2a$10$4MaFw6/eIY33RxIGZhXakuEVdRJTWyYcCUO8pLads6Z0E.IeXHyKm",
+  "repeatPassword": "$2a$10$4MaFw6/eIY33RxIGZhXakuEVdRJTWyYcCUO8pLads6Z0E.IeXHyKm",
   "SSS": "",
   "PagIbig": "",
   "PhilHealth": "",
@@ -162,7 +178,7 @@
   "contactPersonNumberInEmergency": "09463229783",
   "image": "http://localhost:8000/uploads/userImgFolder/2024-09-06-12-21-42pm-819userImg.png",
   "__v": 0,
-  "attendanceId": "1",
+  "attendanceId": "2",
   "dailySSSAllocation": "300",
   "monthlyPagIbig": "100",
   "monthlyPhilHealth": "250"
