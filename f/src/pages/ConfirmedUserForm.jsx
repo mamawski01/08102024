@@ -26,14 +26,14 @@ export default function ConfirmedUserForm() {
           },
         ],
       ]}
-      dataSave={postConfirmedUser}
-      dataEdit={patchConfirmedUser}
-      dataDelete={deleteConfirmedUser}
       editDefaultVal={getConfirmedUser}
       fIOFindOne="f2bGetConfirmedUser"
       bIOFindOne="b2fGetConfirmedUser"
+      dataSave={postConfirmedUser}
       fIOSaveOne="f2bPostConfirmedUser"
+      dataEdit={patchConfirmedUser}
       fIOUpdateOne="f2bPatchConfirmedUser"
+      dataDelete={deleteConfirmedUser}
       fIODeleteOne="f2bDeleteConfirmedUser"
     ></Form>
   );

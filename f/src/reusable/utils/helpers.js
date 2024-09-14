@@ -114,3 +114,18 @@ export function getTimeDifference(startTime, endTime, breakTime) {
     value: timeDiff,
   };
 }
+
+export function timeArr(defVal) {
+  let timeArray = [];
+
+  for (let hour = 0; hour < 24; hour++) {
+    for (let minute of [0, 30]) {
+      let period = hour < 12 ? "am" : "pm";
+      let hour12 = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+      let time = `${hour12.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")} ${period}`;
+      timeArray.push(time);
+    }
+  }
+
+  return [defVal, "day-off", ...timeArray];
+}

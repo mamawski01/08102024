@@ -3,6 +3,7 @@ import { convertToJson } from "../../utils/helpers";
 
 export async function onSubmitForm(data, onSubmitRule) {
   console.log(data);
+
   if (data.password !== data.repeatPassword) {
     toast.error("Passwords do not match");
     return null;
@@ -27,5 +28,24 @@ export async function onSubmitForm(data, onSubmitRule) {
 
   if (onSubmitRule === "attendanceUpload") {
     return convertToJson(data.attendanceUpload[0]);
+  }
+
+  if (onSubmitRule === "getAttendanceUserDefSchedule") {
+    const transformedDefaultVal = {
+      ...data,
+      days: Array(7)
+        .fill()
+        .map((_, index) => {
+          const dayIndex = index + 1;
+          return {
+            timeIn: data[`timeIn${dayIndex}`],
+            timeOut: data[`timeOut${dayIndex}`],
+            notes: data[`notes${dayIndex}`],
+            day: data[`day${dayIndex}`],
+          };
+        }),
+    };
+
+    return transformedDefaultVal;
   }
 }

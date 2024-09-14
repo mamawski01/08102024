@@ -87,6 +87,13 @@ export async function patcher(rule, url, mess, fIO, id, data) {
       fIOToBIO(fIO, newData);
       return newData;
     }
+
+    if (rule === "simple/updateOne") {
+      const newData = await apiClient.patch(url + id, data);
+      toast.success(mess);
+      fIOToBIO(fIO, newData);
+      return newData;
+    }
   } catch (exception) {
     return errorHandler(exception, mess);
   }

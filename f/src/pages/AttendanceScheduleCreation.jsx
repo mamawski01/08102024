@@ -9,12 +9,12 @@ import {
   postAttendanceUserDefSchedule,
 } from "../api/attendanceUserDefSchedule";
 import { useDataGetter, useGetter } from "../reusable/hooks/useGetter";
+import { Cog8ToothIcon } from "@heroicons/react/24/solid";
+import Linker from "../reusable/components/Linker";
 
 export default function AttendanceScheduleCreation() {
   const { dateArrValue, dateArrValueSet, confirmedUsersGets, finalDatesArr } =
     useGlobal();
-  // console.log(finalDatesArr);
-  // console.log(confirmedUsersGets);
 
   //attendanceUserDefSchedules
   const updater1post = useDataGetter("b2fPostAttendanceUserDefSchedule");
@@ -30,26 +30,44 @@ export default function AttendanceScheduleCreation() {
   const attendanceUserDefSchedules = useDataGetter(
     "b2fGetAttendanceUserDefSchedules",
   );
-  // console.log(attendanceUserDefSchedules);
-  //attendanceUserDefSchedules
 
   const usersWithSchedule = confirmedUsersGets?.map((user) => {
     const schedules = attendanceUserDefSchedules?.find(
       (schedule) => schedule.attendanceId === user.attendanceId,
     );
     if (schedules) {
+      const dateWithSchedule = finalDatesArr.map((date) => {
+        const dayOfWeek = new Date(date).getDay();
+        const day = schedules.days.find(
+          (d) =>
+            d.day ===
+            [
+              "sunday",
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday",
+              "saturday",
+            ][dayOfWeek],
+        );
+        return { date, ...day };
+      });
+      console.log(schedules);
+
       return {
         ...user,
+        dateWithSchedule,
         schedules,
       };
     }
 
-    return { ...user };
+    return user;
   });
-  // console.log(usersWithSchedule);
+  //usersWithSchedule
 
+  //numTables
   const numTables = Math.ceil(finalDatesArr.length / 7);
-  console.log(numTables);
   const datesPerTable = Array(numTables)
     .fill()
     .map((_, i) => {
@@ -57,6 +75,8 @@ export default function AttendanceScheduleCreation() {
       const end = Math.min(start + 7, finalDatesArr.length);
       return finalDatesArr.slice(start, end);
     });
+  console.log(datesPerTable);
+  //numTables
 
   return (
     <div>
@@ -86,7 +106,10 @@ export default function AttendanceScheduleCreation() {
             <tr className="border bg-slate-800">
               <th className="w-24 border text-sm">Employee</th>
               {dates.map((date, j) => (
-                <th className="border text-sm" key={j}>
+                <th
+                  className={`border text-sm ${dayjs(date).format("ddd") === "Sun" && `bg-sky-800`}`}
+                  key={j}
+                >
                   <p>{dayjs(date).format("dddd")}</p>
                   {dayjs(date).format("YYYY-MMM-DD")}
                 </th>
@@ -97,98 +120,52 @@ export default function AttendanceScheduleCreation() {
             {usersWithSchedule
               ?.slice()
               .reverse()
-              .map((data, i) => (
-                <tr className="[&>*:nth-child(odd)]:bg-zinc-800/40" key={i}>
+              .map((user, i) => (
+                <tr className="[&>*:nth-child(odd)]:bg-zinc-800/20" key={i}>
                   <td className="border">
-                    {capitalizeFirstLetterEachWord(data.firstName)}{" "}
-                    {capitalizeFirstLetterEachWord(data.lastName)}
+                    {capitalizeFirstLetterEachWord(user.firstName)}{" "}
+                    {capitalizeFirstLetterEachWord(user.lastName)}
+                    {user.dateWithSchedule && (
+                      <Linker
+                        text="EditDefaultSchedule"
+                        textSmall={true}
+                        icon={<Cog8ToothIcon color="gold" />}
+                        to={`attendanceDefaultScheduleForm/${user.schedules?._id}`}
+                      ></Linker>
+                    )}
                   </td>
-                  {data.schedules ? (
+                  {user.dateWithSchedule ? (
                     <>
-                      <td className="border [&>*:nth-child(odd)]:bg-indigo-800/40">
-                        {data.schedules.days.monday.timeIn} to{" "}
-                        {data.schedules.days.monday.timeOut}
-                        <p>
-                          {capitalizeFirstLetterEachWord(
-                            data.schedules.days.monday.notes,
+                      {user.dateWithSchedule.slice(0, 7).map((data, i) => (
+                        <td
+                          className="border align-top [&>*:nth-child(odd)]:bg-indigo-800/40"
+                          key={i}
+                        >
+                          <p
+                            className={`${dayjs(data.date).format("ddd") === "Sun" && `!bg-red-800`}`}
+                          >
+                            {dayjs(data.date).format("ddd")}
+                          </p>
+
+                          {data.timeIn === "day-off" ||
+                          data.timeOut === "day-off" ||
+                          data.notes === "Day-Off" ? null : (
+                            <p>
+                              {data.timeIn.replace(" ", "")}-
+                              {data.timeOut.replace(" ", "")}
+                            </p>
                           )}
-                        </p>
-                        <p>
-                          {data.schedules.defaultDuty && `Default Schedule`}
-                        </p>
-                      </td>
-                      <td className="border [&>*:nth-child(odd)]:bg-indigo-800/40">
-                        {data.schedules.days.monday.timeIn} to{" "}
-                        {data.schedules.days.monday.timeOut}
-                        <p>
-                          {capitalizeFirstLetterEachWord(
-                            data.schedules.days.monday.notes,
-                          )}
-                        </p>
-                        <p>
-                          {data.schedules.defaultDuty && `Default Schedule`}
-                        </p>
-                      </td>
-                      <td className="border [&>*:nth-child(odd)]:bg-indigo-800/40">
-                        {data.schedules.days.monday.timeIn} to{" "}
-                        {data.schedules.days.monday.timeOut}
-                        <p>
-                          {capitalizeFirstLetterEachWord(
-                            data.schedules.days.monday.notes,
-                          )}
-                        </p>
-                        <p>
-                          {data.schedules.defaultDuty && `Default Schedule`}
-                        </p>
-                      </td>
-                      <td className="border align-top [&>*:nth-child(odd)]:bg-indigo-800/40">
-                        lol here {data.schedules.days.monday.timeIn} to{" "}
-                        {data.schedules.days.monday.timeOut}
-                        <p>
-                          {capitalizeFirstLetterEachWord(
-                            data.schedules.days.monday.notes,
-                          )}
-                        </p>
-                        <p>
-                          {data.schedules.defaultDuty && `Default Schedule`}
-                        </p>
-                      </td>
-                      <td className="border [&>*:nth-child(odd)]:bg-indigo-800/40">
-                        {data.schedules.days.monday.timeIn} to{" "}
-                        {data.schedules.days.monday.timeOut}
-                        <p>
-                          {capitalizeFirstLetterEachWord(
-                            data.schedules.days.monday.notes,
-                          )}
-                        </p>
-                        <p>
-                          {data.schedules.defaultDuty && `Default Schedule`}
-                        </p>
-                      </td>
-                      <td className="border [&>*:nth-child(odd)]:bg-indigo-800/40">
-                        {data.schedules.days.monday.timeIn} to{" "}
-                        {data.schedules.days.monday.timeOut}
-                        <p>
-                          {capitalizeFirstLetterEachWord(
-                            data.schedules.days.monday.notes,
-                          )}
-                        </p>
-                        <p>
-                          {data.schedules.defaultDuty && `Default Schedule`}
-                        </p>
-                      </td>
-                      <td className="border [&>*:nth-child(odd)]:bg-indigo-800/40">
-                        {data.schedules.days.monday.timeIn} to{" "}
-                        {data.schedules.days.monday.timeOut}
-                        <p>
-                          {capitalizeFirstLetterEachWord(
-                            data.schedules.days.monday.notes,
-                          )}
-                        </p>
-                        <p>
-                          {data.schedules.defaultDuty && `Default Schedule`}
-                        </p>
-                      </td>
+
+                          <p
+                            className={`${data.notes === "Day-Off" && `!bg-fuchsia-800`}`}
+                          >
+                            {data.notes}
+                          </p>
+                          <p className="!bg-green-900">
+                            {user.schedules.defaultDuty === "true" && `Default`}
+                          </p>
+                        </td>
+                      ))}
                     </>
                   ) : (
                     <td className="border" colSpan={7}>
@@ -198,7 +175,7 @@ export default function AttendanceScheduleCreation() {
                           postAttendanceUserDefSchedule(
                             "f2bPostAttendanceUserDefSchedule",
                             null,
-                            data._id,
+                            user._id,
                           )
                         }
                       >

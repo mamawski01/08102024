@@ -9,6 +9,7 @@ export default function Linker({
   icon = <LinkIcon color="red" />,
   to = "/",
   color = "indigo",
+  textSmall = false,
 }) {
   const font = formatFontLabel(text);
   const hoverBgColor = onHoverBgColor(color);
@@ -17,7 +18,7 @@ export default function Linker({
     <Link
       title={font}
       to={to}
-      className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing`}
+      className={`${hoverBgColor} btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing ${textSmall && `text-sm`}`}
     >
       <span className="w-7">{icon}</span>
       <span className="hidden md:block">{font}</span>
@@ -31,4 +32,5 @@ Linker.propTypes = {
   text: PropTypes.any,
   to: PropTypes.any,
   url: PropTypes.any,
+  textSmall: PropTypes.any,
 };

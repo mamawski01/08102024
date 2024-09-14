@@ -35,7 +35,7 @@ export default function Form({
   dataStructure = defaultDataStructure,
   dataSave = console.log,
   dataEdit = console.log,
-  dataDelete = console.log,
+  dataDelete,
   onSubmitRule = "simple",
   editDefaultVal = null,
   fIOFindOne = "",
@@ -70,7 +70,32 @@ export default function Form({
 
   fSocket.on(bIOFindOne, (data) => {
     apiDataSet(data.data);
-    reset(data.data);
+
+    if (onSubmitRule === "getAttendanceUserDefSchedule") {
+      const daysOfWeek = [
+        "monday",
+        "tuesday",
+        "wednesday",
+        "thursday",
+        "friday",
+        "saturday",
+        "sunday",
+      ];
+      const transformedDefaultVal = {};
+
+      daysOfWeek.forEach((day, index) => {
+        const dayIndex = index + 1;
+        transformedDefaultVal[`timeIn${dayIndex}`] =
+          data.data.days[index].timeIn;
+        transformedDefaultVal[`timeOut${dayIndex}`] =
+          data.data.days[index].timeOut;
+        transformedDefaultVal[`notes${dayIndex}`] = data.data.days[index].notes;
+        transformedDefaultVal[`day${dayIndex}`] = data.data.days[index].day;
+      });
+      reset({ ...transformedDefaultVal, ...data.data });
+    } else {
+      reset(data.data);
+    }
   });
 
   const edit = Boolean(apiData?._id);
@@ -80,6 +105,7 @@ export default function Form({
       ? dataEdit(fIOUpdateOne, id, await onSubmitForm(data, onSubmitRule))
       : dataSave(fIOSaveOne, await onSubmitForm(data, onSubmitRule));
   }
+
   return (
     <form
       encType="multipart/form-data"
@@ -111,6 +137,7 @@ export default function Form({
               options: dataStructure.options,
               isRequired: dataStructure.isRequired,
               specifyFiles: dataStructure.specifyFiles,
+              disables: dataStructure.disables,
               editImagePreview,
             }}
           >
@@ -143,7 +170,7 @@ export default function Form({
             reset({});
           }}
         ></Btn>
-        {edit && (
+        {edit && dataDelete && (
           <Btn
             text={"delete"}
             color={"red"}
@@ -191,6 +218,7 @@ function InputRow() {
     options = "",
     isRequired = "",
     specifyFiles = "",
+    disables = "",
   } = useContext(FormContext);
 
   const gridDesign = getGridDesign(inputNames.length);
@@ -212,6 +240,7 @@ function InputRow() {
           specifyFile={specifyFiles[i]}
           options={options[i]}
           isRequired={isRequired[i]}
+          disable={disables[i]}
         ></Input>
       ))}
     </div>
@@ -227,6 +256,7 @@ InputRow.propTypes = {
   register: PropTypes.any,
   rowLabel: PropTypes.any,
   specifyFiles: PropTypes.any,
+  disables: PropTypes.any,
 };
 
 function Input({
@@ -235,6 +265,7 @@ function Input({
   specifyFile = "",
   options = [],
   isRequired = false,
+  disable,
 }) {
   const { filePrevSet, register, filePrev, errors, editImagePreview } =
     useContext(FormContext);
@@ -250,8 +281,7 @@ function Input({
     } else return filePrevSet("/Asset2.png");
   }
 
-  const style =
-    "w-full rounded-lg border border-gray-400 bg-slate-700 px-4 py-2 placeholder:text-sky-500 hover:ring hover:ring-gray-500 focus:outline-none focus:ring focus:ring-gray-500";
+  const style = `w-full rounded-lg border border-gray-400 bg-slate-700 px-4 py-2 placeholder:text-sky-500 hover:ring hover:ring-gray-500 focus:outline-none focus:ring focus:ring-gray-500 ${disable && `hidden`}`;
 
   return (
     <div className="my-auto h-full w-full">
@@ -261,6 +291,7 @@ function Input({
 
       {["text", "date", "email", "password"].includes(inputType) && (
         <input
+          disabled={disable}
           type={inputType}
           placeholder={font}
           id={inputName}
@@ -274,6 +305,7 @@ function Input({
 
       {["option"].includes(inputType) && (
         <select
+          disabled={disable}
           id={inputName}
           className={`${style} text-white`}
           title={font}
@@ -290,6 +322,7 @@ function Input({
       {["file"].includes(inputType) && (
         <div>
           <input
+            disabled={disable}
             type={inputType}
             placeholder={font}
             id={inputName}
@@ -310,6 +343,7 @@ function Input({
 
       {["textarea"].includes(inputType) && (
         <textarea
+          disabled={disable}
           id={inputName}
           autoComplete="off"
           placeholder={font}
@@ -334,4 +368,5 @@ Input.propTypes = {
   options: PropTypes.any,
   register: PropTypes.any,
   specifyFile: PropTypes.any,
+  disable: PropTypes.any,
 };

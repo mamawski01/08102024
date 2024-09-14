@@ -3,6 +3,7 @@ import ConfirmedUserModel from "./models/ConfirmedUserModel.js";
 import { getter, patcher, poster } from "./operators/bOperators.js";
 
 export function bGetAttendanceUserDefSchedules(req, res) {
+  console.log("connected");
   getter(
     req,
     res,
@@ -13,6 +14,7 @@ export function bGetAttendanceUserDefSchedules(req, res) {
 }
 
 export function bGetAttendanceUserDefSchedule(req, res) {
+  console.log("connected");
   getter(
     req,
     res,
@@ -23,6 +25,7 @@ export function bGetAttendanceUserDefSchedule(req, res) {
 }
 
 export function bPostAttendanceUserDefSchedule(req, res) {
+  console.log("connected");
   poster(
     req,
     res,
@@ -36,6 +39,7 @@ export function bPostAttendanceUserDefSchedule(req, res) {
 }
 
 export function bPatchAttendanceUserDefSchedule(req, res) {
+  console.log("connected");
   patcher(
     req,
     res,

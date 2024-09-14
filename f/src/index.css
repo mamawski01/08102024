@@ -24,7 +24,7 @@
   }
 
   .btnAndNavLinkerAndOptionsAndLinkAndLinkerDisappearing {
-    @apply relative flex flex-col items-center gap-1 rounded-md p-1 px-2 font-bold tracking-wider;
+    @apply relative flex flex-col items-center gap-1 rounded-md p-1 px-2 text-center font-bold tracking-wider;
   }
 
   .bg {
