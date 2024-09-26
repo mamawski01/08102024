@@ -110,6 +110,19 @@ export async function deleter(rule, url, mess, fIO, id) {
         return data;
       }
     }
+    if (rule === "simple/deleteMany") {
+      const confirmDelete = await swalAlert(
+        "Are you sure to clear all records?",
+        "You won't be able to revert this!",
+        "Yes, clear all records!",
+      );
+      if (confirmDelete.isConfirmed) {
+        const data = await apiClient.delete(url);
+        toast.success(mess);
+        fIOToBIO(fIO, data);
+        return data;
+      }
+    }
   } catch (exception) {
     return errorHandler(exception, mess);
   }

@@ -24,6 +24,7 @@ export default function TittleH1WithDate({
   ),
   title = "Add Tittle",
   children,
+  flex = false,
 }) {
   const navigate = useNavigate();
 
@@ -42,8 +43,10 @@ export default function TittleH1WithDate({
           onClick={() => navigate(-1)}
         ></Btn>
       </div>
-      <TittleH1 disableSticky={true}>{title}</TittleH1>
-      {children}
+      <div className={`${flex && `flex justify-center gap-x-2`}`}>
+        <TittleH1 disableSticky={true}>{title}</TittleH1>
+        {children}
+      </div>
     </div>
   );
 }
@@ -52,4 +55,5 @@ TittleH1WithDate.propTypes = {
   datePicker: PropTypes.any,
   title: PropTypes.any,
   children: PropTypes.any,
+  flex: PropTypes.any,
 };

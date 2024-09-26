@@ -32,6 +32,7 @@ export function registerSocketServer(server) {
       console.log(data);
       io.emit("b2fDeleteRegistryUser", data);
     });
+
     //confirmed user
     socket.on("f2bGetConfirmedUsers", (data) => {
       io.emit("b2fGetConfirmedUsers", data);
@@ -63,19 +64,42 @@ export function registerSocketServer(server) {
     socket.on("f2bPostAttendanceUser", (data) => {
       io.emit("b2fPostAttendanceUser", data);
     });
+    socket.on("f2bDeleteAttendanceUsers", (data) => {
+      io.emit("b2fDeleteAttendanceUsers", data);
+    });
 
     //attendance User
     socket.on("f2bGetAttendanceUserDefSchedules", (data) => {
       io.emit("b2fGetAttendanceUserDefSchedules", data);
     });
-    socket.on("f2bf2bGetAttendanceUserDefSchedule", (data) => {
-      io.emit("b2ff2bGetAttendanceUserDefSchedule", data);
+    socket.on("f2bGetAttendanceUserDefSchedule", (data) => {
+      io.emit("b2fGetAttendanceUserDefSchedule", data);
     });
     socket.on("f2bPostAttendanceUserDefSchedule", (data) => {
       io.emit("b2fPostAttendanceUserDefSchedule", data);
     });
     socket.on("f2bPatchAttendanceUserDefSchedule", (data) => {
       io.emit("b2fPatchAttendanceUserDefSchedule", data);
+    });
+
+    //Attendance User Final Schedules
+    socket.on("f2bGetAttendanceUserFinalSchedules", (data) => {
+      io.emit("b2fGetAttendanceUserFinalSchedules", data);
+    });
+    socket.on("f2bGetAttendanceUserFinalSchedule", (data) => {
+      io.emit("b2fGetAttendanceUserFinalSchedule", data);
+    });
+    socket.on("f2bGetAttendanceUserFinalScheduleArr", (data) => {
+      io.emit("b2fGetAttendanceUserFinalScheduleArr", data);
+    });
+    socket.on("f2bPostAttendanceUserFinalSchedule", (data) => {
+      io.emit("b2fPostAttendanceUserFinalSchedule", data);
+    });
+    socket.on("f2bPatchAttendanceUserFinalSchedule", (data) => {
+      io.emit("b2fPatchAttendanceUserFinalSchedule", data);
+    });
+    socket.on("f2bDeleteAttendanceUserFinalSchedules", (data) => {
+      io.emit("b2fDeleteAttendanceUserFinalSchedules", data);
     });
   });
 }

@@ -2,8 +2,6 @@ import toast from "react-hot-toast";
 import { convertToJson } from "../../utils/helpers";
 
 export async function onSubmitForm(data, onSubmitRule) {
-  console.log(data);
-
   if (data.password !== data.repeatPassword) {
     toast.error("Passwords do not match");
     return null;
@@ -22,7 +20,13 @@ export async function onSubmitForm(data, onSubmitRule) {
     }
 
     if (onSubmitRule === "simple") {
+      //needing fix, for input that has file attach, not simple at all
+      console.log(finalData);
       return finalData;
+    }
+
+    if (onSubmitRule === "textOnly") {
+      return data;
     }
   }
 

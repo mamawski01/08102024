@@ -27,7 +27,7 @@ export default function Options({
 
   useEffect(() => {
     function callBack(e) {
-      if (!optionRef.current.contains(e.target)) {
+      if (!optionRef.current?.contains(e.target)) {
         showOptionsSet(false);
       }
     }

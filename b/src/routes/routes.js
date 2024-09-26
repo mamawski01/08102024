@@ -16,6 +16,7 @@ import {
   bPostConfirmedUser,
 } from "./controller/bConfirmedUser.js";
 import {
+  bDeleteAttendanceUsers,
   bGetAttendanceUser,
   bGetAttendanceUsers,
   bPostAttendanceUser,
@@ -27,9 +28,13 @@ import {
   bPostAttendanceUserDefSchedule,
 } from "./controller/bAttendanceUserDefSchedule.js";
 import {
-  bGetAttendanceUserFinalScheduleModels,
-  bPostAttendanceUserFinalScheduleModel,
+  bDeleteAttendanceUserFinalSchedules,
+  bGetAttendanceUserFinalSchedule,
+  bGetAttendanceUserFinalSchedules,
+  bPatchAttendanceUserFinalSchedule,
+  bPostAttendanceUserFinalSchedule,
 } from "./controller/bGetAttendanceUserFinalScheduleModel.js";
+import AttendanceSetting from "./controller/models/AttendanceSettingModel.js";
 
 const router = express.Router();
 
@@ -80,6 +85,8 @@ router.get("/bGetAttendanceUsers", bGetAttendanceUsers);
 router.get("/bGetAttendanceUser/:id", bGetAttendanceUser);
 
 router.post("/bPostAttendanceUser", bPostAttendanceUser);
+
+router.delete("/bDeleteAttendanceUsers", bDeleteAttendanceUsers);
 //AttendanceUserModel//
 
 //AttendanceUserDefScheduleModel//
@@ -100,14 +107,49 @@ router.patch(
 
 //AttendanceUserFinalScheduleModel//
 router.get(
-  "/bGetAttendanceUserFinalScheduleModel",
-  bGetAttendanceUserFinalScheduleModels
+  "/bGetAttendanceUserFinalSchedules",
+  bGetAttendanceUserFinalSchedules
 );
 
+router.get(
+  "/bGetAttendanceUserFinalSchedule/:id",
+  bGetAttendanceUserFinalSchedule
+);
+
+// special get findArray
+// router.get(
+//   "/bGetAttendanceUserFinalScheduleArr/:id",
+//   bGetAttendanceUserFinalScheduleArr
+// );
+
 router.post(
-  "/bPostAttendanceUserFinalScheduleModel",
-  bPostAttendanceUserFinalScheduleModel
+  "/bPostAttendanceUserFinalSchedule",
+  bPostAttendanceUserFinalSchedule
+);
+
+router.patch(
+  "/bPatchAttendanceUserFinalSchedule/:id",
+  bPatchAttendanceUserFinalSchedule
+);
+
+router.delete(
+  "/bDeleteAttendanceUserFinalSchedules",
+  bDeleteAttendanceUserFinalSchedules
 );
 //AttendanceUserFinalScheduleModel//
+
+//AttendanceSetting//
+router.get("/attendanceSettingBEGetAll", (req, res) =>
+  getterV1(
+    req,
+    res,
+    "simple/findAll",
+    AttendanceSetting,
+    "attendanceSettingBEGetAll",
+    "attendanceSettingBEGetAllF2B",
+    "attendanceSettingBEGetAllB2F"
+  )
+);
+//AttendanceSetting//
 
 export default router;

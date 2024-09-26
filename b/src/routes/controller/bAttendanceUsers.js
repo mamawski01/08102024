@@ -1,6 +1,6 @@
 import AttendanceUserModel from "./models/AttendanceUserModel.js";
 
-import { getter, poster } from "./operators/bOperators.js";
+import { deleter, getter, poster } from "./operators/bOperators.js";
 
 export function bGetAttendanceUsers(req, res) {
   getter(
@@ -24,5 +24,15 @@ export function bPostAttendanceUser(req, res) {
     AttendanceUserModel,
     "bPostAttendanceUser",
     null
+  );
+}
+
+export function bDeleteAttendanceUsers(req, res) {
+  deleter(
+    req,
+    res,
+    "simple/deleteMany",
+    AttendanceUserModel,
+    "bDeleteAttendanceUsers"
   );
 }

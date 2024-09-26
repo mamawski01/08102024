@@ -147,20 +147,21 @@ export async function poster(
         return bDataIsFound(data, res, mess, rule);
       }
     }
-    if (rule === "bPostAttendanceUserFinalScheduleModel") {
-      console.log(req.body);
-      const uniqueData = data.filter(
-        (item, index, self) =>
-          index === self.findIndex((t) => t.date === item.date)
+    if (rule === "bPostAttendanceUserFinalSchedule") {
+      const prevData = await model.find();
+
+      const filteredDataOfNewAndPrev = req.body.filter(
+        (newItem) =>
+          !prevData.some((prevItem) => prevItem.date === newItem.date)
       );
-      // const { date } = req.body;
-      // const dateExist = await model.exists({ date });
-      // if (dateExist) {
-      //   return; //do not save the latest data
-      // } else {
-      //   const data = await model.insertMany(req.body, { ordered: false });
-      //   return bDataIsFound(data, res, mess, rule);
-      // }
+      const filteredData = filteredDataOfNewAndPrev.reduce((acc, current) => {
+        if (!acc.find((item) => item.date === current.date)) {
+          acc.push(current);
+        }
+        return acc;
+      }, []);
+      const data = await model.insertMany(filteredData);
+      return bDataIsFound(data, res, mess, rule);
     }
 
     if (rule === "bPostAttendanceUserDefSchedule") {
@@ -186,7 +187,7 @@ export async function poster(
 export async function patcher(req, res, rule, model, mess, folderLocation) {
   try {
     const { id } = req.params;
-
+    console.log(req.body);
     if (rule === "simple") {
       const data = await model.findByIdAndUpdate(id, req.body, {
         new: true,
@@ -239,6 +240,10 @@ export async function deleter(req, res, rule, model, mess, folderLocation) {
       //userPrevImg
 
       const data = await model.findByIdAndDelete(id);
+      return bDataIsFound(data, res, mess, rule);
+    }
+    if (rule === "simple/deleteMany") {
+      const data = await model.deleteMany({});
       return bDataIsFound(data, res, mess, rule);
     }
   } catch (error) {

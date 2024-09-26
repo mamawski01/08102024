@@ -1,59 +1,10 @@
-const data = [
-  {
-    attendanceId: "3",
-    firstName: "rhea joy",
-    lastName: "guzon",
-    date: "2024-09-01",
-    day: "sunday",
-    defaultDuty: "true",
-    notes: "Day-Off",
-    timeIn: "09:00 am",
-    timeOut: "06:00 pm",
-  },
-  {
-    attendanceId: "3",
-    firstName: "rhea joy",
-    lastName: "guzon",
-    date: "2024-09-01",
-    day: "sunday",
-    defaultDuty: "true",
-    notes: "Day-Off",
-    timeIn: "09:00 am",
-    timeOut: "06:00 pm",
-  },
-  {
-    attendanceId: "3",
-    firstName: "rhea joy",
-    lastName: "guzon",
-    date: "2024-09-02",
-    day: "sunday",
-    defaultDuty: "true",
-    notes: "Day-Off",
-    timeIn: "09:00 am",
-    timeOut: "06:00 pm",
-  },
-];
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration";
 
-//desire result
+dayjs.extend(duration);
 
-[
-  {
-    attendanceId: "3",
-    firstName: "rhea joy",
-    lastName: "guzon",
-    date: "2024-09-02",
-    day: "sunday",
-    defaultDuty: "true",
-    notes: "Day-Off",
-    timeIn: "09:00 am",
-    timeOut: "06:00 pm",
-  },
-];
+const scheduledTime = dayjs("2024-09-02 09:17:00");
+const actualTime = dayjs("2024-09-02 18:05:00");
 
-//i am saving a multiple item in mongodb, i want to have a unique date, if there is date duplication, i don't want to save the last duplicate item
-
-const uniqueData = data.filter(
-  (item, index, self) => index === self.findIndex((t) => t.date === item.date),
-);
-
-console.log(uniqueData);
+const result = dayjs.duration(actualTime.diff(scheduledTime, "m"), "m");
+console.log(result.format("H:mm"));

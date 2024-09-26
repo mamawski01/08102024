@@ -1,25 +1,63 @@
 import AttendanceUserFinalSchedule from "./models/AttendanceUserFinalScheduleModel.js";
-import { getter, poster } from "./operators/bOperators.js";
+import { deleter, getter, patcher, poster } from "./operators/bOperators.js";
 
-export function bGetAttendanceUserFinalScheduleModels(req, res) {
-  console.log("lol");
+export function bGetAttendanceUserFinalSchedules(req, res) {
   getter(
     req,
     res,
     "simple/findAll",
     AttendanceUserFinalSchedule,
-    "bGetAttendanceUserFinalScheduleModel"
+    "bGetAttendanceUserFinalSchedules"
   );
 }
 
-export function bPostAttendanceUserFinalScheduleModel(req, res) {
-  console.log("lol");
+export function bGetAttendanceUserFinalSchedule(req, res) {
+  getter(
+    req,
+    res,
+    "simple/findOne",
+    AttendanceUserFinalSchedule,
+    "bGetAttendanceUserFinalSchedule"
+  );
+}
+
+// export function bGetAttendanceUserFinalScheduleArr(req, res) {
+//   getter(
+//     req,
+//     res,
+//     "findArray",
+//     AttendanceUserFinalSchedule,
+//     "bGetAttendanceUserFinalScheduleArr"
+//   );
+// }
+
+export function bPostAttendanceUserFinalSchedule(req, res) {
   poster(
     req,
     res,
-    "bPostAttendanceUserFinalScheduleModel",
+    "bPostAttendanceUserFinalSchedule",
     AttendanceUserFinalSchedule,
-    "bPostAttendanceUserFinalScheduleModel",
+    "bPostAttendanceUserFinalSchedule",
     null
+  );
+}
+
+export function bPatchAttendanceUserFinalSchedule(req, res) {
+  patcher(
+    req,
+    res,
+    "simple",
+    AttendanceUserFinalSchedule,
+    "bPatchAttendanceUserFinalSchedule"
+  );
+}
+
+export function bDeleteAttendanceUserFinalSchedules(req, res) {
+  deleter(
+    req,
+    res,
+    "simple/deleteMany",
+    AttendanceUserFinalSchedule,
+    "bDeleteAttendanceUserFinalSchedules"
   );
 }

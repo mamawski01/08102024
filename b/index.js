@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-const server = http.createServer(app);
+export const server = http.createServer(app);
 
 registerSocketServer(server);
 

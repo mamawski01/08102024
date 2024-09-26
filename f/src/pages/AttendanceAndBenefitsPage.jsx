@@ -2,6 +2,7 @@ import {
   CalendarDateRangeIcon,
   ClockIcon,
   PaperClipIcon,
+  SparklesIcon,
   UserPlusIcon,
 } from "@heroicons/react/24/solid";
 import { useGlobal } from "./context/globalhook";
@@ -9,9 +10,11 @@ import Card from "../reusable/components/card";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
 import TittleH1 from "../reusable/components/TittleH1";
 import Linker from "../reusable/components/Linker";
+import Btn from "../reusable/components/Btn";
+import { deleteAttendanceUsers } from "../api/attendanceUsers";
 
 export default function AttendanceAndBenefitsPage() {
-  const { confirmedUsersGets } = useGlobal();
+  const { confirmedUsersGets, attendanceUsersGets } = useGlobal();
   return (
     <>
       <div className="sticky top-0 z-10 bg-slate-950">
@@ -22,6 +25,17 @@ export default function AttendanceAndBenefitsPage() {
             icon={<UserPlusIcon />}
             to="attendanceUploadForm"
           ></Linker>
+          <Btn
+            text="attendanceClear"
+            icon={<SparklesIcon />}
+            onClick={() =>
+              deleteAttendanceUsers(
+                "f2bDeleteAttendanceUsers",
+                attendanceUsersGets,
+              )
+            }
+            color="yellow"
+          ></Btn>
           <Linker
             text="createSchedule"
             icon={<ClockIcon color="red" />}

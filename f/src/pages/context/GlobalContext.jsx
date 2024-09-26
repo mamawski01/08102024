@@ -8,6 +8,7 @@ import {
 } from "../../api/confirmedUsers";
 import { getAttendanceUsers } from "../../api/attendanceUsers";
 import dayjs from "dayjs";
+import { getAttendanceUserFinalSchedules } from "../../api/attendanceUserFinalSchedule";
 
 export const GlobalContext = createContext();
 
@@ -16,6 +17,7 @@ export default function GlobalProvider({ children }) {
   const updater1post = useDataGetter("b2fPostConfirmedUser");
   const updater2patch = useDataGetter("b2fPatchConfirmedUser");
   const updater3delete = useDataGetter("b2fDeleteConfirmedUser");
+
   useGetter(
     getConfirmedUsers,
     "f2bGetConfirmedUsers",
@@ -24,12 +26,23 @@ export default function GlobalProvider({ children }) {
     updater2patch,
     updater3delete,
   );
+
   const confirmedUsersGets = useDataGetter("b2fGetConfirmedUsers");
   //ConfirmedUser
 
   //attendance User
   const attendance1post = useDataGetter("b2fPostAttendanceUser");
-  useGetter(getAttendanceUsers, "f2bGetAttendanceUsers", null, attendance1post);
+  const attendance2delete = useDataGetter("b2fDeleteAttendanceUsers");
+
+  useGetter(
+    getAttendanceUsers,
+    "f2bGetAttendanceUsers",
+    null,
+    attendance1post,
+    attendance2delete,
+  );
+
+  const attendanceUsersGets = useDataGetter("b2fGetAttendanceUsers");
   //attendance User
 
   //date
@@ -38,20 +51,38 @@ export default function GlobalProvider({ children }) {
     endDate: dayjs().format("YYYY-MM-DD"),
   });
 
-  const finalDatesArr = Array.from(
-    {
-      length:
-        (new Date(dateArrValue.endDate) - new Date(dateArrValue.startDate)) /
-          (1000 * 3600 * 24) +
-        1,
-    },
-    (_, i) => {
-      const date = new Date(dateArrValue.startDate);
-      date.setDate(date.getDate() + i);
-      return date.toISOString().split("T")[0];
-    },
-  );
+  const finalDatesArr = [];
+  for (
+    let date = dayjs(dateArrValue.startDate);
+    date.isSameOrBefore(dayjs(dateArrValue.endDate));
+    date = date.add(1, "day")
+  ) {
+    finalDatesArr.push(date.format("YYYY-MM-DD"));
+  }
   //date
+
+  //attendanceUserFinalSchedule
+  const updaterFinalSchedule1post = useDataGetter(
+    "b2fPostAttendanceUserFinalSchedule",
+  );
+  const patchFinalSchedule3delete = useDataGetter(
+    "b2fPatchAttendanceUserFinalSchedule",
+  );
+  const updaterFinalSchedule3delete = useDataGetter(
+    "b2fDeleteAttendanceUserFinalSchedules",
+  );
+  useGetter(
+    getAttendanceUserFinalSchedules,
+    "f2bGetAttendanceUserFinalSchedules",
+    null,
+    updaterFinalSchedule1post,
+    patchFinalSchedule3delete,
+    updaterFinalSchedule3delete,
+  );
+  const attendanceUserFinalScheduleGets = useDataGetter(
+    "b2fGetAttendanceUserFinalSchedules",
+  );
+  //attendanceUserFinalSchedule
 
   return (
     <GlobalContext.Provider
@@ -61,6 +92,8 @@ export default function GlobalProvider({ children }) {
         finalDatesArr,
         dateArrValue,
         dateArrValueSet,
+        attendanceUsersGets,
+        attendanceUserFinalScheduleGets,
       }}
     >
       {children}

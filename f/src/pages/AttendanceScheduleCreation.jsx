@@ -9,12 +9,33 @@ import {
   postAttendanceUserDefSchedule,
 } from "../api/attendanceUserDefSchedule";
 import { useDataGetter, useGetter } from "../reusable/hooks/useGetter";
-import { Cog8ToothIcon } from "@heroicons/react/24/solid";
+import {
+  BriefcaseIcon,
+  Cog8ToothIcon,
+  PuzzlePieceIcon,
+} from "@heroicons/react/24/solid";
 import Linker from "../reusable/components/Linker";
+import Btn from "../reusable/components/Btn";
+import { bPostAttendanceUserFinalSchedule } from "../api/attendanceUserFinalSchedule";
+import { useState } from "react";
 
 export default function AttendanceScheduleCreation() {
-  const { dateArrValue, dateArrValueSet, confirmedUsersGets, finalDatesArr } =
-    useGlobal();
+  const { confirmedUsersGets } = useGlobal();
+
+  //date
+  const [dateArrValue, dateArrValueSet] = useState({
+    startDate: dayjs().startOf("month").format("YYYY-MM-DD"),
+    endDate: dayjs().add(1, "month").format("YYYY-MM-DD"),
+  });
+  const finalDatesArr = [];
+  for (
+    let date = dayjs(dateArrValue.startDate);
+    date.isSameOrBefore(dayjs(dateArrValue.endDate));
+    date = date.add(1, "day")
+  ) {
+    finalDatesArr.push(date.format("YYYY-MM-DD"));
+  }
+  //date
 
   //attendanceUserDefSchedules
   const updater1post = useDataGetter("b2fPostAttendanceUserDefSchedule");
@@ -65,27 +86,31 @@ export default function AttendanceScheduleCreation() {
 
     return user;
   });
-  // console.log(usersWithSchedule);
 
-  const transformedData = usersWithSchedule?.map((data) => {
+  const transformedData = usersWithSchedule?.flatMap((data) => {
     const dataSchedule = data.schedules?.map((detail) => {
+      const newDetail = { ...detail };
+      delete newDetail._id;
       return {
+        ...newDetail,
         firstName: data.firstName,
         lastName: data.lastName,
         attendanceId: data.attendanceId,
-        ...detail,
+        UserId: data.attendanceId,
+        defaultDuty: "false",
+        date: detail.date + " " + data.attendanceId,
       };
     });
     return dataSchedule;
   });
-  const transformedDataFinal = transformedData?.flat();
-  console.log(transformedDataFinal);
 
   const numTables = Math.ceil(finalDatesArr.length / 7);
+  const minDate = usersWithSchedule?.[0]?.schedules?.[0]?.date;
   return (
     <div>
       <TittleH1WithDate
-        title="Attendance and Schedule"
+        title="Attendance Schedule Creation"
+        flex={true}
         datePicker={
           <Datepicker
             value={dateArrValue}
@@ -95,6 +120,7 @@ export default function AttendanceScheduleCreation() {
             displayFormat="YYYY-MMM-DD"
             separator="to"
             showShortcuts={true}
+            minDate={minDate ? new Date(minDate) : new Date("1993-09-20")}
             configs={{
               shortcuts: {
                 today: "Today",
@@ -102,7 +128,25 @@ export default function AttendanceScheduleCreation() {
             }}
           />
         }
-      ></TittleH1WithDate>
+      >
+        <Btn
+          text="createAttendance"
+          icon={<BriefcaseIcon color="brown" />}
+          textSmall={true}
+          onClick={() =>
+            bPostAttendanceUserFinalSchedule(
+              "f2bPostAttendanceUserFinalSchedule",
+              transformedData,
+            )
+          }
+        ></Btn>
+        <Linker
+          text="finalAttendance"
+          textSmall={true}
+          icon={<PuzzlePieceIcon color="gold" />}
+          to="attendanceFinalSchedule"
+        ></Linker>
+      </TittleH1WithDate>
       {Array.from({ length: numTables }, (_, q) => (
         <table key={q} className="mb-4 w-full">
           <thead>
@@ -146,12 +190,19 @@ export default function AttendanceScheduleCreation() {
                             className="border align-top [&>*:nth-child(odd)]:bg-indigo-800/40"
                             key={i}
                           >
+                            <p className="!bg-green-900">
+                              {data.defaultDuty === "true" && `Default`}
+                            </p>
                             <p
                               className={`${dayjs(data.date).format("ddd") === "Sun" && `!bg-red-800`}`}
                             >
                               {dayjs(data.date).format("ddd")}
                             </p>
-
+                            <p
+                              className={`${data.notes === "Day-Off" && `!bg-fuchsia-800`}`}
+                            >
+                              {data.notes}
+                            </p>
                             {data.timeIn === "day-off" ||
                             data.timeOut === "day-off" ||
                             data.notes === "Day-Off" ? null : (
@@ -160,16 +211,6 @@ export default function AttendanceScheduleCreation() {
                                 {data.timeOut.replace(" ", "")}
                               </p>
                             )}
-
-                            <p
-                              className={`${data.notes === "Day-Off" && `!bg-fuchsia-800`}`}
-                            >
-                              {data.notes}
-                            </p>
-                            <p className="!bg-green-900">
-                              {user.schedules[i].defaultDuty === "true" &&
-                                `Default`}
-                            </p>
                           </td>
                         ))}
                     </>

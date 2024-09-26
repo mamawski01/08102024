@@ -14,6 +14,8 @@ import AttendanceAndSchedulePage from "./pages/AttendanceAndSchedulePage";
 import AttendanceUploadForm from "./pages/AttendanceUploadForm";
 import AttendanceScheduleCreation from "./pages/AttendanceScheduleCreation";
 import AttendanceDefaultScheduleForm from "./pages/AttendanceDefaultScheduleForm";
+import AttendanceFinalSchedule from "./pages/AttendanceFinalSchedule";
+import AttendanceFinalScheduleForm from "./pages/AttendanceFinalScheduleForm";
 
 export default function App() {
   return (
@@ -66,6 +68,14 @@ export default function App() {
               <Route
                 path="homepage/attendanceAndBenefitsPage/attendanceScheduleCreation/attendanceDefaultScheduleForm/:id"
                 element={<AttendanceDefaultScheduleForm />}
+              ></Route>
+              <Route
+                path="homepage/attendanceAndBenefitsPage/attendanceScheduleCreation/attendanceFinalSchedule"
+                element={<AttendanceFinalSchedule />}
+              ></Route>
+              <Route
+                path="homepage/attendanceAndBenefitsPage/attendanceScheduleCreation/attendanceFinalSchedule/:id"
+                element={<AttendanceFinalScheduleForm />}
               ></Route>
 
               <Route

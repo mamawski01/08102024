@@ -50,7 +50,7 @@
   *useGetter is a useEffect to fetch data and update realtime, if id is not null, mean realtime update of one item
   *useDataGetter //last happening consuming data from BE by b2f(be to fe)
 
-  //useGet
+  //useGet code
     export function useGetter(
     getData,
     fIO,
@@ -102,8 +102,19 @@
         ],
       ]}
       onSubmitRule="attendanceUpload"
+      editDefaultVal={getAttendanceUserDefSchedule}
+      fIOFindOne="f2bGetAttendanceUserDefSchedule"
+      bIOFindOne="b2fGetAttendanceUserDefSchedule"
+      dataEdit={patchAttendanceUserDefSchedule}
+      fIOUpdateOne="f2bPatchConfirmedUser"
+      onSubmitRule="getAttendanceUserDefSchedule"
     ></Form>
   );
-  
-  data structure will be base on your Model on BE
+
+  *data structure will be base on your Model on BE
+}
+
+{
+   //creating an api V1
+   *create a model
 }

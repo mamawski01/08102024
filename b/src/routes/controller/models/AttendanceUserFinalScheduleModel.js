@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 const schema = new Schema({
   date: { type: String, unique: true },
   attendanceId: { type: String },
+  UserId: { type: String },
   firstName: { type: String },
   lastName: { type: String },
   timeIn: { type: String },

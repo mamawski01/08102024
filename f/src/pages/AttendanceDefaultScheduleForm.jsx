@@ -32,8 +32,8 @@ export default function AttendanceDefaultScheduleForm() {
             isRequired: [true, true, true, true],
             inputTypes: ["option", "option", "option"],
             options: [
-              timeArr("9:00 am"),
-              timeArr("6:00 pm"),
+              timeArr("09:00 am"),
+              timeArr("06:00 pm"),
               ["Regular Duty", "Day-Off"],
             ],
             disables: [false, false, false, true],
@@ -41,8 +41,8 @@ export default function AttendanceDefaultScheduleForm() {
         ],
       ]}
       editDefaultVal={getAttendanceUserDefSchedule}
-      fIOFindOne="f2bf2bGetAttendanceUserDefSchedule"
-      bIOFindOne="b2ff2bGetAttendanceUserDefSchedule"
+      fIOFindOne="f2bGetAttendanceUserDefSchedule"
+      bIOFindOne="b2fGetAttendanceUserDefSchedule"
       dataEdit={patchAttendanceUserDefSchedule}
       fIOUpdateOne="f2bPatchConfirmedUser"
       onSubmitRule="getAttendanceUserDefSchedule"

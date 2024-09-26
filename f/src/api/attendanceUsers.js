@@ -1,4 +1,4 @@
-import { getter, poster } from "./apis/api";
+import { deleter, getter, poster } from "./apis/api";
 
 export function getAttendanceUsers(fIO) {
   return getter(
@@ -24,6 +24,16 @@ export function postAttendanceUser(fIO, data) {
     "simple/saveOne",
     "/bPostAttendanceUser",
     "postAttendanceUser",
+    fIO,
+    data,
+  );
+}
+
+export function deleteAttendanceUsers(fIO, data) {
+  return deleter(
+    "simple/deleteMany",
+    "/bDeleteAttendanceUsers",
+    "deleteAttendanceUsers",
     fIO,
     data,
   );
