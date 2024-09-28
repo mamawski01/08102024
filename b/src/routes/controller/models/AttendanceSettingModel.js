@@ -4,11 +4,11 @@ const collectionName = "AttendanceSetting";
 
 const { Schema } = mongoose;
 const schema = new Schema({
-  brkTime: { type: String },
-  regularRate: { type: String },
-  regularHolidayRate: { type: String },
-  specialHolidayRate: { type: String },
-  overtimeStarts: { type: String },
+  brkDuration: { type: String, default: "60 mins" },
+  overtimeStarts: { type: String, default: "30 mins" },
+  regularRate: { type: String, default: "1" },
+  holidayRate: { type: String, default: "1.3" },
+  overtimeRate: { type: String, default: "1.25" },
 });
 
 const AttendanceSetting = mongoose.model(collectionName, schema);

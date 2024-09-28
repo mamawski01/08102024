@@ -4,7 +4,6 @@ import Datepicker from "react-tailwindcss-datepicker";
 import { useGlobal } from "./context/globalhook";
 import TittleH1WithDate from "../reusable/components/TittleH1WithDate";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
-import { postAttendanceUserDefSchedule } from "../api/attendanceUserDefSchedule";
 
 import {
   BriefcaseIcon,
@@ -13,9 +12,9 @@ import {
 } from "@heroicons/react/24/solid";
 import Linker from "../reusable/components/Linker";
 import Btn from "../reusable/components/Btn";
-import { bPostAttendanceUserFinalSchedule } from "../api/attendanceUserFinalSchedule";
 import { useState } from "react";
 import { useFetch, useGet } from "../reusable/hooks/useFetch";
+import { poster } from "../api/api";
 
 export default function AttendanceScheduleCreation() {
   const { confirmedUsersGets } = useGlobal();
@@ -131,7 +130,10 @@ export default function AttendanceScheduleCreation() {
           icon={<BriefcaseIcon color="brown" />}
           textSmall={true}
           onClick={() =>
-            bPostAttendanceUserFinalSchedule(
+            poster(
+              "simple/saveOne",
+              "/bPostAttendanceUserFinalSchedule",
+              "postAttendanceUserFinalSchedule",
               "f2bPostAttendanceUserFinalSchedule",
               transformedData,
             )
@@ -216,8 +218,12 @@ export default function AttendanceScheduleCreation() {
                       <p
                         className="flex h-10 w-full cursor-pointer items-center justify-center hover:bg-slate-800"
                         onClick={() =>
-                          postAttendanceUserDefSchedule(
+                          poster(
+                            "postAttendanceUserDefSchedule",
+                            "/bPostAttendanceUserDefSchedule/",
+                            "postAttendanceUserDefSchedule",
                             "f2bPostAttendanceUserDefSchedule",
+                            null,
                             null,
                             user._id,
                           )

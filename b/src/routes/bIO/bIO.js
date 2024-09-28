@@ -69,6 +69,24 @@ export function socketServer(server) {
       b2f: "b2fDeleteAttendanceUserFinalSchedules",
     },
     //attendanceUserFinalSchedules
+    //AttendanceSetting//
+    {
+      f2b: "attendanceSettingBEGetAllF2B",
+      b2f: "attendanceSettingBEGetAllB2F",
+    },
+    {
+      f2b: "attendanceSettingBEGetOneF2B",
+      b2f: "attendanceSettingBEGetOneB2F",
+    },
+    {
+      f2b: "attendanceSettingBEPostOneF2B",
+      b2f: "attendanceSettingBEPostOneB2F",
+    },
+    {
+      f2b: "attendanceSettingBEPatchOneF2B",
+      b2f: "attendanceSettingBEPatchOneB2F",
+    },
+    //AttendanceSetting//
   ];
 
   io.on("connection", (socket) => {

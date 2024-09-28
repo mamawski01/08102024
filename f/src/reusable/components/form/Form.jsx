@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 import Btn from "../Btn";
 import { formatFontLabel } from "../../utils/helpers";
 import { onSubmitForm } from "./onSubmitForm";
-import { fSocket } from "../../../api/api";
+import { deleter, fSocket, getter, patcher, poster } from "../../../api/api";
 
 const defaultDataStructure = [
   [
@@ -33,16 +33,24 @@ const FormContext = createContext();
 
 export default function Form({
   dataStructure = defaultDataStructure,
-  dataSave = console.log,
-  dataEdit = console.log,
-  dataDelete,
+  postRule = "",
+  postUrl = "",
+  postMess = "",
+  postF2b = "",
+  patchRule = "",
+  patchUrl = "",
+  patchMess = "",
+  patchF2b = "",
+  getRule = "",
+  getUrl = "",
+  getMess = "",
+  getF2b = "",
+  b2f = "",
+  deleteRule = "",
+  deleteUrl = "",
+  deleteMess = "",
+  deleteF2b = "",
   onSubmitRule = "simple",
-  editDefaultVal = null,
-  fIOFindOne = "",
-  bIOFindOne = "",
-  fIOSaveOne = "",
-  fIOUpdateOne = "",
-  fIODeleteOne = "",
 }) {
   const navigate = useNavigate();
   const [filePrev, filePrevSet] = useState();
@@ -58,17 +66,17 @@ export default function Form({
   useEffect(() => {
     if (id) {
       async function fetchData() {
-        await editDefaultVal(fIOFindOne, id);
+        await getter(getRule, getUrl, getMess, getF2b, id);
       }
       fetchData();
     }
     return () => {};
-  }, [editDefaultVal, fIOFindOne, id]);
+  }, [getRule, getUrl, getMess, getF2b, id]);
 
   const [apiData, apiDataSet] = useState();
   const editImagePreview = apiData?.image;
 
-  fSocket.on(bIOFindOne, (data) => {
+  fSocket.on(b2f, (data) => {
     apiDataSet(data.data);
 
     if (onSubmitRule === "getAttendanceUserDefSchedule") {
@@ -102,8 +110,21 @@ export default function Form({
 
   async function onSubmit(data) {
     edit
-      ? dataEdit(fIOUpdateOne, id, await onSubmitForm(data, onSubmitRule))
-      : dataSave(fIOSaveOne, await onSubmitForm(data, onSubmitRule));
+      ? patcher(
+          patchRule,
+          patchUrl,
+          patchMess,
+          patchF2b,
+          id,
+          await onSubmitForm(data, onSubmitRule),
+        )
+      : poster(
+          postRule,
+          postUrl,
+          postMess,
+          postF2b,
+          await onSubmitForm(data, onSubmitRule),
+        );
   }
 
   return (
@@ -170,13 +191,21 @@ export default function Form({
             reset({});
           }}
         ></Btn>
-        {edit && dataDelete && (
+        {edit && deleteRule && (
           <Btn
             text={"delete"}
             color={"red"}
             type="button"
             icon={<TrashIcon color="red"></TrashIcon>}
-            onClick={() => dataDelete(fIODeleteOne, apiData?._id)}
+            onClick={() =>
+              deleter(
+                deleteRule,
+                deleteUrl,
+                deleteMess,
+                deleteF2b,
+                apiData?._id,
+              )
+            }
           ></Btn>
         )}
         <Btn
@@ -193,16 +222,24 @@ export default function Form({
 
 Form.propTypes = {
   dataStructure: PropTypes.any,
-  dataSave: PropTypes.any,
-  dataEdit: PropTypes.any,
-  dataDelete: PropTypes.any,
+  postRule: PropTypes.any,
+  postUrl: PropTypes.any,
+  postMess: PropTypes.any,
+  postF2b: PropTypes.any,
+  patchRule: PropTypes.any,
+  patchUrl: PropTypes.any,
+  patchMess: PropTypes.any,
+  patchF2b: PropTypes.any,
+  getRule: PropTypes.any,
+  getUrl: PropTypes.any,
+  getMess: PropTypes.any,
+  getF2b: PropTypes.any,
+  b2f: PropTypes.any,
+  deleteRule: PropTypes.any,
+  deleteUrl: PropTypes.any,
+  deleteMess: PropTypes.any,
+  deleteF2b: PropTypes.any,
   onSubmitRule: PropTypes.any,
-  editDefaultVal: PropTypes.any,
-  bIOFindOne: PropTypes.any,
-  fIOFindOne: PropTypes.any,
-  fIOSaveOne: PropTypes.any,
-  fIOUpdateOne: PropTypes.any,
-  fIODeleteOne: PropTypes.any,
 };
 
 function getGridDesign(inputLength) {

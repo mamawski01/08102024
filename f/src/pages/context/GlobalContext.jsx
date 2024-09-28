@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { createContext, useState } from "react";
 
-import { deleteConfirmedUser } from "../../api/confirmedUsers";
 import dayjs from "dayjs";
 import { useFetch, useGet } from "../../reusable/hooks/useFetch";
 
@@ -89,7 +88,6 @@ export default function GlobalProvider({ children }) {
     <GlobalContext.Provider
       value={{
         confirmedUsersGets,
-        deleteConfirmedUser,
         finalDatesArr,
         dateArrValue,
         dateArrValueSet,

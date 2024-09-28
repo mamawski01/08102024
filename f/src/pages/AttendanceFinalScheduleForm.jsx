@@ -1,7 +1,3 @@
-import {
-  getAttendanceUserFinalSchedule,
-  patchAttendanceUserFinalSchedule,
-} from "../api/attendanceUserFinalSchedule";
 import Form from "../reusable/components/form/Form";
 import { timeArr } from "../reusable/utils/helpers";
 
@@ -24,11 +20,15 @@ export default function AttendanceFinalScheduleForm() {
           },
         ],
       ]}
-      editDefaultVal={getAttendanceUserFinalSchedule}
-      fIOFindOne="f2bGetAttendanceUserFinalSchedule"
-      bIOFindOne="b2fGetAttendanceUserFinalSchedule"
-      dataEdit={patchAttendanceUserFinalSchedule}
-      fIOUpdateOne="f2bPatchAttendanceUserFinalSchedule"
+      patchRule={"simple/updateOne"}
+      patchUrl={"/bPatchAttendanceUserFinalSchedule/"}
+      patchMess={"patchAttendanceUserFinalSchedule"}
+      patchF2b={"f2bPatchAttendanceUserFinalSchedule"}
+      getRule={"findArray"}
+      getUrl={"/bGetAttendanceUserFinalSchedule/"}
+      getMess={"getAttendanceUserFinalSchedule"}
+      getF2b={"f2bGetAttendanceUserFinalSchedule"}
+      b2f={"b2fGetAttendanceUserFinalSchedule"}
       onSubmitRule="textOnly"
     ></Form>
   );

@@ -8,8 +8,9 @@ import { Link, useParams } from "react-router-dom";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
 import { useGlobal } from "./context/globalhook";
 import TittleH1WithDate from "../reusable/components/TittleH1WithDate";
-import { CogIcon } from "@heroicons/react/24/solid";
+import { CogIcon, WrenchIcon } from "@heroicons/react/24/solid";
 import { useFetch, useGet } from "../reusable/hooks/useFetch";
+import { poster } from "../api/api";
 
 export default function AttendanceAndSchedulePage() {
   const { id } = useParams();
@@ -21,7 +22,6 @@ export default function AttendanceAndSchedulePage() {
     "getConfirmedUser",
     "f2bGetConfirmedUser",
     id,
-    getConfirmUser,
   );
   //confirmedUser
 
@@ -33,9 +33,23 @@ export default function AttendanceAndSchedulePage() {
     "getAttendanceUser",
     "f2bGetAttendanceUser",
     getConfirmUser?.attendanceId,
-    getAttendanceUser_,
   );
   //AttendanceUser
+
+  //AttendanceSetting
+  const updater1 = useGet("attendanceSettingBEPostOneB2F");
+
+  useFetch(
+    "simple/findAll",
+    "/attendanceSettingBEGetAll",
+    "attendanceSettingFEGetAll",
+    "attendanceSettingBEGetAllF2B",
+    null,
+    updater1,
+  );
+  const attendanceSettings = useGet("attendanceSettingBEGetAllB2F");
+  console.log(attendanceSettings);
+  //AttendanceSetting
 
   const {
     finalDatesArr,
@@ -50,7 +64,7 @@ export default function AttendanceAndSchedulePage() {
     const attendanceId = getConfirmUser?.attendanceId;
     return data.attendanceId === attendanceId;
   });
-  console.log(schedule);
+  // console.log(schedule);
 
   //time logs
   const timeLogObj = finalDatesArr?.map((date) => {
@@ -125,7 +139,7 @@ export default function AttendanceAndSchedulePage() {
       };
     }
   });
-  console.log(status);
+  // console.log(status);
   return (
     <div>
       <TittleH1WithDate
@@ -148,13 +162,35 @@ export default function AttendanceAndSchedulePage() {
           />
         }
       >
-        <p className="flex flex-wrap gap-x-1 text-lg font-semibold tracking-wide md:text-xl">
-          {`${capitalizeFirstLetterEachWord(getConfirmUser?.firstName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.middleName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.lastName)}`}{" "}
-          / Attendance Name:{" "}
-          {getAttendanceUser_?.[0]
-            ? getAttendanceUser_?.[0]?.Name
-            : `User Record is missing.`}
-        </p>
+        <div className="flex items-center gap-5">
+          <p className="flex flex-wrap gap-x-1 text-lg font-semibold tracking-wide md:text-xl">
+            {`${capitalizeFirstLetterEachWord(getConfirmUser?.firstName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.middleName)} ${capitalizeFirstLetterEachWord(getConfirmUser?.lastName)}`}{" "}
+            / Attendance Name:{" "}
+            {getAttendanceUser_?.[0]
+              ? getAttendanceUser_?.[0]?.Name
+              : `User Record is missing.`}
+          </p>
+          <div className="flex gap-1 rounded-md p-1 px-2 hover:bg-slate-200/10">
+            <WrenchIcon className="w-7" color="DarkSalmon" />
+            {attendanceSettings?.length === 0 ? (
+              <span
+                className="hidden cursor-pointer md:block"
+                onClick={() =>
+                  poster(
+                    "simple/saveOne",
+                    "/attendanceSettingBEPostOne",
+                    "attendanceSettingFEPostOne",
+                    "attendanceSettingBEPostOneF2B",
+                  )
+                }
+              >
+                Create Attendance Setting
+              </span>
+            ) : (
+              <Link className="hidden md:block">Attendance Setting</Link>
+            )}
+          </div>
+        </div>
       </TittleH1WithDate>
       <table className="w-full">
         <thead>

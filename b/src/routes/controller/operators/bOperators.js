@@ -187,7 +187,6 @@ export async function poster(
 export async function patcher(req, res, rule, model, mess, folderLocation) {
   try {
     const { id } = req.params;
-    console.log(req.body);
     if (rule === "simple") {
       const data = await model.findByIdAndUpdate(id, req.body, {
         new: true,

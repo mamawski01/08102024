@@ -11,10 +11,10 @@ import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
 import TittleH1 from "../reusable/components/TittleH1";
 import Linker from "../reusable/components/Linker";
 import Btn from "../reusable/components/Btn";
-import { deleteAttendanceUsers } from "../api/attendanceUsers";
+import { deleter } from "../api/api";
 
 export default function AttendanceAndBenefitsPage() {
-  const { confirmedUsersGets, attendanceUsersGets } = useGlobal();
+  const { confirmedUsersGets } = useGlobal();
   return (
     <>
       <div className="sticky top-0 z-10 bg-slate-950">
@@ -29,9 +29,11 @@ export default function AttendanceAndBenefitsPage() {
             text="attendanceClear"
             icon={<SparklesIcon />}
             onClick={() =>
-              deleteAttendanceUsers(
+              deleter(
+                "simple/deleteMany",
+                "/bDeleteAttendanceUsers",
+                "deleteAttendanceUsers",
                 "f2bDeleteAttendanceUsers",
-                attendanceUsersGets,
               )
             }
             color="yellow"

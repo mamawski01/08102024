@@ -1,7 +1,3 @@
-import {
-  getAttendanceUserDefSchedule,
-  patchAttendanceUserDefSchedule,
-} from "../api/attendanceUserDefSchedule";
 import Form from "../reusable/components/form/Form";
 import { timeArr } from "../reusable/utils/helpers";
 
@@ -40,11 +36,16 @@ export default function AttendanceDefaultScheduleForm() {
           })),
         ],
       ]}
-      editDefaultVal={getAttendanceUserDefSchedule}
-      fIOFindOne="f2bGetAttendanceUserDefSchedule"
-      bIOFindOne="b2fGetAttendanceUserDefSchedule"
-      dataEdit={patchAttendanceUserDefSchedule}
-      fIOUpdateOne="f2bPatchConfirmedUser"
+      // editDefaultVal={getAttendanceUserDefSchedule}
+      patchRule={"simple/updateOne"}
+      patchUrl={"/bPatchAttendanceUserDefSchedule/"}
+      patchMess={"patchAttendanceUserDefSchedule"}
+      patchF2b={"f2bPatchConfirmedUser"}
+      getRule={"simple/findOne"}
+      getUrl={"/bGetAttendanceUserDefSchedule/"}
+      getMess={"getAttendanceUserDefSchedule"}
+      getF2b={"f2bGetAttendanceUserDefSchedule"}
+      b2f={"b2fGetAttendanceUserDefSchedule"}
       onSubmitRule="getAttendanceUserDefSchedule"
     ></Form>
   );

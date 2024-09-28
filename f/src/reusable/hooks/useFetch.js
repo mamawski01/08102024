@@ -5,7 +5,7 @@ export function useFetch(
   rule,
   url,
   mess,
-  fIO,
+  f2b,
   id,
   updater1,
   updater2,
@@ -14,11 +14,11 @@ export function useFetch(
 ) {
   useEffect(() => {
     async function fetchData() {
-      await getter(rule, url, mess, fIO, id);
+      await getter(rule, url, mess, f2b, id);
     }
     fetchData();
     return () => {};
-  }, [rule, url, mess, fIO, id, updater1, updater2, updater3, updater4]);
+  }, [rule, url, mess, f2b, id, updater1, updater2, updater3, updater4]);
 }
 
 export function useGet(b2f) {

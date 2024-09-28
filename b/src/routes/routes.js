@@ -12,6 +12,7 @@ import ConfirmedUserModel from "./controller/models/ConfirmedUserModel.js";
 import AttendanceUserModel from "./controller/models/AttendanceUserModel.js";
 import AttendanceUserDefScheduleModel from "./controller/models/AttendanceUserDefScheduleModel.js";
 import AttendanceUserFinalSchedule from "./controller/models/AttendanceUserFinalScheduleModel.js";
+import AttendanceSetting from "./controller/models/AttendanceSettingModel.js";
 
 const routes = express.Router();
 
@@ -246,20 +247,41 @@ routes.delete("/bDeleteAttendanceUserFinalSchedules", (req, res) =>
 //AttendanceUserFinalScheduleModel//
 
 //AttendanceSetting//
-// routes.get("/attendanceSettingBEGetAll", (req, res) =>
-//   getter(
-//     req,
-//     res,
-//     "simple/findAll",
-//     AttendanceSetting,
-//     "attendanceSettingBEGetAll"
-//   )
-// );
-// io.on("connection", (socket) => {
-//   socket.on("attendanceSettingBEGetAllF2B", (data) => {
-//     io.emit("attendanceSettingBEGetAllB2F", data);
-//   });
-// });
+routes.get("/attendanceSettingBEGetAll", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findAll",
+    AttendanceSetting,
+    "attendanceSettingBEGetAll"
+  )
+);
+
+routes.get("/attendanceSettingBEGetOne/:id", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findOne",
+    AttendanceSetting,
+    "attendanceSettingBEGetOne"
+  )
+);
+
+routes.post("/attendanceSettingBEPostOne", (req, res) =>
+  poster(
+    req,
+    res,
+    "simple",
+    AttendanceSetting,
+    "attendanceSettingBEPostOne",
+    null
+  )
+);
+
+routes.patch("/attendanceSettingBEPatchOne/:id", (req, res) =>
+  patcher(req, res, "simple", AttendanceSetting, "attendanceSettingBEPatchOne")
+);
+
 //AttendanceSetting//
 
 export default routes;

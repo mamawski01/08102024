@@ -13,8 +13,8 @@ const apiClient = axios.create({
 export const fSocket = io.connect(bServer);
 
 //first happening sending data to BE
-function fIOToBIO(fIO, data) {
-  fSocket.emit(fIO, data);
+function f2bFx(f2b, data) {
+  fSocket.emit(f2b, data);
 }
 
 function errorHandler(exception, mess) {
@@ -24,19 +24,19 @@ function errorHandler(exception, mess) {
   return exception.response.data;
 }
 
-export async function getter(rule, url, mess, fIO, id) {
+export async function getter(rule, url, mess, f2b, id) {
   try {
     if (rule === "simple/findAll") {
       const { data } = await apiClient.get(url);
       console.log(data, mess);
-      fIOToBIO(fIO, data);
+      f2bFx(f2b, data);
       return data;
     }
     if (rule === "simple/findOne" || rule === "findArray") {
       if (!id) return console.log(mess);
       const { data } = await apiClient.get(url + id);
       console.log(data, mess);
-      fIOToBIO(fIO, data);
+      f2bFx(f2b, data);
       return data;
     }
   } catch (exception) {
@@ -44,13 +44,13 @@ export async function getter(rule, url, mess, fIO, id) {
   }
 }
 
-export async function poster(rule, url, mess, fIO, data, id, confirmedUserId) {
+export async function poster(rule, url, mess, f2b, data, confirmedUserId) {
   try {
     console.log(data);
     if (rule === "simple/saveOne") {
       const newData = await apiClient.post(url, data);
       toast.success(mess);
-      fIOToBIO(fIO, newData);
+      f2bFx(f2b, newData);
       return newData;
     }
 
@@ -63,7 +63,7 @@ export async function poster(rule, url, mess, fIO, data, id, confirmedUserId) {
       if (confirmDelete.isConfirmed) {
         const newData = await apiClient.post(url + confirmedUserId, data);
         toast.success(mess);
-        fIOToBIO(fIO, newData);
+        f2bFx(f2b, newData);
         return newData;
       }
     }
@@ -71,7 +71,7 @@ export async function poster(rule, url, mess, fIO, data, id, confirmedUserId) {
     if (rule === "postAttendanceUserDefSchedule") {
       const newData = await apiClient.post(url + confirmedUserId, data);
       toast.success(mess);
-      fIOToBIO(fIO, newData);
+      f2bFx(f2b, newData);
       return newData;
     }
   } catch (exception) {
@@ -79,19 +79,19 @@ export async function poster(rule, url, mess, fIO, data, id, confirmedUserId) {
   }
 }
 
-export async function patcher(rule, url, mess, fIO, id, data) {
+export async function patcher(rule, url, mess, f2b, id, data) {
   try {
     if (rule === "simple/updateOne") {
       const newData = await apiClient.patch(url + id, data);
       toast.success(mess);
-      fIOToBIO(fIO, newData);
+      f2bFx(f2b, newData);
       return newData;
     }
 
     if (rule === "simple/updateOne") {
       const newData = await apiClient.patch(url + id, data);
       toast.success(mess);
-      fIOToBIO(fIO, newData);
+      f2bFx(f2b, newData);
       return newData;
     }
   } catch (exception) {
@@ -99,14 +99,14 @@ export async function patcher(rule, url, mess, fIO, id, data) {
   }
 }
 
-export async function deleter(rule, url, mess, fIO, id) {
+export async function deleter(rule, url, mess, f2b, id) {
   try {
     if (rule === "simple/deleteOne") {
       const confirmDelete = await swalAlert();
       if (confirmDelete.isConfirmed) {
         const data = await apiClient.delete(url + id);
         toast.success(mess);
-        fIOToBIO(fIO, data);
+        f2bFx(f2b, data);
         return data;
       }
     }
@@ -119,7 +119,7 @@ export async function deleter(rule, url, mess, fIO, id) {
       if (confirmDelete.isConfirmed) {
         const data = await apiClient.delete(url);
         toast.success(mess);
-        fIOToBIO(fIO, data);
+        f2bFx(f2b, data);
         return data;
       }
     }
