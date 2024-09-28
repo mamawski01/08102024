@@ -2,154 +2,264 @@ import express from "express";
 
 import { upload } from "../utils/multer.js";
 import {
-  bDeleteRegistryUser,
-  bGetRegistryUser,
-  bGetRegistryUsers,
-  bPatchRegistryUser,
-  bPostRegistryUser,
-} from "./controller/bRegistryUsers.js";
-import {
-  bDeleteConfirmedUser,
-  bGetConfirmedUser,
-  bGetConfirmedUsers,
-  bPatchConfirmedUser,
-  bPostConfirmedUser,
-} from "./controller/bConfirmedUser.js";
-import {
-  bDeleteAttendanceUsers,
-  bGetAttendanceUser,
-  bGetAttendanceUsers,
-  bPostAttendanceUser,
-} from "./controller/bAttendanceUsers.js";
-import {
-  bGetAttendanceUserDefSchedule,
-  bGetAttendanceUserDefSchedules,
-  bPatchAttendanceUserDefSchedule,
-  bPostAttendanceUserDefSchedule,
-} from "./controller/bAttendanceUserDefSchedule.js";
-import {
-  bDeleteAttendanceUserFinalSchedules,
-  bGetAttendanceUserFinalSchedule,
-  bGetAttendanceUserFinalSchedules,
-  bPatchAttendanceUserFinalSchedule,
-  bPostAttendanceUserFinalSchedule,
-} from "./controller/bGetAttendanceUserFinalScheduleModel.js";
-import AttendanceSetting from "./controller/models/AttendanceSettingModel.js";
+  deleter,
+  getter,
+  patcher,
+  poster,
+} from "./controller/operators/bOperators.js";
+import RegistryUserModel from "./controller/models/RegistryUserModel.js";
+import ConfirmedUserModel from "./controller/models/ConfirmedUserModel.js";
+import AttendanceUserModel from "./controller/models/AttendanceUserModel.js";
+import AttendanceUserDefScheduleModel from "./controller/models/AttendanceUserDefScheduleModel.js";
+import AttendanceUserFinalSchedule from "./controller/models/AttendanceUserFinalScheduleModel.js";
 
-const router = express.Router();
+const routes = express.Router();
 
-//registryUser//
 export const userImgFolderLoc = "userImgFolder";
 export const userImgFolderName = "userImg";
 
-router.get("/bGetRegistryUsers", bGetRegistryUsers);
+//registryUser//
+routes.get("/bGetRegistryUsers", (req, res) =>
+  getter(req, res, "simple/findAll", RegistryUserModel, "bGetRegistryUsers")
+);
 
-router.get("/bGetRegistryUser/:id", bGetRegistryUser);
+routes.get("/bGetRegistryUser/:id", (req, res) =>
+  getter(req, res, "simple/findOne", RegistryUserModel, "bGetRegistryUser")
+);
 
-router.post(
+routes.post(
   "/bPostRegistryUser",
   upload(userImgFolderLoc, userImgFolderName).single("image"),
-  bPostRegistryUser
+  (req, res) =>
+    poster(
+      req,
+      res,
+      "bPostRegistryUser",
+      RegistryUserModel,
+      "bPostRegistryUser",
+      userImgFolderLoc
+    )
 );
 
-router.patch(
+routes.patch(
   "/bPatchRegistryUser/:id",
   upload(userImgFolderLoc, userImgFolderName).single("image"),
-  bPatchRegistryUser
+  (req, res) =>
+    patcher(
+      req,
+      res,
+      "bPatchRegistryUser",
+      RegistryUserModel,
+      "bPatchRegistryUser",
+      userImgFolderLoc
+    )
 );
 
-router.delete("/bDeleteRegistryUser/:id", bDeleteRegistryUser);
+routes.delete("/bDeleteRegistryUser/:id", (req, res) =>
+  deleter(
+    req,
+    res,
+    "bDeleteRegistryUser",
+    RegistryUserModel,
+    "bDeleteRegistryUser",
+    userImgFolderLoc
+  )
+);
 //registryUser//
 
 //confirmedUser//
-router.get("/bGetConfirmedUsers", bGetConfirmedUsers);
-
-router.get("/bGetConfirmedUser/:id", bGetConfirmedUser);
-
-//special post
-router.post("/bPostConfirmedUser/:id", bPostConfirmedUser);
-
-router.patch(
-  "/bPatchConfirmedUser/:id",
-  upload(userImgFolderLoc, userImgFolderName).single("image"),
-  bPatchConfirmedUser
+routes.get("/bGetConfirmedUsers", (req, res) =>
+  getter(req, res, "simple/findAll", ConfirmedUserModel, "bGetConfirmedUsers")
 );
 
-router.delete("/bDeleteConfirmedUser/:id", bDeleteConfirmedUser);
+routes.get("/bGetConfirmedUser/:id", (req, res) =>
+  getter(req, res, "simple/findOne", ConfirmedUserModel, "bGetConfirmedUser")
+);
+
+//special post
+routes.post("/bPostConfirmedUser/:id", (req, res) =>
+  poster(
+    req,
+    res,
+    "bPostConfirmedUser",
+    ConfirmedUserModel,
+    "bPostConfirmedUser",
+    userImgFolderLoc,
+    RegistryUserModel
+  )
+);
+
+routes.patch(
+  "/bPatchConfirmedUser/:id",
+  upload(userImgFolderLoc, userImgFolderName).single("image"),
+  (req, res) =>
+    patcher(
+      req,
+      res,
+      "bPatchConfirmedUser",
+      ConfirmedUserModel,
+      "bPatchConfirmedUser",
+      userImgFolderLoc
+    )
+);
+
+routes.delete("/bDeleteConfirmedUser/:id", (req, res) =>
+  deleter(
+    req,
+    res,
+    "bDeleteConfirmedUser",
+    ConfirmedUserModel,
+    "bDeleteConfirmedUser",
+    userImgFolderLoc
+  )
+);
 //confirmedUser//
 
 //AttendanceUserModel//
-router.get("/bGetAttendanceUsers", bGetAttendanceUsers);
+routes.get("/bGetAttendanceUsers", (req, res) =>
+  getter(req, res, "simple/findAll", AttendanceUserModel, "bGetAttendanceUsers")
+);
 
 // special get findArray
-router.get("/bGetAttendanceUser/:id", bGetAttendanceUser);
+routes.get("/bGetAttendanceUser/:id", (req, res) =>
+  getter(req, res, "findArray", AttendanceUserModel, "bGetAttendanceUser")
+);
 
-router.post("/bPostAttendanceUser", bPostAttendanceUser);
+routes.post("/bPostAttendanceUser", (req, res) =>
+  poster(
+    req,
+    res,
+    "bPostAttendanceUser",
+    AttendanceUserModel,
+    "bPostAttendanceUser",
+    null
+  )
+);
 
-router.delete("/bDeleteAttendanceUsers", bDeleteAttendanceUsers);
+routes.delete("/bDeleteAttendanceUsers", (req, res) =>
+  deleter(
+    req,
+    res,
+    "simple/deleteMany",
+    AttendanceUserModel,
+    "bDeleteAttendanceUsers"
+  )
+);
 //AttendanceUserModel//
 
 //AttendanceUserDefScheduleModel//
-router.get("/bGetAttendanceUserDefSchedules", bGetAttendanceUserDefSchedules);
-
-router.get("/bGetAttendanceUserDefSchedule/:id", bGetAttendanceUserDefSchedule);
-
-router.post(
-  "/bPostAttendanceUserDefSchedule/:confirmedUserId",
-  bPostAttendanceUserDefSchedule
+routes.get("/bGetAttendanceUserDefSchedules", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findAll",
+    AttendanceUserDefScheduleModel,
+    "bGetAttendanceUserDefSchedules"
+  )
 );
 
-router.patch(
-  "/bPatchAttendanceUserDefSchedule/:id",
-  bPatchAttendanceUserDefSchedule
+routes.get("/bGetAttendanceUserDefSchedule/:id", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findOne",
+    AttendanceUserDefScheduleModel,
+    "bGetAttendanceUserDefSchedule"
+  )
+);
+
+routes.post("/bPostAttendanceUserDefSchedule/:confirmedUserId", (req, res) =>
+  poster(
+    req,
+    res,
+    "bPostAttendanceUserDefSchedule",
+    AttendanceUserDefScheduleModel,
+    "bPostAttendanceUserDefSchedule",
+    null,
+    null,
+    ConfirmedUserModel
+  )
+);
+
+routes.patch("/bPatchAttendanceUserDefSchedule/:id", (req, res) =>
+  patcher(
+    req,
+    res,
+    "simple",
+    AttendanceUserDefScheduleModel,
+    "bPatchAttendanceUserDefSchedule"
+  )
 );
 //AttendanceUserDefScheduleModel//
 
 //AttendanceUserFinalScheduleModel//
-router.get(
-  "/bGetAttendanceUserFinalSchedules",
-  bGetAttendanceUserFinalSchedules
+routes.get("/bGetAttendanceUserFinalSchedules", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findAll",
+    AttendanceUserFinalSchedule,
+    "bGetAttendanceUserFinalSchedules"
+  )
 );
 
-router.get(
-  "/bGetAttendanceUserFinalSchedule/:id",
-  bGetAttendanceUserFinalSchedule
+routes.get("/bGetAttendanceUserFinalSchedule/:id", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findOne",
+    AttendanceUserFinalSchedule,
+    "bGetAttendanceUserFinalSchedule"
+  )
 );
 
-// special get findArray
-// router.get(
-//   "/bGetAttendanceUserFinalScheduleArr/:id",
-//   bGetAttendanceUserFinalScheduleArr
-// );
-
-router.post(
-  "/bPostAttendanceUserFinalSchedule",
-  bPostAttendanceUserFinalSchedule
+routes.post("/bPostAttendanceUserFinalSchedule", (req, res) =>
+  poster(
+    req,
+    res,
+    "bPostAttendanceUserFinalSchedule",
+    AttendanceUserFinalSchedule,
+    "bPostAttendanceUserFinalSchedule",
+    null
+  )
 );
 
-router.patch(
-  "/bPatchAttendanceUserFinalSchedule/:id",
-  bPatchAttendanceUserFinalSchedule
+routes.patch("/bPatchAttendanceUserFinalSchedule/:id", (req, res) =>
+  patcher(
+    req,
+    res,
+    "simple",
+    AttendanceUserFinalSchedule,
+    "bPatchAttendanceUserFinalSchedule"
+  )
 );
 
-router.delete(
-  "/bDeleteAttendanceUserFinalSchedules",
-  bDeleteAttendanceUserFinalSchedules
+routes.delete("/bDeleteAttendanceUserFinalSchedules", (req, res) =>
+  deleter(
+    req,
+    res,
+    "simple/deleteMany",
+    AttendanceUserFinalSchedule,
+    "bDeleteAttendanceUserFinalSchedules"
+  )
 );
 //AttendanceUserFinalScheduleModel//
 
 //AttendanceSetting//
-router.get("/attendanceSettingBEGetAll", (req, res) =>
-  getterV1(
-    req,
-    res,
-    "simple/findAll",
-    AttendanceSetting,
-    "attendanceSettingBEGetAll",
-    "attendanceSettingBEGetAllF2B",
-    "attendanceSettingBEGetAllB2F"
-  )
-);
+// routes.get("/attendanceSettingBEGetAll", (req, res) =>
+//   getter(
+//     req,
+//     res,
+//     "simple/findAll",
+//     AttendanceSetting,
+//     "attendanceSettingBEGetAll"
+//   )
+// );
+// io.on("connection", (socket) => {
+//   socket.on("attendanceSettingBEGetAllF2B", (data) => {
+//     io.emit("attendanceSettingBEGetAllB2F", data);
+//   });
+// });
 //AttendanceSetting//
 
-export default router;
+export default routes;

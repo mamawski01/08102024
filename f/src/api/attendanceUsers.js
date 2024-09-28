@@ -1,4 +1,4 @@
-import { deleter, getter, poster } from "./apis/api";
+import { deleter, getter, poster } from "./api";
 
 export function getAttendanceUsers(fIO) {
   return getter(

@@ -1,4 +1,4 @@
-import { deleter, getter, patcher, poster } from "./apis/api";
+import { deleter, getter, patcher, poster } from "./api";
 
 export function getConfirmedUsers(fIO) {
   return getter(
@@ -20,7 +20,6 @@ export function getConfirmedUser(fIO, id) {
 }
 
 export function postConfirmedUser(fIO, data, id) {
-  console.log(data);
   return poster(
     "special/saveOne",
     "/bPostConfirmedUser/",

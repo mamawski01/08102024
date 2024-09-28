@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import axios from "axios";
 import io from "socket.io-client";
-import { swalAlert } from "../../reusable/utils/helpers";
+import { swalAlert } from "../reusable/utils/helpers";
 
 export const bServer = "http://localhost:7000";
 

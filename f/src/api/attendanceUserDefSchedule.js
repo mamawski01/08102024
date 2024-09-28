@@ -1,4 +1,4 @@
-import { getter, patcher, poster } from "./apis/api";
+import { getter, patcher, poster } from "./api";
 
 export function getAttendanceUserDefSchedules(fIO) {
   return getter(

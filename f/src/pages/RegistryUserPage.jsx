@@ -1,7 +1,5 @@
 import dayjs from "dayjs";
 
-import { useDataGetter, useGetter } from "../reusable/hooks/useGetter";
-import { deleteRegistryUser, getRegistryUsers } from "../api/registryUsers";
 import Card from "../reusable/components/card";
 import {
   calculateAge,
@@ -15,16 +13,19 @@ import {
   //   PlusCircleIcon,
 } from "@heroicons/react/24/solid";
 import Linker from "../reusable/components/Linker";
-import { postConfirmedUser } from "../api/confirmedUsers";
 import TittleH1 from "../reusable/components/TittleH1";
+import { useFetch, useGet } from "../reusable/hooks/useFetch";
+import { deleter, poster } from "../api/api";
 
 export default function RegistryUserPage() {
-  const updater1post = useDataGetter("b2fPostRegistryUser");
-  const updater2patch = useDataGetter("b2fPatchRegistryUser");
-  const updater3delete = useDataGetter("b2fDeleteRegistryUser");
-  const updater4postOther = useDataGetter("b2fPostConfirmedUser");
-  useGetter(
-    getRegistryUsers,
+  const updater1post = useGet("b2fPostRegistryUser");
+  const updater2patch = useGet("b2fPatchRegistryUser");
+  const updater3delete = useGet("b2fDeleteRegistryUser");
+  const updater4postOther = useGet("b2fPostConfirmedUser");
+  useFetch(
+    "simple/findAll",
+    "/bGetRegistryUsers",
+    "getRegistryUsers",
     "f2bGetRegistryUsers",
     null,
     updater1post,
@@ -32,7 +33,7 @@ export default function RegistryUserPage() {
     updater3delete,
     updater4postOther,
   );
-  const registryUsersGet = useDataGetter("b2fGetRegistryUsers");
+  const registryUsersGet = useGet("b2fGetRegistryUsers");
 
   return (
     <>
@@ -57,10 +58,23 @@ export default function RegistryUserPage() {
                 key={i}
                 to={`registryUserForm/${data._id}`}
                 deleteOne={() =>
-                  deleteRegistryUser("f2bDeleteRegistryUser", data._id)
+                  deleter(
+                    "simple/deleteOne",
+                    "/bDeleteRegistryUser/",
+                    "deleteRegistryUser",
+                    "f2bDeleteRegistryUser",
+                    data._id,
+                  )
                 }
                 confirmOne={() =>
-                  postConfirmedUser("f2bPostConfirmedUser", data, data._id)
+                  poster(
+                    "special/saveOne",
+                    "/bPostConfirmedUser/",
+                    "postConfirmedUser",
+                    "f2bPostConfirmedUser",
+                    data,
+                    data._id,
+                  )
                 }
                 imgSrc={data.image}
                 title={`${capitalizeFirstLetterEachWord(data.firstName)} ${capitalizeFirstLetterEachWord(data.middleName)} ${capitalizeFirstLetterEachWord(data.lastName)}`}

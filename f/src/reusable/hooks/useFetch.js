@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { fSocket } from "../../api/apis/api";
+import { fSocket, getter } from "../../api/api";
 
-export function useGetter(
-  getData,
+export function useFetch(
+  rule,
+  url,
+  mess,
   fIO,
   id,
   updater1,
@@ -12,18 +14,18 @@ export function useGetter(
 ) {
   useEffect(() => {
     async function fetchData() {
-      await getData(fIO, id);
+      await getter(rule, url, mess, fIO, id);
     }
     fetchData();
     return () => {};
-  }, [getData, fIO, id, updater1, updater2, updater3, updater4]);
+  }, [rule, url, mess, fIO, id, updater1, updater2, updater3, updater4]);
 }
 
-export function useDataGetter(bIO) {
+export function useGet(b2f) {
   const [apiData, apiDataSet] = useState();
   //last happening consuming data from BE
   {
-    fSocket.on(bIO, (data) => {
+    fSocket.on(b2f, (data) => {
       apiDataSet(data);
     });
     return apiData?.data;

@@ -1,25 +1,22 @@
 import PropTypes from "prop-types";
 import { createContext, useState } from "react";
 
-import { useDataGetter, useGetter } from "../../reusable/hooks/useGetter";
-import {
-  deleteConfirmedUser,
-  getConfirmedUsers,
-} from "../../api/confirmedUsers";
-import { getAttendanceUsers } from "../../api/attendanceUsers";
+import { deleteConfirmedUser } from "../../api/confirmedUsers";
 import dayjs from "dayjs";
-import { getAttendanceUserFinalSchedules } from "../../api/attendanceUserFinalSchedule";
+import { useFetch, useGet } from "../../reusable/hooks/useFetch";
 
 export const GlobalContext = createContext();
 
 export default function GlobalProvider({ children }) {
   //ConfirmedUser
-  const updater1post = useDataGetter("b2fPostConfirmedUser");
-  const updater2patch = useDataGetter("b2fPatchConfirmedUser");
-  const updater3delete = useDataGetter("b2fDeleteConfirmedUser");
+  const updater1post = useGet("b2fPostConfirmedUser");
+  const updater2patch = useGet("b2fPatchConfirmedUser");
+  const updater3delete = useGet("b2fDeleteConfirmedUser");
 
-  useGetter(
-    getConfirmedUsers,
+  useFetch(
+    "simple/findAll",
+    "/bGetConfirmedUsers",
+    "getConfirmedUsers",
     "f2bGetConfirmedUsers",
     null,
     updater1post,
@@ -27,22 +24,24 @@ export default function GlobalProvider({ children }) {
     updater3delete,
   );
 
-  const confirmedUsersGets = useDataGetter("b2fGetConfirmedUsers");
+  const confirmedUsersGets = useGet("b2fGetConfirmedUsers");
   //ConfirmedUser
 
   //attendance User
-  const attendance1post = useDataGetter("b2fPostAttendanceUser");
-  const attendance2delete = useDataGetter("b2fDeleteAttendanceUsers");
+  const attendance1post = useGet("b2fPostAttendanceUser");
+  const attendance2delete = useGet("b2fDeleteAttendanceUsers");
 
-  useGetter(
-    getAttendanceUsers,
+  useFetch(
+    "simple/findAll",
+    "/bGetAttendanceUsers",
+    "getAttendanceUsers",
     "f2bGetAttendanceUsers",
     null,
     attendance1post,
     attendance2delete,
   );
 
-  const attendanceUsersGets = useDataGetter("b2fGetAttendanceUsers");
+  const attendanceUsersGets = useGet("b2fGetAttendanceUsers");
   //attendance User
 
   //date
@@ -62,24 +61,26 @@ export default function GlobalProvider({ children }) {
   //date
 
   //attendanceUserFinalSchedule
-  const updaterFinalSchedule1post = useDataGetter(
+  const updaterFinalSchedule1post = useGet(
     "b2fPostAttendanceUserFinalSchedule",
   );
-  const patchFinalSchedule3delete = useDataGetter(
+  const patchFinalSchedule3delete = useGet(
     "b2fPatchAttendanceUserFinalSchedule",
   );
-  const updaterFinalSchedule3delete = useDataGetter(
+  const updaterFinalSchedule3delete = useGet(
     "b2fDeleteAttendanceUserFinalSchedules",
   );
-  useGetter(
-    getAttendanceUserFinalSchedules,
+  useFetch(
+    "simple/findAll",
+    "/bGetAttendanceUserFinalSchedules",
+    "bGetAttendanceUserFinalSchedules",
     "f2bGetAttendanceUserFinalSchedules",
     null,
     updaterFinalSchedule1post,
     patchFinalSchedule3delete,
     updaterFinalSchedule3delete,
   );
-  const attendanceUserFinalScheduleGets = useDataGetter(
+  const attendanceUserFinalScheduleGets = useGet(
     "b2fGetAttendanceUserFinalSchedules",
   );
   //attendanceUserFinalSchedule

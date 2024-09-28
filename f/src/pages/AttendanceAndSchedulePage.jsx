@@ -4,29 +4,37 @@ dayjs.extend(duration);
 
 import Datepicker from "react-tailwindcss-datepicker";
 import { Link, useParams } from "react-router-dom";
-import { useDataGetter, useGetter } from "../reusable/hooks/useGetter";
 
-import { getConfirmedUser } from "../api/confirmedUsers";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
-import { getAttendanceUser } from "../api/attendanceUsers";
 import { useGlobal } from "./context/globalhook";
 import TittleH1WithDate from "../reusable/components/TittleH1WithDate";
 import { CogIcon } from "@heroicons/react/24/solid";
+import { useFetch, useGet } from "../reusable/hooks/useFetch";
 
 export default function AttendanceAndSchedulePage() {
   const { id } = useParams();
   //confirmedUser
-  useGetter(getConfirmedUser, "f2bGetConfirmedUser", id);
-  const getConfirmUser = useDataGetter("b2fGetConfirmedUser");
+  const getConfirmUser = useGet("b2fGetConfirmedUser");
+  useFetch(
+    "simple/findOne",
+    "/bGetConfirmedUser/",
+    "getConfirmedUser",
+    "f2bGetConfirmedUser",
+    id,
+    getConfirmUser,
+  );
   //confirmedUser
 
   //AttendanceUser
-  useGetter(
-    getAttendanceUser,
+  const getAttendanceUser_ = useGet("b2fGetAttendanceUser");
+  useFetch(
+    "findArray",
+    "/bGetAttendanceUser/",
+    "getAttendanceUser",
     "f2bGetAttendanceUser",
     getConfirmUser?.attendanceId,
+    getAttendanceUser_,
   );
-  const getAttendanceUser_ = useDataGetter("b2fGetAttendanceUser");
   //AttendanceUser
 
   const {

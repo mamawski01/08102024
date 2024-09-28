@@ -4,11 +4,8 @@ import Datepicker from "react-tailwindcss-datepicker";
 import { useGlobal } from "./context/globalhook";
 import TittleH1WithDate from "../reusable/components/TittleH1WithDate";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
-import {
-  getAttendanceUserDefSchedules,
-  postAttendanceUserDefSchedule,
-} from "../api/attendanceUserDefSchedule";
-import { useDataGetter, useGetter } from "../reusable/hooks/useGetter";
+import { postAttendanceUserDefSchedule } from "../api/attendanceUserDefSchedule";
+
 import {
   BriefcaseIcon,
   Cog8ToothIcon,
@@ -18,6 +15,7 @@ import Linker from "../reusable/components/Linker";
 import Btn from "../reusable/components/Btn";
 import { bPostAttendanceUserFinalSchedule } from "../api/attendanceUserFinalSchedule";
 import { useState } from "react";
+import { useFetch, useGet } from "../reusable/hooks/useFetch";
 
 export default function AttendanceScheduleCreation() {
   const { confirmedUsersGets } = useGlobal();
@@ -38,19 +36,18 @@ export default function AttendanceScheduleCreation() {
   //date
 
   //attendanceUserDefSchedules
-  const updater1post = useDataGetter("b2fPostAttendanceUserDefSchedule");
-  const updater2patch = useDataGetter("b2fPatchAttendanceUserDefSchedule");
-  useGetter(
-    getAttendanceUserDefSchedules,
+  const updater1post = useGet("b2fPostAttendanceUserDefSchedule");
+  const updater2patch = useGet("b2fPatchAttendanceUserDefSchedule");
+  useFetch(
+    "simple/findAll",
+    "/bGetAttendanceUserDefSchedules",
+    "getAttendanceUserDefSchedules",
     "f2bGetAttendanceUserDefSchedules",
     null,
     updater1post,
     updater2patch,
-    null,
   );
-  const attendanceUserDefSchedules = useDataGetter(
-    "b2fGetAttendanceUserDefSchedules",
-  );
+  const attendanceUserDefSchedules = useGet("b2fGetAttendanceUserDefSchedules");
 
   const usersWithSchedule = confirmedUsersGets?.map((user) => {
     const schedules = attendanceUserDefSchedules?.find(

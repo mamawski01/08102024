@@ -4,8 +4,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import http from "http";
 
-import router from "./src/routes/routes.js";
-import { registerSocketServer } from "./src/routes/bIO/bIO.js";
+import routes from "./src/routes/routes.js";
+import { socketServer } from "./src/routes/bIO/bIO.js";
 
 dotenv.config();
 const PORT = process.env.PORT || process.env.API_PORT;
@@ -16,8 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 export const server = http.createServer(app);
-
-registerSocketServer(server);
+socketServer(server);
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -30,4 +29,4 @@ mongoose
     console.log("Db and server fail" + err);
   });
 
-app.use("/", router);
+app.use("/", routes);

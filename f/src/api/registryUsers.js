@@ -1,13 +1,4 @@
-import { deleter, getter, patcher, poster } from "./apis/api";
-
-export function getRegistryUsers(fIO) {
-  return getter(
-    "simple/findAll",
-    "/bGetRegistryUsers",
-    "getRegistryUsers",
-    fIO,
-  );
-}
+import { deleter, getter, patcher, poster } from "./api";
 
 export function getRegistryUser(fIO, id) {
   return getter(

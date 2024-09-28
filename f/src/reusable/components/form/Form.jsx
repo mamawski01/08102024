@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 import Btn from "../Btn";
 import { formatFontLabel } from "../../utils/helpers";
 import { onSubmitForm } from "./onSubmitForm";
-import { fSocket } from "../../../api/apis/api";
+import { fSocket } from "../../../api/api";
 
 const defaultDataStructure = [
   [
