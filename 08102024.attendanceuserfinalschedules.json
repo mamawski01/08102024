@@ -1,0 +1,4640 @@
+[{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ae4"
+  },
+  "date": "2024-09-01 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ae5"
+  },
+  "date": "2024-09-02 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ae6"
+  },
+  "date": "2024-09-03 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ae7"
+  },
+  "date": "2024-09-04 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ae8"
+  },
+  "date": "2024-09-05 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ae9"
+  },
+  "date": "2024-09-06 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013aea"
+  },
+  "date": "2024-09-07 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013aeb"
+  },
+  "date": "2024-09-08 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013aec"
+  },
+  "date": "2024-09-09 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013aed"
+  },
+  "date": "2024-09-10 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013aee"
+  },
+  "date": "2024-09-11 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013aef"
+  },
+  "date": "2024-09-12 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af0"
+  },
+  "date": "2024-09-13 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af1"
+  },
+  "date": "2024-09-14 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af2"
+  },
+  "date": "2024-09-15 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af3"
+  },
+  "date": "2024-09-16 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af4"
+  },
+  "date": "2024-09-17 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af5"
+  },
+  "date": "2024-09-18 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af6"
+  },
+  "date": "2024-09-19 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af7"
+  },
+  "date": "2024-09-20 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af8"
+  },
+  "date": "2024-09-21 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013af9"
+  },
+  "date": "2024-09-22 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013afa"
+  },
+  "date": "2024-09-23 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013afb"
+  },
+  "date": "2024-09-24 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013afc"
+  },
+  "date": "2024-09-25 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013afd"
+  },
+  "date": "2024-09-26 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013afe"
+  },
+  "date": "2024-09-27 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013aff"
+  },
+  "date": "2024-09-28 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b00"
+  },
+  "date": "2024-09-29 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b01"
+  },
+  "date": "2024-09-30 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b02"
+  },
+  "date": "2024-10-01 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b03"
+  },
+  "date": "2024-10-02 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b04"
+  },
+  "date": "2024-10-03 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b05"
+  },
+  "date": "2024-10-04 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b06"
+  },
+  "date": "2024-10-05 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b07"
+  },
+  "date": "2024-10-06 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b08"
+  },
+  "date": "2024-10-07 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b09"
+  },
+  "date": "2024-10-08 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b0a"
+  },
+  "date": "2024-10-09 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b0b"
+  },
+  "date": "2024-10-10 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b0c"
+  },
+  "date": "2024-10-11 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b0d"
+  },
+  "date": "2024-10-12 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b0e"
+  },
+  "date": "2024-10-13 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b0f"
+  },
+  "date": "2024-10-14 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b10"
+  },
+  "date": "2024-10-15 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b11"
+  },
+  "date": "2024-10-16 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b12"
+  },
+  "date": "2024-10-17 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b13"
+  },
+  "date": "2024-10-18 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b14"
+  },
+  "date": "2024-10-19 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b15"
+  },
+  "date": "2024-10-20 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b16"
+  },
+  "date": "2024-10-21 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b17"
+  },
+  "date": "2024-10-22 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b18"
+  },
+  "date": "2024-10-23 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b19"
+  },
+  "date": "2024-10-24 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b1a"
+  },
+  "date": "2024-09-01 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b1b"
+  },
+  "date": "2024-09-02 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b1c"
+  },
+  "date": "2024-09-03 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b1d"
+  },
+  "date": "2024-09-04 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b1e"
+  },
+  "date": "2024-09-05 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b1f"
+  },
+  "date": "2024-09-06 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b20"
+  },
+  "date": "2024-09-07 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b21"
+  },
+  "date": "2024-09-08 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b22"
+  },
+  "date": "2024-09-09 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b23"
+  },
+  "date": "2024-09-10 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b24"
+  },
+  "date": "2024-09-11 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b25"
+  },
+  "date": "2024-09-12 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b26"
+  },
+  "date": "2024-09-13 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b27"
+  },
+  "date": "2024-09-14 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b28"
+  },
+  "date": "2024-09-15 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b29"
+  },
+  "date": "2024-09-16 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b2a"
+  },
+  "date": "2024-09-17 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b2b"
+  },
+  "date": "2024-09-18 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b2c"
+  },
+  "date": "2024-09-19 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b2d"
+  },
+  "date": "2024-09-20 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b2e"
+  },
+  "date": "2024-09-21 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b2f"
+  },
+  "date": "2024-09-22 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b30"
+  },
+  "date": "2024-09-23 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b31"
+  },
+  "date": "2024-09-24 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b32"
+  },
+  "date": "2024-09-25 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b33"
+  },
+  "date": "2024-09-26 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b34"
+  },
+  "date": "2024-09-27 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b35"
+  },
+  "date": "2024-09-28 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b36"
+  },
+  "date": "2024-09-29 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b37"
+  },
+  "date": "2024-09-30 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b38"
+  },
+  "date": "2024-10-01 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b39"
+  },
+  "date": "2024-10-02 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b3a"
+  },
+  "date": "2024-10-03 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b3b"
+  },
+  "date": "2024-10-04 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b3c"
+  },
+  "date": "2024-10-05 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b3d"
+  },
+  "date": "2024-10-06 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b3e"
+  },
+  "date": "2024-10-07 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b3f"
+  },
+  "date": "2024-10-08 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b40"
+  },
+  "date": "2024-10-09 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b41"
+  },
+  "date": "2024-10-10 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b42"
+  },
+  "date": "2024-10-11 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b43"
+  },
+  "date": "2024-10-12 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b44"
+  },
+  "date": "2024-10-13 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b45"
+  },
+  "date": "2024-10-14 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b46"
+  },
+  "date": "2024-10-15 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b47"
+  },
+  "date": "2024-10-16 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b48"
+  },
+  "date": "2024-10-17 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b49"
+  },
+  "date": "2024-10-18 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b4a"
+  },
+  "date": "2024-10-19 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b4b"
+  },
+  "date": "2024-10-20 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b4c"
+  },
+  "date": "2024-10-21 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b4d"
+  },
+  "date": "2024-10-22 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b4e"
+  },
+  "date": "2024-10-23 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b4f"
+  },
+  "date": "2024-10-24 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b50"
+  },
+  "date": "2024-09-01 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b51"
+  },
+  "date": "2024-09-02 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b52"
+  },
+  "date": "2024-09-03 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b53"
+  },
+  "date": "2024-09-04 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b54"
+  },
+  "date": "2024-09-05 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b55"
+  },
+  "date": "2024-09-06 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b56"
+  },
+  "date": "2024-09-07 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b57"
+  },
+  "date": "2024-09-08 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b58"
+  },
+  "date": "2024-09-09 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b59"
+  },
+  "date": "2024-09-10 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b5a"
+  },
+  "date": "2024-09-11 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b5b"
+  },
+  "date": "2024-09-12 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b5c"
+  },
+  "date": "2024-09-13 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b5d"
+  },
+  "date": "2024-09-14 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b5e"
+  },
+  "date": "2024-09-15 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b5f"
+  },
+  "date": "2024-09-16 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b60"
+  },
+  "date": "2024-09-17 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b61"
+  },
+  "date": "2024-09-18 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b62"
+  },
+  "date": "2024-09-19 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b63"
+  },
+  "date": "2024-09-20 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b64"
+  },
+  "date": "2024-09-21 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b65"
+  },
+  "date": "2024-09-22 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b66"
+  },
+  "date": "2024-09-23 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b67"
+  },
+  "date": "2024-09-24 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b68"
+  },
+  "date": "2024-09-25 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b69"
+  },
+  "date": "2024-09-26 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b6a"
+  },
+  "date": "2024-09-27 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b6b"
+  },
+  "date": "2024-09-28 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b6c"
+  },
+  "date": "2024-09-29 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b6d"
+  },
+  "date": "2024-09-30 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b6e"
+  },
+  "date": "2024-10-01 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b6f"
+  },
+  "date": "2024-10-02 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b70"
+  },
+  "date": "2024-10-03 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b71"
+  },
+  "date": "2024-10-04 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b72"
+  },
+  "date": "2024-10-05 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b73"
+  },
+  "date": "2024-10-06 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b74"
+  },
+  "date": "2024-10-07 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b75"
+  },
+  "date": "2024-10-08 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b76"
+  },
+  "date": "2024-10-09 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b77"
+  },
+  "date": "2024-10-10 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b78"
+  },
+  "date": "2024-10-11 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b79"
+  },
+  "date": "2024-10-12 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b7a"
+  },
+  "date": "2024-10-13 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b7b"
+  },
+  "date": "2024-10-14 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b7c"
+  },
+  "date": "2024-10-15 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b7d"
+  },
+  "date": "2024-10-16 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b7e"
+  },
+  "date": "2024-10-17 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b7f"
+  },
+  "date": "2024-10-18 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b80"
+  },
+  "date": "2024-10-19 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b81"
+  },
+  "date": "2024-10-20 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b82"
+  },
+  "date": "2024-10-21 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b83"
+  },
+  "date": "2024-10-22 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b84"
+  },
+  "date": "2024-10-23 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b85"
+  },
+  "date": "2024-10-24 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b86"
+  },
+  "date": "2024-09-01 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b87"
+  },
+  "date": "2024-09-02 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b88"
+  },
+  "date": "2024-09-03 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b89"
+  },
+  "date": "2024-09-04 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b8a"
+  },
+  "date": "2024-09-05 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b8b"
+  },
+  "date": "2024-09-06 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b8c"
+  },
+  "date": "2024-09-07 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b8d"
+  },
+  "date": "2024-09-08 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b8e"
+  },
+  "date": "2024-09-09 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b8f"
+  },
+  "date": "2024-09-10 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b90"
+  },
+  "date": "2024-09-11 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b91"
+  },
+  "date": "2024-09-12 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b92"
+  },
+  "date": "2024-09-13 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b93"
+  },
+  "date": "2024-09-14 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b94"
+  },
+  "date": "2024-09-15 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b95"
+  },
+  "date": "2024-09-16 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b96"
+  },
+  "date": "2024-09-17 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b97"
+  },
+  "date": "2024-09-18 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b98"
+  },
+  "date": "2024-09-19 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b99"
+  },
+  "date": "2024-09-20 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b9a"
+  },
+  "date": "2024-09-21 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b9b"
+  },
+  "date": "2024-09-22 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b9c"
+  },
+  "date": "2024-09-23 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b9d"
+  },
+  "date": "2024-09-24 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b9e"
+  },
+  "date": "2024-09-25 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013b9f"
+  },
+  "date": "2024-09-26 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba0"
+  },
+  "date": "2024-09-27 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba1"
+  },
+  "date": "2024-09-28 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba2"
+  },
+  "date": "2024-09-29 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba3"
+  },
+  "date": "2024-09-30 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba4"
+  },
+  "date": "2024-10-01 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba5"
+  },
+  "date": "2024-10-02 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba6"
+  },
+  "date": "2024-10-03 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba7"
+  },
+  "date": "2024-10-04 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba8"
+  },
+  "date": "2024-10-05 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013ba9"
+  },
+  "date": "2024-10-06 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013baa"
+  },
+  "date": "2024-10-07 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bab"
+  },
+  "date": "2024-10-08 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bac"
+  },
+  "date": "2024-10-09 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bad"
+  },
+  "date": "2024-10-10 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bae"
+  },
+  "date": "2024-10-11 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013baf"
+  },
+  "date": "2024-10-12 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb0"
+  },
+  "date": "2024-10-13 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb1"
+  },
+  "date": "2024-10-14 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb2"
+  },
+  "date": "2024-10-15 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb3"
+  },
+  "date": "2024-10-16 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb4"
+  },
+  "date": "2024-10-17 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb5"
+  },
+  "date": "2024-10-18 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb6"
+  },
+  "date": "2024-10-19 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb7"
+  },
+  "date": "2024-10-20 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb8"
+  },
+  "date": "2024-10-21 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bb9"
+  },
+  "date": "2024-10-22 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bba"
+  },
+  "date": "2024-10-23 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bbb"
+  },
+  "date": "2024-10-24 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bbc"
+  },
+  "date": "2024-09-01 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bbd"
+  },
+  "date": "2024-09-02 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bbe"
+  },
+  "date": "2024-09-03 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bbf"
+  },
+  "date": "2024-09-04 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc0"
+  },
+  "date": "2024-09-05 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc1"
+  },
+  "date": "2024-09-06 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc2"
+  },
+  "date": "2024-09-07 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc3"
+  },
+  "date": "2024-09-08 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc4"
+  },
+  "date": "2024-09-09 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc5"
+  },
+  "date": "2024-09-10 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc6"
+  },
+  "date": "2024-09-11 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc7"
+  },
+  "date": "2024-09-12 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc8"
+  },
+  "date": "2024-09-13 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bc9"
+  },
+  "date": "2024-09-14 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bca"
+  },
+  "date": "2024-09-15 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bcb"
+  },
+  "date": "2024-09-16 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bcc"
+  },
+  "date": "2024-09-17 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bcd"
+  },
+  "date": "2024-09-18 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bce"
+  },
+  "date": "2024-09-19 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bcf"
+  },
+  "date": "2024-09-20 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd0"
+  },
+  "date": "2024-09-21 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd1"
+  },
+  "date": "2024-09-22 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd2"
+  },
+  "date": "2024-09-23 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd3"
+  },
+  "date": "2024-09-24 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd4"
+  },
+  "date": "2024-09-25 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd5"
+  },
+  "date": "2024-09-26 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd6"
+  },
+  "date": "2024-09-27 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd7"
+  },
+  "date": "2024-09-28 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd8"
+  },
+  "date": "2024-09-29 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bd9"
+  },
+  "date": "2024-09-30 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bda"
+  },
+  "date": "2024-10-01 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bdb"
+  },
+  "date": "2024-10-02 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bdc"
+  },
+  "date": "2024-10-03 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bdd"
+  },
+  "date": "2024-10-04 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bde"
+  },
+  "date": "2024-10-05 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bdf"
+  },
+  "date": "2024-10-06 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be0"
+  },
+  "date": "2024-10-07 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be1"
+  },
+  "date": "2024-10-08 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be2"
+  },
+  "date": "2024-10-09 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be3"
+  },
+  "date": "2024-10-10 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be4"
+  },
+  "date": "2024-10-11 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be5"
+  },
+  "date": "2024-10-12 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be6"
+  },
+  "date": "2024-10-13 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be7"
+  },
+  "date": "2024-10-14 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be8"
+  },
+  "date": "2024-10-15 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013be9"
+  },
+  "date": "2024-10-16 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bea"
+  },
+  "date": "2024-10-17 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013beb"
+  },
+  "date": "2024-10-18 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bec"
+  },
+  "date": "2024-10-19 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bed"
+  },
+  "date": "2024-10-20 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bee"
+  },
+  "date": "2024-10-21 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bef"
+  },
+  "date": "2024-10-22 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "tuesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bf0"
+  },
+  "date": "2024-10-23 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "wednesday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f246f880802e05d9013bf1"
+  },
+  "date": "2024-10-24 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "thursday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e22"
+  },
+  "date": "2024-10-25 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e23"
+  },
+  "date": "2024-10-26 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e24"
+  },
+  "date": "2024-10-27 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e25"
+  },
+  "date": "2024-10-28 3",
+  "attendanceId": "3",
+  "UserId": "3",
+  "firstName": "rhea joy",
+  "lastName": "guzon",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e26"
+  },
+  "date": "2024-10-25 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e27"
+  },
+  "date": "2024-10-26 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e28"
+  },
+  "date": "2024-10-27 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e29"
+  },
+  "date": "2024-10-28 1",
+  "attendanceId": "1",
+  "UserId": "1",
+  "firstName": "kier",
+  "lastName": "tiberio",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e2a"
+  },
+  "date": "2024-10-25 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e2b"
+  },
+  "date": "2024-10-26 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e2c"
+  },
+  "date": "2024-10-27 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e2d"
+  },
+  "date": "2024-10-28 4",
+  "attendanceId": "4",
+  "UserId": "4",
+  "firstName": "Jonah Mae",
+  "lastName": "Balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e2e"
+  },
+  "date": "2024-10-25 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e2f"
+  },
+  "date": "2024-10-26 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e30"
+  },
+  "date": "2024-10-27 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e31"
+  },
+  "date": "2024-10-28 5",
+  "attendanceId": "5",
+  "UserId": "5",
+  "firstName": "Mary Rose",
+  "lastName": "Mondejar",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e32"
+  },
+  "date": "2024-10-25 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "friday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e33"
+  },
+  "date": "2024-10-26 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "saturday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e34"
+  },
+  "date": "2024-10-27 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Day-Off",
+  "day": "sunday",
+  "defaultDuty": "false",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66f790968f5b54bcef7c2e35"
+  },
+  "date": "2024-10-28 2",
+  "attendanceId": "2",
+  "UserId": "2",
+  "firstName": "kimberly",
+  "lastName": "balogo",
+  "timeIn": "09:00 am",
+  "timeOut": "06:00 pm",
+  "notes": "Regular Duty",
+  "day": "monday",
+  "defaultDuty": "false",
+  "__v": 0
+}]
