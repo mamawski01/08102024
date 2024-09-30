@@ -28,14 +28,14 @@ export async function getter(rule, url, mess, f2b, id) {
   try {
     if (rule === "simple/findAll") {
       const { data } = await apiClient.get(url);
-      console.log(data, mess);
+      // console.log(data, mess);
       f2bFx(f2b, data);
       return data;
     }
     if (rule === "simple/findOne" || rule === "findArray") {
-      if (!id) return console.log(mess);
+      if (!id) return null;
       const { data } = await apiClient.get(url + id);
-      console.log(data, mess);
+      // console.log(data, mess);
       f2bFx(f2b, data);
       return data;
     }
@@ -46,7 +46,6 @@ export async function getter(rule, url, mess, f2b, id) {
 
 export async function poster(rule, url, mess, f2b, data, confirmedUserId) {
   try {
-    console.log(data);
     if (rule === "simple/saveOne") {
       const newData = await apiClient.post(url, data);
       toast.success(mess);
