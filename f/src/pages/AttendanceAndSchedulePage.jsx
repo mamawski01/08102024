@@ -1,6 +1,8 @@
 import dayjs from "dayjs";
 import duration from "dayjs/plugin/duration";
+import objectSupport from "dayjs/plugin/objectSupport";
 dayjs.extend(duration);
+dayjs.extend(objectSupport);
 
 import Datepicker from "react-tailwindcss-datepicker";
 import { Link, useParams } from "react-router-dom";
@@ -96,6 +98,8 @@ export default function AttendanceAndSchedulePage() {
 
   // console.log(timeLogs);
   const status = schedule?.map((regularSchedule, i) => {
+    const brkDuration = attendanceSettings?.[0].brkDuration;
+
     const regTimeIn = dayjs(
       regularSchedule.date.split(" ")[0] + " " + regularSchedule.timeIn,
     ).format("YYYY-MM-DD HH:mm:ss");
@@ -104,8 +108,27 @@ export default function AttendanceAndSchedulePage() {
     ).format("YYYY-MM-DD HH:mm:ss");
     const actTimeIn = timeLogs[i]?.timeIn;
     const actTimeOut = timeLogs[i]?.timeOut;
-
     const duty = actTimeIn && regTimeIn ? null : `Absent`;
+    const late =
+      duty === `Absent`
+        ? null
+        : dayjs(actTimeIn).diff(regTimeIn, "m") <= 0
+          ? null
+          : dayjs.duration(dayjs(actTimeIn).diff(regTimeIn, "m"), "m");
+
+    const tentativeDutyHrs =
+      duty === `Absent`
+        ? null
+        : actTimeOut &&
+          dayjs.duration(dayjs(actTimeOut).diff(actTimeIn, "m"), "m").format();
+    const dutyHrs = tentativeDutyHrs
+      ? dayjs(tentativeDutyHrs)?.subtract(brkDuration.split(" ")[0], "m")
+      : dayjs({ hour: 1 });
+    const [hour, minute] = dutyHrs.format("h:mm").split(":");
+    const dayjsDutyHrs = dayjs({ hour: hour, minute: minute });
+    const acceptedHr = dayjsDutyHrs.isBefore(dayjs({ hour: 8 }))
+      ? dayjsDutyHrs
+      : dayjs({ hour: 8 });
 
     if (
       regularSchedule.timeIn === "day-off" ||
@@ -119,27 +142,21 @@ export default function AttendanceAndSchedulePage() {
         regTimeIn,
         actTimeIn,
         duty,
-        late:
-          duty === `Absent`
-            ? null
-            : dayjs(actTimeIn).diff(regTimeIn, "m") <= 0
-              ? null
-              : dayjs
-                  .duration(dayjs(actTimeIn).diff(regTimeIn, "m"), "m")
-                  .format("H:mm"),
+        late: late && dayjs(late).format("hh:mm:ss"),
         regTimeOut,
         actTimeOut,
-        tentativeDutyHrs:
-          duty === `Absent`
-            ? null
-            : actTimeOut &&
-              dayjs
-                .duration(dayjs(actTimeOut).diff(actTimeIn, "m"), "m")
-                .format("H:mm"),
+        tentativeDutyHrs,
+        dayjsDutyHrs,
+        acceptedHr,
+        // underTime:
+        //   dutyHrs.isBefore(dayjs({ hour: 8 })) && dutyHrs.format("H:mm"),
+        // overTime:
+        //   dutyHrs.isAfter(dayjs({ hour: 8, minute: 30 })) &&
+        //   dutyHrs.format("H:mm"),
       };
     }
   });
-  // console.log(status);
+  console.log(status);
   return (
     <div>
       <TittleH1WithDate
@@ -187,10 +204,22 @@ export default function AttendanceAndSchedulePage() {
                 Create Attendance Setting
               </span>
             ) : (
-              <Link className="hidden md:block">Attendance Setting</Link>
+              <Link
+                to={`/homepage/attendanceAndBenefitsPage/attendanceSettingForm/${attendanceSettings?.[0]._id}`}
+                className="hidden md:block"
+              >
+                Attendance Setting
+              </Link>
             )}
           </div>
         </div>
+        <p>
+          Attendance Settings: Break duration:{" "}
+          {attendanceSettings?.[0].brkDuration}. Regular Rate:{" "}
+          {attendanceSettings?.[0].regularRate}. Holiday Rate:{" "}
+          {attendanceSettings?.[0].holidayRate}. Overtime Rate:{" "}
+          {attendanceSettings?.[0].overtimeRate}.
+        </p>
       </TittleH1WithDate>
       <table className="w-full">
         <thead>
@@ -253,9 +282,9 @@ export default function AttendanceAndSchedulePage() {
               </td>
 
               <td className="border align-top">
-                {status?.[i]?.late && (
+                {/* {status?.[i]?.late && (
                   <p className="bg-yellow-800">{status?.[i].late} mins late</p>
-                )}
+                )} */}
                 {status?.[i]?.duty && (
                   <p
                     className={`${status?.[i]?.duty === "Absent" && `bg-red-600`}`}
@@ -265,7 +294,18 @@ export default function AttendanceAndSchedulePage() {
                 )}
                 {status?.[i]?.tentativeDutyHrs && (
                   <p>
-                    {status?.[i]?.tentativeDutyHrs} mins tentative duty hours
+                    {dayjs(status?.[i]?.tentativeDutyHrs).format("h:mm:ss")}{" "}
+                    tentative duty hours
+                  </p>
+                )}
+                {status?.[i]?.dayjsDutyHrs && (
+                  <p>
+                    {status?.[i]?.dayjsDutyHrs.format("h:mm:ss")} duty hours
+                  </p>
+                )}{" "}
+                {status?.[i]?.acceptedHr && (
+                  <p>
+                    {status?.[i]?.acceptedHr.format("h:mm:ss")} accepted hours
                   </p>
                 )}
               </td>
