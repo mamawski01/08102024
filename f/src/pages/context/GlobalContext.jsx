@@ -45,8 +45,10 @@ export default function GlobalProvider({ children }) {
 
   //date
   const [dateArrValue, dateArrValueSet] = useState({
-    startDate: dayjs().startOf("month").format("YYYY-MM-DD"),
-    endDate: dayjs().format("YYYY-MM-DD"),
+    // startDate: dayjs().startOf("month").format("YYYY-MM-DD"),
+    // endDate: dayjs().format("YYYY-MM-DD"),
+    startDate: dayjs("2024-09-01 09:00:00").format("YYYY-MM-DD"),
+    endDate: dayjs("2024-09-30 09:00:00").format("YYYY-MM-DD"),
   });
 
   const finalDatesArr = [];

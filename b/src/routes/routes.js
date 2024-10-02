@@ -13,6 +13,7 @@ import AttendanceUserModel from "./controller/models/AttendanceUserModel.js";
 import AttendanceUserDefScheduleModel from "./controller/models/AttendanceUserDefScheduleModel.js";
 import AttendanceUserFinalSchedule from "./controller/models/AttendanceUserFinalScheduleModel.js";
 import AttendanceSetting from "./controller/models/AttendanceSettingModel.js";
+import AttendanceEditedTime from "./controller/models/AttendanceEditedTimeModel.js";
 
 const routes = express.Router();
 
@@ -283,5 +284,58 @@ routes.patch("/attendanceSettingBEPatchOne/:id", (req, res) =>
 );
 
 //AttendanceSetting//
+
+//AttendanceEditedTime
+routes.get("/attendanceEditedTimeBEGetAll", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findAll",
+    AttendanceEditedTime,
+    "bGetAttendanceUserFinalSchedules"
+  )
+);
+
+routes.get("/attendanceEditedTimeBEGetOne/:id", (req, res) =>
+  getter(
+    req,
+    res,
+    "simple/findOne",
+    AttendanceEditedTime,
+    "bGetAttendanceUserFinalSchedule"
+  )
+);
+
+routes.post("/attendanceEditedTimeBEPostMany", (req, res) =>
+  poster(
+    req,
+    res,
+    "attendanceEditedTimeBEPostMany",
+    AttendanceEditedTime,
+    "attendanceEditedTimeBEPostMany",
+    null
+  )
+);
+
+routes.patch("/attendanceEditedTimeBEPatchOne/:id", (req, res) =>
+  patcher(
+    req,
+    res,
+    "simple",
+    AttendanceEditedTime,
+    "attendanceEditedTimeBEPatchOne"
+  )
+);
+
+routes.delete("/attendanceEditedTimeBEDeleteAll", (req, res) =>
+  deleter(
+    req,
+    res,
+    "simple/deleteMany",
+    AttendanceEditedTime,
+    "attendanceEditedTimeBEDeleteAll"
+  )
+);
+//AttendanceEditedTime
 
 export default routes;

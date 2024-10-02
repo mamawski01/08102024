@@ -120,7 +120,10 @@ export async function poster(
       }
     }
 
-    if (rule === "bPostAttendanceUser") {
+    if (
+      rule === "bPostAttendanceUser" ||
+      rule === "attendanceEditedTimeBEPostMany"
+    ) {
       const uniqueNo = new Set(req.body.map((item) => item.No));
       const existingNo = await model.find({
         No: { $in: Array.from(uniqueNo) },

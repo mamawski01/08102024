@@ -87,6 +87,28 @@ export function socketServer(server) {
       b2f: "attendanceSettingBEPatchOneB2F",
     },
     //AttendanceSetting//
+    //AttendanceEditedTime
+    {
+      f2b: "attendanceEditedTimeBEGetAllF2B",
+      b2f: "attendanceEditedTimeBEGetAllB2F",
+    },
+    {
+      f2b: "attendanceEditedTimeBEGetOneF2B",
+      b2f: "attendanceEditedTimeBEGetOneB2F",
+    },
+    {
+      f2b: "attendanceEditedTimeBEPostManyF2B",
+      b2f: "attendanceEditedTimeBEPostManyB2F",
+    },
+    {
+      f2b: "attendanceEditedTimeBEPatchOneF2B",
+      b2f: "attendanceEditedTimeBEPatchOneB2F",
+    },
+    {
+      f2b: "attendanceEditedTimeBEDeleteAllF2B",
+      b2f: "attendanceEditedTimeBEDeleteAllB2F",
+    },
+    //AttendanceEditedTime
   ];
 
   io.on("connection", (socket) => {
