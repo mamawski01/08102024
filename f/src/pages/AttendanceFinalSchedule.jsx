@@ -20,16 +20,19 @@ export default function AttendanceFinalSchedule() {
     const schedules = attendanceUserFinalScheduleGets?.filter(
       (detail) => detail.attendanceId === user.attendanceId,
     );
+    const filteredSchedules = schedules.filter((item) => {
+      return finalDatesArr.includes(item.date.split(" ")[0]);
+    });
     const transform = {
       firstName: user.firstName,
       lastName: user.lastName,
       attendanceId: user.attendanceId,
-      schedules,
+      filteredSchedules,
     };
-
     return transform;
   });
-  const minDate = transformed?.[0]?.schedules?.[0]?.date.split(" ")[0];
+
+  const minDate = transformed?.[0]?.filteredSchedules?.[0]?.date.split(" ")[0];
 
   const numTables = Math.ceil(finalDatesArr.length / 7);
   return (
@@ -83,7 +86,7 @@ export default function AttendanceFinalSchedule() {
                     {capitalizeFirstLetterEachWord(user.firstName)}{" "}
                     {capitalizeFirstLetterEachWord(user.lastName)}
                   </td>
-                  {user.schedules
+                  {user.filteredSchedules
                     ?.slice(q * 7, Math.min((q + 1) * 7, finalDatesArr?.length))
                     .map((data, i) => (
                       <td

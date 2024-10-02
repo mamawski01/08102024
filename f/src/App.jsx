@@ -17,6 +17,7 @@ import AttendanceDefaultScheduleForm from "./pages/AttendanceDefaultScheduleForm
 import AttendanceFinalSchedule from "./pages/AttendanceFinalSchedule";
 import AttendanceFinalScheduleForm from "./pages/AttendanceFinalScheduleForm";
 import AttendanceSettingForm from "./pages/AttendanceSettingForm";
+import AttEditTimeLogP from "./pages/AttEditTimeLogP";
 
 export default function App() {
   return (
@@ -81,6 +82,10 @@ export default function App() {
               <Route
                 path="homepage/attendanceAndBenefitsPage/attendanceSettingForm/:id"
                 element={<AttendanceSettingForm />}
+              ></Route>
+              <Route
+                path="homepage/attendanceAndBenefitsPage/attEditTimeLogP/:id"
+                element={<AttEditTimeLogP />}
               ></Route>
               <Route
                 path="homepage/attendanceAndBenefitsPage/attendanceAndSchedulePage/:id"

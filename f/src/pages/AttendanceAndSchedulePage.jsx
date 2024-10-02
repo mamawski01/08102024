@@ -10,9 +10,14 @@ import { Link, useParams } from "react-router-dom";
 import { capitalizeFirstLetterEachWord } from "../reusable/utils/helpers";
 import { useGlobal } from "./context/globalhook";
 import TittleH1WithDate from "../reusable/components/TittleH1WithDate";
-import { ArrowPathIcon, CogIcon, WrenchIcon } from "@heroicons/react/24/solid";
+import {
+  ArrowPathIcon,
+  CogIcon,
+  TrashIcon,
+  WrenchIcon,
+} from "@heroicons/react/24/solid";
 import { useFetch, useGet } from "../reusable/hooks/useFetch";
-import { poster } from "../api/api";
+import { deleter, poster } from "../api/api";
 
 export default function AttendanceAndSchedulePage() {
   const { id } = useParams();
@@ -52,14 +57,16 @@ export default function AttendanceAndSchedulePage() {
   //AttendanceSetting
 
   //AttendanceEditedTime
-  // const updater11 = useGet("attendanceSettingBEPostOneB2F");
+  const updater11 = useGet("attendanceEditedTimeBEPostManyB2F");
+  const updater12 = useGet("attendanceEditedTimeBEDeleteAllB2F");
   useFetch(
     "simple/findAll",
     "/attendanceEditedTimeBEGetAll",
     "attendanceEditedTimeFEGetAll",
     "attendanceEditedTimeBEGetAllF2B",
     null,
-    // updater1,
+    updater11,
+    updater12,
   );
   const attendanceEditedTime = useGet("attendanceEditedTimeBEGetAllB2F");
   //AttendanceEditedTime
@@ -78,13 +85,21 @@ export default function AttendanceAndSchedulePage() {
     return data.attendanceId === attendanceId;
   });
 
+  const correctSchedule = schedule?.filter((scheduleDates) => {
+    const date = scheduleDates.date.split(" ")[0];
+    return finalDatesArr.includes(date);
+  });
+
   //edit time logs
   const editTimeLogObj = finalDatesArr?.map((date) => {
-    const timeLog = attendanceEditedTime?.filter((log) =>
+    const matchId = attendanceEditedTime?.filter((log) =>
       log.DateTime?.startsWith(date),
     );
+    const matchAttendanceId = getConfirmUser?.attendanceId;
+    const timeLog = matchId?.filter((obj) => obj.UserId === matchAttendanceId);
     return { date, timeLog };
   });
+
   //edit time logs
 
   const editTimeLogs = editTimeLogObj?.map((logs) => {
@@ -92,9 +107,10 @@ export default function AttendanceAndSchedulePage() {
       if (k % 2 === 0) {
         return {
           timeIn: log.DateTime,
+          name: log.Name,
         };
       } else {
-        return { timeOut: log.DateTime };
+        return { timeOut: log.DateTime, name: log.Name };
       }
     });
     if (timeLog?.length === 0) return { noLogs: `No Time Log` };
@@ -103,16 +119,14 @@ export default function AttendanceAndSchedulePage() {
     }
     return timeLog?.reduce((acc, curr) => ({ ...acc, ...curr }), {});
   });
-  // console.log(editTimeLogs);
-
   //time logs
   const timeLogObj = finalDatesArr?.map((date) => {
     const timeLog = getAttendanceUser_?.filter((log) =>
       log.DateTime.startsWith(date),
     );
+
     return { date, timeLog };
   });
-  // console.log(timeLogObj);
   //time logs
 
   const minDate = schedule?.[0]?.date.split(" ")[0];
@@ -122,9 +136,10 @@ export default function AttendanceAndSchedulePage() {
       if (k % 2 === 0) {
         return {
           timeIn: log.DateTime,
+          name: log.Name,
         };
       } else {
-        return { timeOut: log.DateTime };
+        return { timeOut: log.DateTime, name: log.Name };
       }
     });
     if (timeLog?.length === 0) return { noLogs: `No Time Log` };
@@ -133,9 +148,8 @@ export default function AttendanceAndSchedulePage() {
     }
     return timeLog?.reduce((acc, curr) => ({ ...acc, ...curr }), {});
   });
-  // console.log(timeLogs);
 
-  const status = schedule?.map((regularSchedule, i) => {
+  const status = correctSchedule?.map((regularSchedule, i) => {
     const brkDuration = attendanceSettings?.[0].brkDuration;
 
     const regTimeIn = dayjs(
@@ -196,7 +210,6 @@ export default function AttendanceAndSchedulePage() {
       };
     }
   });
-  // console.log(status);
   return (
     <div>
       <TittleH1WithDate
@@ -246,12 +259,41 @@ export default function AttendanceAndSchedulePage() {
             ) : (
               <Link
                 to={`/homepage/attendanceAndBenefitsPage/attendanceSettingForm/${attendanceSettings?.[0]._id}`}
-                className="hidden md:block"
+                className="hidden lg:block"
               >
                 Attendance Setting
               </Link>
             )}
           </div>
+          <button
+            className="flex items-center justify-center gap-1 rounded-md p-1 px-2 hover:bg-slate-600"
+            onClick={() =>
+              poster(
+                "simple/saveOne",
+                "/attendanceEditedTimeBEPostMany",
+                "attendanceEditedTimeFEPostMany",
+                "attendanceEditedTimeBEPostManyF2B",
+                getAttendanceUser_,
+              )
+            }
+          >
+            <ArrowPathIcon className="w-5" />
+            <span className="hidden lg:block">Sync</span>
+          </button>
+          <button
+            className="flex items-center justify-center gap-1 rounded-md p-1 px-2 hover:bg-slate-600"
+            onClick={() =>
+              deleter(
+                "simple/deleteMany",
+                "/attendanceEditedTimeBEDeleteAll",
+                "attendanceEditedTimeFEDeleteAll",
+                "attendanceEditedTimeBEDeleteAllF2B",
+              )
+            }
+          >
+            <TrashIcon className="w-5" />
+            <span className="hidden lg:block"> Clear Edit Time Logs</span>
+          </button>
         </div>
         <p>
           Attendance Settings: Break duration:{" "}
@@ -268,24 +310,7 @@ export default function AttendanceAndSchedulePage() {
             <th className="">Date</th>
             <th className="">Schedule</th>
             <th className="">Actual Time Logs</th>
-            <th className="flex justify-center gap-1">
-              Edit Time Logs
-              <button
-                className="flex items-center justify-center gap-1 px-1 hover:bg-slate-600"
-                onClick={() =>
-                  poster(
-                    "simple/saveOne",
-                    "/attendanceEditedTimeBEPostMany",
-                    "attendanceEditedTimeFEPostMany",
-                    "attendanceEditedTimeBEPostManyF2B",
-                    getAttendanceUser_,
-                  )
-                }
-              >
-                <ArrowPathIcon className="w-5" />
-                Sync
-              </button>
-            </th>
+            <th className="flex justify-center gap-1">Edit Time Logs</th>
             <th className="">Status</th>
           </tr>
         </thead>
@@ -298,23 +323,23 @@ export default function AttendanceAndSchedulePage() {
               </td>
 
               <td className="border align-top">
-                {schedule?.[i]?.timeIn === "day-off" ||
-                schedule?.[i]?.timeOut === "day-off" ||
-                schedule?.[i]?.notes === "Day-Off" ||
-                schedule?.[i]?.notes === "Leave" ? null : (
+                {correctSchedule?.[i]?.timeIn === "day-off" ||
+                correctSchedule?.[i]?.timeOut === "day-off" ||
+                correctSchedule?.[i]?.notes === "Day-Off" ||
+                correctSchedule?.[i]?.notes === "Leave" ? null : (
                   <div className="[&>*:nth-child(odd)]:bg-gray-800/90">
-                    <p>{schedule?.[i]?.timeIn.replace(" ", "")}</p>
-                    <p>{schedule?.[i]?.timeOut.replace(" ", "")}</p>
+                    <p>{correctSchedule?.[i]?.timeIn.replace(" ", "")}</p>
+                    <p>{correctSchedule?.[i]?.timeOut.replace(" ", "")}</p>
                   </div>
                 )}
                 <p
-                  className={`${schedule?.[i]?.notes === "Regular Duty" ? `bg-inherit` : `!bg-fuchsia-800`}`}
+                  className={`${correctSchedule?.[i]?.notes === "Regular Duty" ? `bg-inherit` : `!bg-fuchsia-800`}`}
                 >
-                  {schedule?.[i]?.notes}
+                  {correctSchedule?.[i]?.notes}
                 </p>
                 <Link
                   className="flex w-full justify-center gap-1 !bg-green-800 hover:!bg-green-600"
-                  to={`/homepage/attendanceAndBenefitsPage/attendanceScheduleCreation/attendanceFinalSchedule/${schedule?.[i]?._id}`}
+                  to={`/homepage/attendanceAndBenefitsPage/attendanceScheduleCreation/attendanceFinalSchedule/${correctSchedule?.[i]?._id}`}
                 >
                   Edit
                   <CogIcon className="w-6"></CogIcon>
@@ -337,6 +362,11 @@ export default function AttendanceAndSchedulePage() {
                 {timeLogs?.[i]?.timeOut === null && (
                   <p className="bg-red-600">No Time Out</p>
                 )}
+                {/* {timeLogs?.[i]?.name && (
+                  <p className="bg-red-600 capitalize">
+                    {timeLogs?.[i]?.name.toLowerCase()}
+                  </p>
+                )} */}
               </td>
 
               <td className="border align-top [&>*:nth-child(odd)]:bg-gray-800/40">
@@ -344,26 +374,43 @@ export default function AttendanceAndSchedulePage() {
                   <p>{editTimeLogs?.[i]?.noLogs}</p>
                 )}
                 {editTimeLogs?.[i]?.timeIn && (
-                  <p>
-                    {dayjs(editTimeLogs?.[i]?.timeIn).format("h:mma")}{" "}
-                    <span className="font-bold text-green-300">In</span>
-                  </p>
+                  <div className="flex justify-between gap-1">
+                    <p>
+                      {dayjs(editTimeLogs?.[i]?.timeIn).format("h:mma")}{" "}
+                      <span className="font-bold text-green-300">In</span>
+                    </p>
+                    <Link
+                      className="flex justify-center gap-1 !bg-lime-800 px-1 hover:!bg-lime-600"
+                      to={`/homepage/attendanceAndBenefitsPage/attEditTimeLogP/${editTimeLogObj[i].timeLog[0]._id}`}
+                    >
+                      Edit
+                      <CogIcon className="w-6"></CogIcon>
+                    </Link>
+                  </div>
                 )}
                 {editTimeLogs?.[i]?.timeOut && (
-                  <p>
-                    {dayjs(editTimeLogs?.[i]?.timeOut).format("h:mma")}{" "}
-                    <span className="font-bold text-yellow-300">Out</span>
-                  </p>
+                  <div className="flex justify-between gap-1">
+                    <p>
+                      {dayjs(editTimeLogs?.[i]?.timeOut).format("h:mma")}{" "}
+                      <span className="font-bold text-yellow-300">Out</span>
+                    </p>
+                    <Link
+                      className="flex justify-center gap-1 !bg-yellow-800 px-1 hover:!bg-yellow-600"
+                      to={`/homepage/attendanceAndBenefitsPage/attEditTimeLogP/${editTimeLogObj[i].timeLog[1]._id}`}
+                    >
+                      Edit
+                      <CogIcon className="w-6"></CogIcon>
+                    </Link>
+                  </div>
                 )}
                 {editTimeLogs?.[i]?.timeOut === null && (
                   <p className="bg-red-600">No Time Out</p>
                 )}
-                {editTimeLogs?.[i]?.noLogs ? null : (
-                  <Link className="flex w-full justify-center gap-1 !bg-yellow-800 hover:!bg-yellow-600">
-                    Edit
-                    <CogIcon className="w-6"></CogIcon>
-                  </Link>
-                )}
+                {/* {editTimeLogs?.[i]?.name && (
+                  <p className="bg-red-600 capitalize">
+                    {editTimeLogs?.[i]?.name.toLowerCase()}
+                  </p>
+                )} */}
               </td>
 
               <td className="border align-top">
@@ -376,7 +423,8 @@ export default function AttendanceAndSchedulePage() {
                 {status?.[i]?.isAfterDutyHrAccept && (
                   <p className="bg-emerald-800">
                     {status?.[i].isAfterDutyHrAccept} Accept duty hours after
-                    regular {schedule?.[i]?.timeOut.replace(" ", "")} time-out ?
+                    regular {correctSchedule?.[i]?.timeOut.replace(" ", "")}{" "}
+                    time-out ?
                   </p>
                 )}
                 {status?.[i]?.underTime && (

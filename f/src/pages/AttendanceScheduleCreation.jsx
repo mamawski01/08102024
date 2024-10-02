@@ -99,7 +99,7 @@ export default function AttendanceScheduleCreation() {
     });
     return dataSchedule;
   });
-
+  console.log(transformedData);
   const numTables = Math.ceil(finalDatesArr.length / 7);
   const minDate = usersWithSchedule?.[0]?.schedules?.[0]?.date;
   return (
