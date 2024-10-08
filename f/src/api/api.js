@@ -79,6 +79,7 @@ export async function poster(rule, url, mess, f2b, data, confirmedUserId) {
 }
 
 export async function patcher(rule, url, mess, f2b, id, data) {
+  console.log(data);
   try {
     if (rule === "simple/updateOne") {
       const newData = await apiClient.patch(url + id, data);

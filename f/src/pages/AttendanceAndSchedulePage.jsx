@@ -17,7 +17,7 @@ import {
   WrenchIcon,
 } from "@heroicons/react/24/solid";
 import { useFetch, useGet } from "../reusable/hooks/useFetch";
-import { deleter, poster } from "../api/api";
+import { deleter, patcher, poster } from "../api/api";
 
 export default function AttendanceAndSchedulePage() {
   const { id } = useParams();
@@ -59,6 +59,7 @@ export default function AttendanceAndSchedulePage() {
   //AttendanceEditedTime
   const updater11 = useGet("attendanceEditedTimeBEPostManyB2F");
   const updater12 = useGet("attendanceEditedTimeBEDeleteAllB2F");
+  const updater13 = useGet("attendanceEditedTimeBEPatchOneB2F");
   useFetch(
     "simple/findAll",
     "/attendanceEditedTimeBEGetAll",
@@ -67,6 +68,7 @@ export default function AttendanceAndSchedulePage() {
     null,
     updater11,
     updater12,
+    updater13,
   );
   const attendanceEditedTime = useGet("attendanceEditedTimeBEGetAllB2F");
   //AttendanceEditedTime
@@ -103,21 +105,19 @@ export default function AttendanceAndSchedulePage() {
   //edit time logs
 
   const editTimeLogs = editTimeLogObj?.map((logs) => {
-    const timeLog = logs.timeLog?.map((log, k) => {
+    const timeLog = logs.timeLog?.flatMap((log, k) => {
       if (k % 2 === 0) {
         return {
           timeIn: log.DateTime,
           name: log.Name,
+          id: log._id,
         };
       } else {
-        return { timeOut: log.DateTime, name: log.Name };
+        return { timeOut: log.DateTime, name: log.Name, id: log._id };
       }
     });
     if (timeLog?.length === 0) return { noLogs: `No Time Log` };
-    if (timeLog?.length % 2 === 1) {
-      timeLog.push({ timeOut: null });
-    }
-    return timeLog?.reduce((acc, curr) => ({ ...acc, ...curr }), {});
+    return timeLog;
   });
   //time logs
   const timeLogObj = finalDatesArr?.map((date) => {
@@ -130,6 +130,12 @@ export default function AttendanceAndSchedulePage() {
   //time logs
 
   const minDate = schedule?.[0]?.date.split(" ")[0];
+
+  function dayjsTimeFormatter(time) {
+    const [hour, minute] = dayjs(time).format("h:mm").split(":");
+    const hrTime = dayjs({ hour: hour, minute: minute });
+    return hrTime;
+  }
 
   const timeLogs = timeLogObj?.map((logs) => {
     const timeLog = logs.timeLog?.map((log, k) => {
@@ -158,8 +164,8 @@ export default function AttendanceAndSchedulePage() {
     const regTimeOut = dayjs(
       regularSchedule.date.split(" ")[0] + " " + regularSchedule.timeOut,
     ).format("YYYY-MM-DD HH:mm:ss");
-    const actTimeIn = editTimeLogs[i]?.timeIn;
-    const actTimeOut = editTimeLogs[i]?.timeOut;
+    const actTimeIn = editTimeLogs[i]?.[0]?.timeIn;
+    const actTimeOut = editTimeLogs[i]?.[1]?.timeOut;
     const duty = actTimeIn && regTimeIn ? null : `Absent`;
     const late =
       duty === `Absent`
@@ -176,10 +182,10 @@ export default function AttendanceAndSchedulePage() {
     const dutyHrs = tentativeDutyHrs
       ? dayjs(tentativeDutyHrs)?.subtract(brkDuration.split(" ")[0], "m")
       : dayjs({ hour: 1 });
-    const [hour, minute] = dutyHrs.format("h:mm").split(":");
-    const dayjsDutyHrs = dayjs({ hour: hour, minute: minute });
-    const acceptedHr = dayjsDutyHrs.isBefore(dayjs({ hour: 8 }))
-      ? dayjsDutyHrs
+    const dayjsDutyHrs = dayjsTimeFormatter(dutyHrs);
+    const otHrs = dayjs.duration(dayjs(actTimeOut).diff(regTimeOut, "m"), "m");
+    const acceptedHr = dayjsDutyHrs.isAfter(dayjs({ hour: 8 }))
+      ? dayjsTimeFormatter(otHrs)
       : dayjs({ hour: 8 });
 
     if (
@@ -201,12 +207,8 @@ export default function AttendanceAndSchedulePage() {
         regTimeOut,
         actTimeOut: actTimeOut ? null : `No time out, need correction`,
         isAfterDutyHrAccept: dayjs(actTimeOut).isAfter(regTimeOut),
-        acceptedHr: dayjs(actTimeOut).isAfter(regTimeOut)
-          ? null
-          : actTimeOut && acceptedHr,
-        // overTime:
-        //   dutyHrs.isAfter(dayjs({ hour: 8, minute: 30 })) &&
-        //   dutyHrs.format("H:mm"),
+
+        acceptedHr,
       };
     }
   });
@@ -373,39 +375,43 @@ export default function AttendanceAndSchedulePage() {
                 {editTimeLogs?.[i]?.noLogs && (
                   <p>{editTimeLogs?.[i]?.noLogs}</p>
                 )}
-                {editTimeLogs?.[i]?.timeIn && (
+
+                {editTimeLogs?.[i]?.[0]?.timeIn && (
                   <div className="flex justify-between gap-1">
                     <p>
-                      {dayjs(editTimeLogs?.[i]?.timeIn).format("h:mma")}{" "}
+                      {dayjs(editTimeLogs?.[i]?.[0]?.timeIn).format("h:mma")}{" "}
                       <span className="font-bold text-green-300">In</span>
                     </p>
                     <Link
                       className="flex justify-center gap-1 !bg-lime-800 px-1 hover:!bg-lime-600"
-                      to={`/homepage/attendanceAndBenefitsPage/attEditTimeLogP/${editTimeLogObj[i].timeLog[0]._id}`}
+                      to={`/homepage/attendanceAndBenefitsPage/attEditTimeLogP/${editTimeLogs?.[i]?.[0]?.id}`}
                     >
                       Edit
                       <CogIcon className="w-6"></CogIcon>
                     </Link>
                   </div>
                 )}
-                {editTimeLogs?.[i]?.timeOut && (
+
+                {editTimeLogs?.[i]?.[1]?.timeOut && (
                   <div className="flex justify-between gap-1">
                     <p>
-                      {dayjs(editTimeLogs?.[i]?.timeOut).format("h:mma")}{" "}
+                      {dayjs(editTimeLogs?.[i]?.[1]?.timeOut).format("h:mma")}{" "}
                       <span className="font-bold text-yellow-300">Out</span>
                     </p>
                     <Link
                       className="flex justify-center gap-1 !bg-yellow-800 px-1 hover:!bg-yellow-600"
-                      to={`/homepage/attendanceAndBenefitsPage/attEditTimeLogP/${editTimeLogObj[i].timeLog[1]._id}`}
+                      to={`/homepage/attendanceAndBenefitsPage/attEditTimeLogP/${editTimeLogs?.[i]?.[1]?.id}`}
                     >
                       Edit
                       <CogIcon className="w-6"></CogIcon>
                     </Link>
                   </div>
                 )}
-                {editTimeLogs?.[i]?.timeOut === null && (
+
+                {editTimeLogs?.[i]?.[1]?.timeOut === undefined && (
                   <p className="bg-red-600">No Time Out</p>
                 )}
+
                 {/* {editTimeLogs?.[i]?.name && (
                   <p className="bg-red-600 capitalize">
                     {editTimeLogs?.[i]?.name.toLowerCase()}
@@ -421,11 +427,26 @@ export default function AttendanceAndSchedulePage() {
                   <p className="bg-pink-900">{status?.[i]?.actTimeOut}</p>
                 )}
                 {status?.[i]?.isAfterDutyHrAccept && (
-                  <p className="bg-emerald-800">
-                    {status?.[i].isAfterDutyHrAccept} Accept duty hours after
-                    regular {correctSchedule?.[i]?.timeOut.replace(" ", "")}{" "}
+                  <button
+                    className="w-full bg-pink-800 text-start"
+                    onClick={() =>
+                      patcher(
+                        "simple/updateOne",
+                        "/attendanceEditedTimeBEPatchOne/",
+                        "attendanceEditedTimeFEPatchOne",
+                        "attendanceEditedTimeBEPatchOneF2B",
+                        editTimeLogs?.[i]?.[1]?.id,
+                        {
+                          ...editTimeLogObj?.[i]?.timeLog?.[1],
+                          DateTime: finalDatesArr[i] + " 18:00:00",
+                        },
+                      )
+                    }
+                  >
+                    {status?.[i].isAfterDutyHrAccept} Don&apos;t accept duty
+                    hours after {correctSchedule?.[i]?.timeOut.replace(" ", "")}{" "}
                     time-out ?
-                  </p>
+                  </button>
                 )}
                 {status?.[i]?.underTime && (
                   <p className="bg-orange-800">under-time</p>
