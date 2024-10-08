@@ -45,6 +45,7 @@ export async function getter(rule, url, mess, f2b, id) {
 }
 
 export async function poster(rule, url, mess, f2b, data, confirmedUserId) {
+  console.log(data);
   try {
     if (rule === "simple/saveOne") {
       const newData = await apiClient.post(url, data);
@@ -79,7 +80,6 @@ export async function poster(rule, url, mess, f2b, data, confirmedUserId) {
 }
 
 export async function patcher(rule, url, mess, f2b, id, data) {
-  console.log(data);
   try {
     if (rule === "simple/updateOne") {
       const newData = await apiClient.patch(url + id, data);

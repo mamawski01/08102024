@@ -97,6 +97,10 @@ export function socketServer(server) {
       b2f: "attendanceEditedTimeBEGetOneB2F",
     },
     {
+      f2b: "attendanceEditedTimeBEPostOneF2B",
+      b2f: "attendanceEditedTimeBEPostOneB2F",
+    },
+    {
       f2b: "attendanceEditedTimeBEPostManyF2B",
       b2f: "attendanceEditedTimeBEPostManyB2F",
     },

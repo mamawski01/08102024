@@ -306,6 +306,17 @@ routes.get("/attendanceEditedTimeBEGetOne/:id", (req, res) =>
   )
 );
 
+routes.post("/attendanceEditedTimeBEPostOne", (req, res) =>
+  poster(
+    req,
+    res,
+    "simple",
+    AttendanceEditedTime,
+    "attendanceEditedTimeBEPostOne",
+    null
+  )
+);
+
 routes.post("/attendanceEditedTimeBEPostMany", (req, res) =>
   poster(
     req,

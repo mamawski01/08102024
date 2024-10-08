@@ -41,6 +41,7 @@ export default function AttendanceAndSchedulePage() {
     "f2bGetAttendanceUser",
     getConfirmUser?.attendanceId,
   );
+
   //AttendanceUser
 
   //AttendanceSetting
@@ -60,6 +61,7 @@ export default function AttendanceAndSchedulePage() {
   const updater11 = useGet("attendanceEditedTimeBEPostManyB2F");
   const updater12 = useGet("attendanceEditedTimeBEDeleteAllB2F");
   const updater13 = useGet("attendanceEditedTimeBEPatchOneB2F");
+  const updater14 = useGet("attendanceEditedTimeBEPostOneB2F");
   useFetch(
     "simple/findAll",
     "/attendanceEditedTimeBEGetAll",
@@ -69,6 +71,7 @@ export default function AttendanceAndSchedulePage() {
     updater11,
     updater12,
     updater13,
+    updater14,
   );
   const attendanceEditedTime = useGet("attendanceEditedTimeBEGetAllB2F");
   //AttendanceEditedTime
@@ -131,10 +134,16 @@ export default function AttendanceAndSchedulePage() {
 
   const minDate = schedule?.[0]?.date.split(" ")[0];
 
-  function dayjsTimeFormatter(time) {
-    const [hour, minute] = dayjs(time).format("h:mm").split(":");
-    const hrTime = dayjs({ hour: hour, minute: minute });
-    return hrTime;
+  function formatTime(time) {
+    if (time) {
+      const [hour, minute] = time.format("HH:mm").split(":");
+      const hrTime = dayjs({ hour: hour, minute: minute });
+      return hrTime;
+    }
+  }
+  function timeDiff(time1, time2) {
+    const timeDiff = dayjs.duration(dayjs(time1).diff(time2, "m"), "m");
+    return timeDiff;
   }
 
   const timeLogs = timeLogObj?.map((logs) => {
@@ -157,12 +166,13 @@ export default function AttendanceAndSchedulePage() {
 
   const status = correctSchedule?.map((regularSchedule, i) => {
     const brkDuration = attendanceSettings?.[0].brkDuration;
+    const convertedBrk = dayjs({ minute: brkDuration?.split(" ")[0] });
 
     const regTimeIn = dayjs(
-      regularSchedule.date.split(" ")[0] + " " + regularSchedule.timeIn,
+      regularSchedule.date?.split(" ")[0] + " " + regularSchedule.timeIn,
     ).format("YYYY-MM-DD HH:mm:ss");
     const regTimeOut = dayjs(
-      regularSchedule.date.split(" ")[0] + " " + regularSchedule.timeOut,
+      regularSchedule.date?.split(" ")[0] + " " + regularSchedule.timeOut,
     ).format("YYYY-MM-DD HH:mm:ss");
     const actTimeIn = editTimeLogs[i]?.[0]?.timeIn;
     const actTimeOut = editTimeLogs[i]?.[1]?.timeOut;
@@ -170,23 +180,22 @@ export default function AttendanceAndSchedulePage() {
     const late =
       duty === `Absent`
         ? null
-        : dayjs(actTimeIn).diff(regTimeIn, "m") <= 0
+        : timeDiff(actTimeIn, regTimeIn) <= 0
           ? null
-          : true;
-
-    const tentativeDutyHrs =
-      duty === `Absent`
-        ? null
-        : actTimeOut &&
-          dayjs.duration(dayjs(actTimeOut).diff(actTimeIn, "m"), "m").format();
-    const dutyHrs = tentativeDutyHrs
-      ? dayjs(tentativeDutyHrs)?.subtract(brkDuration.split(" ")[0], "m")
+          : timeDiff(actTimeIn, regTimeIn);
+    const latePlus =
+      timeDiff(actTimeIn, regTimeIn) <= 0
+        ? timeDiff(regTimeIn, actTimeIn)
+        : timeDiff(actTimeIn, regTimeIn);
+    const timeInOffice =
+      duty === `Absent` ? null : actTimeOut && timeDiff(actTimeOut, actTimeIn);
+    const timeInOfficeWithBrk = timeInOffice
+      ? timeDiff(formatTime(timeInOffice), convertedBrk)
       : dayjs({ hour: 1 });
-    const dayjsDutyHrs = dayjsTimeFormatter(dutyHrs);
-    const otHrs = dayjs.duration(dayjs(actTimeOut).diff(regTimeOut, "m"), "m");
-    const acceptedHr = dayjsDutyHrs.isAfter(dayjs({ hour: 8 }))
-      ? dayjsTimeFormatter(otHrs)
-      : dayjs({ hour: 8 });
+    const timeInOfficeWithBrkAndTimeIn = timeInOffice
+      ? timeDiff(timeInOfficeWithBrk, latePlus)
+      : dayjs({ hour: 1 });
+    const acceptedHr = timeInOfficeWithBrkAndTimeIn;
 
     if (
       regularSchedule.timeIn === "day-off" ||
@@ -202,12 +211,10 @@ export default function AttendanceAndSchedulePage() {
         duty,
         late,
         underTime: actTimeOut && dayjs(actTimeOut).isBefore(regTimeOut) && true,
-        tentativeDutyHrs,
-        dayjsDutyHrs,
+        timeInOfficeWithBrk,
         regTimeOut,
         actTimeOut: actTimeOut ? null : `No time out, need correction`,
         isAfterDutyHrAccept: dayjs(actTimeOut).isAfter(regTimeOut),
-
         acceptedHr,
       };
     }
@@ -364,18 +371,9 @@ export default function AttendanceAndSchedulePage() {
                 {timeLogs?.[i]?.timeOut === null && (
                   <p className="bg-red-600">No Time Out</p>
                 )}
-                {/* {timeLogs?.[i]?.name && (
-                  <p className="bg-red-600 capitalize">
-                    {timeLogs?.[i]?.name.toLowerCase()}
-                  </p>
-                )} */}
               </td>
 
               <td className="border align-top [&>*:nth-child(odd)]:bg-gray-800/40">
-                {editTimeLogs?.[i]?.noLogs && (
-                  <p>{editTimeLogs?.[i]?.noLogs}</p>
-                )}
-
                 {editTimeLogs?.[i]?.[0]?.timeIn && (
                   <div className="flex justify-between gap-1">
                     <p>
@@ -408,24 +406,39 @@ export default function AttendanceAndSchedulePage() {
                   </div>
                 )}
 
-                {editTimeLogs?.[i]?.[1]?.timeOut === undefined && (
-                  <p className="bg-red-600">No Time Out</p>
-                )}
-
-                {/* {editTimeLogs?.[i]?.name && (
-                  <p className="bg-red-600 capitalize">
-                    {editTimeLogs?.[i]?.name.toLowerCase()}
-                  </p>
-                )} */}
+                {editTimeLogs?.[i]?.noLogs ||
+                  (editTimeLogs?.[i]?.[1]?.timeOut === undefined && (
+                    <div className="flex w-full justify-between">
+                      <p className="w-full bg-red-600">No Time Out</p>
+                      <button
+                        className="flex justify-center gap-1 !bg-stone-800 px-1 hover:!bg-stone-600"
+                        onClick={() =>
+                          poster(
+                            "simple/saveOne",
+                            "/attendanceEditedTimeBEPostOne",
+                            "attendanceEditedTimeBEPostOne",
+                            "attendanceEditedTimeBEPostOneF2B",
+                            {
+                              ...getAttendanceUser_?.[0],
+                              No: dayjs().format(),
+                              DateTime:
+                                finalDatesArr[i] +
+                                " " +
+                                correctSchedule?.[i]?.timeOut,
+                              __v: undefined,
+                              _id: undefined,
+                            },
+                          )
+                        }
+                      >
+                        Create
+                        <CogIcon className="w-6"></CogIcon>
+                      </button>
+                    </div>
+                  ))}
               </td>
 
               <td className="border align-top">
-                {status?.[i]?.late && (
-                  <p className="bg-yellow-800">{status?.[i].late} late</p>
-                )}
-                {status?.[i]?.actTimeOut && (
-                  <p className="bg-pink-900">{status?.[i]?.actTimeOut}</p>
-                )}
                 {status?.[i]?.isAfterDutyHrAccept && (
                   <button
                     className="w-full bg-pink-800 text-start"
@@ -438,7 +451,10 @@ export default function AttendanceAndSchedulePage() {
                         editTimeLogs?.[i]?.[1]?.id,
                         {
                           ...editTimeLogObj?.[i]?.timeLog?.[1],
-                          DateTime: finalDatesArr[i] + " 18:00:00",
+                          DateTime:
+                            finalDatesArr[i] +
+                            " " +
+                            correctSchedule?.[i]?.timeOut,
                         },
                       )
                     }
@@ -447,6 +463,14 @@ export default function AttendanceAndSchedulePage() {
                     hours after {correctSchedule?.[i]?.timeOut.replace(" ", "")}{" "}
                     time-out ?
                   </button>
+                )}
+                {status?.[i]?.actTimeOut && (
+                  <p className="bg-pink-900">{status?.[i]?.actTimeOut}</p>
+                )}
+                {status?.[i]?.late && (
+                  <p className="bg-yellow-800">
+                    {status?.[i].late.format("H:mm:ss")} late
+                  </p>
                 )}
                 {status?.[i]?.underTime && (
                   <p className="bg-orange-800">under-time</p>
@@ -458,20 +482,15 @@ export default function AttendanceAndSchedulePage() {
                     {status?.[i]?.duty}{" "}
                   </p>
                 )}
-                {status?.[i]?.tentativeDutyHrs && (
+                {status?.[i]?.timeInOfficeWithBrk && (
                   <p>
-                    {dayjs(status?.[i]?.tentativeDutyHrs).format("h:mm:ss")}{" "}
-                    tentative duty hours
+                    {status?.[i]?.timeInOfficeWithBrk.format("H:mm:ss")} time in
+                    office with break
                   </p>
                 )}
-                {status?.[i]?.dayjsDutyHrs && (
-                  <p>
-                    {status?.[i]?.dayjsDutyHrs.format("h:mm:ss")} duty hours
-                  </p>
-                )}{" "}
                 {status?.[i]?.acceptedHr && (
                   <p className="bg-blue-700">
-                    {status?.[i]?.acceptedHr.format("h:mm:ss")} accepted hours
+                    {status?.[i]?.acceptedHr.format("H:mm:ss")} accepted hours
                   </p>
                 )}
               </td>
