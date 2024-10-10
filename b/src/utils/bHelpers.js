@@ -1,7 +1,5 @@
 import { promises } from "fs";
 
-import { imageLocation } from "./multer.js";
-
 export async function deleteImage(path, mess, rule) {
   console.log(path, " deleteImage");
   if (!path || path === undefined) {

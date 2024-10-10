@@ -163,11 +163,10 @@ export default function AttendanceAndSchedulePage() {
     }
     return timeLog?.reduce((acc, curr) => ({ ...acc, ...curr }), {});
   });
+  const brkDuration = attendanceSettings?.[0].brkDuration;
 
   const status = correctSchedule?.map((regularSchedule, i) => {
-    const brkDuration = attendanceSettings?.[0].brkDuration;
     const convertedBrk = dayjs({ minute: brkDuration?.split(" ")[0] });
-
     const regTimeIn = dayjs(
       regularSchedule.date?.split(" ")[0] + " " + regularSchedule.timeIn,
     ).format("YYYY-MM-DD HH:mm:ss");
@@ -175,7 +174,10 @@ export default function AttendanceAndSchedulePage() {
       regularSchedule.date?.split(" ")[0] + " " + regularSchedule.timeOut,
     ).format("YYYY-MM-DD HH:mm:ss");
     const actTimeIn = editTimeLogs[i]?.[0]?.timeIn;
-    const actTimeOut = editTimeLogs[i]?.[1]?.timeOut;
+    const actTimeOut =
+      editTimeLogs[i]?.[editTimeLogs[i]?.length - 1]?.timeOut ||
+      editTimeLogs[i]?.[editTimeLogs[i]?.length - 1]?.timeIn;
+    console.log(actTimeOut);
     const duty = actTimeIn && regTimeIn ? null : `Absent`;
     const late =
       duty === `Absent`
@@ -211,6 +213,7 @@ export default function AttendanceAndSchedulePage() {
         duty,
         late,
         underTime: actTimeOut && dayjs(actTimeOut).isBefore(regTimeOut) && true,
+        timeInOffice,
         timeInOfficeWithBrk,
         regTimeOut,
         actTimeOut: actTimeOut ? null : `No time out, need correction`,
@@ -389,7 +392,6 @@ export default function AttendanceAndSchedulePage() {
                     </Link>
                   </div>
                 )}
-
                 {editTimeLogs?.[i]?.[1]?.timeOut && (
                   <div className="flex justify-between gap-1">
                     <p>
@@ -405,37 +407,34 @@ export default function AttendanceAndSchedulePage() {
                     </Link>
                   </div>
                 )}
-
                 {editTimeLogs?.[i]?.noLogs ||
                   (editTimeLogs?.[i]?.[1]?.timeOut === undefined && (
-                    <div className="flex w-full justify-between">
-                      <p className="w-full bg-red-600">No Time Out</p>
-                      <button
-                        className="flex justify-center gap-1 !bg-stone-800 px-1 hover:!bg-stone-600"
-                        onClick={() =>
-                          poster(
-                            "simple/saveOne",
-                            "/attendanceEditedTimeBEPostOne",
-                            "attendanceEditedTimeBEPostOne",
-                            "attendanceEditedTimeBEPostOneF2B",
-                            {
-                              ...getAttendanceUser_?.[0],
-                              No: dayjs().format(),
-                              DateTime:
-                                finalDatesArr[i] +
-                                " " +
-                                correctSchedule?.[i]?.timeOut,
-                              __v: undefined,
-                              _id: undefined,
-                            },
-                          )
-                        }
-                      >
-                        Create
-                        <CogIcon className="w-6"></CogIcon>
-                      </button>
-                    </div>
+                    <p className="w-full bg-red-600 text-center">No Time Out</p>
                   ))}
+                <button
+                  className="flex w-full justify-center gap-1 !bg-cyan-800 px-1 hover:!bg-cyan-600"
+                  onClick={() =>
+                    poster(
+                      "simple/saveOne",
+                      "/attendanceEditedTimeBEPostOne",
+                      "attendanceEditedTimeBEPostOne",
+                      "attendanceEditedTimeBEPostOneF2B",
+                      {
+                        ...getAttendanceUser_?.[0],
+                        No: dayjs().format(),
+                        DateTime:
+                          finalDatesArr[i] +
+                          " " +
+                          correctSchedule?.[i]?.timeOut,
+                        __v: undefined,
+                        _id: undefined,
+                      },
+                    )
+                  }
+                >
+                  Create Log
+                  <CogIcon className="w-6"></CogIcon>
+                </button>
               </td>
 
               <td className="border align-top">
@@ -482,10 +481,15 @@ export default function AttendanceAndSchedulePage() {
                     {status?.[i]?.duty}{" "}
                   </p>
                 )}
+                {status?.[i]?.timeInOffice && (
+                  <p>
+                    {status?.[i]?.timeInOffice.format("H:mm:ss")} time in office
+                  </p>
+                )}
                 {status?.[i]?.timeInOfficeWithBrk && (
                   <p>
                     {status?.[i]?.timeInOfficeWithBrk.format("H:mm:ss")} time in
-                    office with break
+                    office with break of {brkDuration}
                   </p>
                 )}
                 {status?.[i]?.acceptedHr && (
